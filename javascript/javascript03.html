@@ -170,30 +170,30 @@
             }
             func("실행되었습니다.");
         }
-        // 04. 리턴값 함수
+        // 04. 함수 : 리턴값 함수
         {
             function func(){
-                return "실행되었습니다.";
+                return"실행되었습니다.";
             }
             console.log(func());
         }
-        // 05. 매개변수 + 리턴값 함수
+        // 05. 함수 : 매개변수 함수 + 리턴값 함수
         {
             function func(str){
                 return str;
             }
             console.log(func("실행되었습니다."));
         }
-        // 06. 화살표 함수 : 선언수 함수
+        // 06.화살표 함수(선언적 함수)
         {
-            func = () => {
+            func=() =>{
                 console.log("실행되었습니다.");
             }
             func();
         }
-        // 07. 화살표 함수 : 익명 함수
+        // 07.화살표 함수 : 익명 함수
         {
-            const func = () => {
+            const func = () =>{
                 console.log("실행되었습니다.");
             }
             func();
@@ -208,34 +208,36 @@
         // 09. 화살표 함수 : 리턴값 함수
         {
             func = () => {
-                return "실행되었습니다.";
+                return"실행되었습니다."
             }
             console.log(func());
         }
-        // 10. 화살표 함수 : 매개변수 + 리턴값 함수
+        // 10. 화살표 함수 : 매개변수 함수 + 리턴값 함수
         {
-            // 익명 함수
+            //익명함수
             const func = (str) => {
                 return str;
             }
-            console.log(func("실행되었습니다.1"));
-
-            // 괄호 생략
-            const func2 = str => {
+            console.log(func("실행되었습니다."))
+            
+            //괄호생략
+            const func2 =str => {
                 return str;
             }
-            console.log(func2("실행되었습니다.2"));
+            console.log(func2("실행되었습니다."));
 
-            // 리턴 생략
+            //리턴생략
             const func3 = str => str;
-            
-            console.log(func3("실행되었습니다.3"));
 
-            // 선언적
+            console.log(func3("실행되었습니다."));
+
+            //선언적
             func4 = str => str;
-            
-            console.log(func4("실행되었습니다.4"));
+
+            console.log(func4("실행되었습니다."));
         }
+    
+
     </script>
 </body>
 </html>
