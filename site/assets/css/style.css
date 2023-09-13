@@ -75,6 +75,14 @@
         display: block;
     }
 }
+@media (max-width : 600px){
+    .header__inder{
+        height: 60px;
+    }
+    .header__logo img{
+        width: 110px;
+    }
+}
 
 /* slider */
 .slider__inner {
