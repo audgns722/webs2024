@@ -123,9 +123,9 @@
                         <details>
                             <summary>결과 확인하기</summary>
                             <div>
-                                100
-                                200
-                                javascript
+                                300
+                                400
+                                jquery
                             </div>
                         </details>
                     </div>
@@ -151,7 +151,7 @@
 </code></pre>
 
                     <div class="table">
-                        <table>
+                        <!-- <table>
                             <caption>산술 연산자의 종류와 기본형</caption>
                             <thead>
                                 <tr>
@@ -187,14 +187,14 @@
                                     <td>6666</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
                     </div>
 
                     <div class="result">
                         <details>
                             <summary>결과 확인하기</summary>
                             <div>
-                                100
+                                200
                                 300
                                 javascriptjquery
                             </div>
@@ -215,7 +215,7 @@
 
     console.log(x);
     console.log(y);
-    console.log(z);0
+    console.log(z);
 }
 </code></pre>
                     <p class="desc">
@@ -441,7 +441,9 @@
                     <details class="result">
                         <summary>결과 확인하기</summary>
                         <div>
-                            (a)의 결과 100
+                            (a)의 결과 100<br />
+                            (b)의 결과 200<br />
+                            (c)의 결과 javascirpt<br />
                         </div>
                     </details>
                 </div>
@@ -539,10 +541,9 @@
                         <summary>결과 확인하기</summary>
                         <div>
                             (obj)의 결과 a: 100, b: 200, c: 'javascript'<br>
-                            (obj[0])의 결과 100<br>
-                            (obj[1])의 결과 200<br>
-                            (obj[2])의 결과 javascript<br>
-                            (obj[3])의 결과 undefined
+                            (obj.a)의 결과 100<br>
+                            (obj.b)의 결과 200<br>
+                            (obj.c)의 결과 javascript<br>
                         </div>
                     </details>
                 </div>
@@ -711,26 +712,16 @@
     const obj = {
         a: 100,
         b: [200, 300],
-        c: {a: 400, b: 500, c: 600},
-        d: "javascript",
-        e: function(){
-            console.log("jquery");
-        },
-        f: function(){
-            console.log(obj.a);
-        },
-        g: function(){
-            console.log(this.a);
-        }
+        c: { x: 400, y: 500},
+        d: "javascript"
     }
-
-    console.log(obj.a);
-    console.log(obj.b[0], obj.b[1]);
-    console.log(obj.c.a, obj.c.b, obj.c.c);
-    console.log(obj.d);
-    obj.e();
-    obj.f();
-    obj.g();
+    console.log(obj.a);             // 100
+    console.log(obj.b[0]);          // 200
+    console.log(obj.b[1]);          // 300
+    console.log(obj.c);             // x:400, y500
+    console.log(obj.c.x);           // 400
+    console.log(obj.c.y);           // 500
+    console.log(obj.d);             // javascript
 }
 </code></pre>
                     <div class="desc">
@@ -742,6 +733,7 @@
                             (obj.a)의 결과 100<br>
                             (obj.b[0])의 결과 200<br>
                             (obj.b[1])의 결과 300<br>
+                            (obj.c)의 결과 x:400, y500<br>
                             (obj.c.x)의 결과 400<br>
                             (obj.c.y)의 결과 500<br>
                             (obj.d)의 결과 javascript<br>
@@ -792,6 +784,7 @@
                             (obj.c.a, obj.c.b, obj.c.c)의 결과 400 500 600<br>
                             (obj.d)의 결과 javascript<br>
                             (obj.d)의 결과 jquery<br>
+                            obj.e()의 결과 jquery<br>
                             obj.f()의 결과 100<br>
                             obj.g()의 결과 100<br>
                         </div>
@@ -1030,7 +1023,7 @@
 
             console.log(arr1);
             console.log(...arr1);
-            console.log(...arr3,...arr2);
+            console.log(...arr1,...arr2);
             console.log(...arr3);
         }
 
@@ -1138,26 +1131,16 @@
             const obj = {
                 a: 100,
                 b: [200, 300],
-                c: {a: 400, b: 500, c: 600},
-                d: "javascript",
-                e: function(){
-                    console.log("jquery");
-                },
-                f: function(){
-                    console.log(obj.a);
-                },
-                g: function(){
-                    console.log(this.a);
-                }
+                c: { x: 400, y: 500},
+                d: "javascript"
             }
-
-            console.log(obj.a);
-            console.log(obj.b[0], obj.b[1]);
-            console.log(obj.c.a, obj.c.b, obj.c.c);
-            console.log(obj.d);
-            obj.e();
-            obj.f();
-            obj.g();
+            console.log(obj.a);             // 100
+            console.log(obj.b[0]);          // 200
+            console.log(obj.b[1]);          // 300
+            console.log(obj.c);             // x:400, y500
+            console.log(obj.c.x);           // 400
+            console.log(obj.c.y);           // 500
+            console.log(obj.d);             // javascript
         }
         // 19. 객체 : 데이터 저장(키와값) : 표현방법8 : 객체 + 함수가 있는 방식
         {
