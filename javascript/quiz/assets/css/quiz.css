@@ -219,11 +219,11 @@ body::after {
     font-weight: 400;
 }
 .quiz__img {
-    border: 1px solid #000;
     margin-bottom: 10px;
 }
 .quiz__img img {
     width: 100%;
+    border: 1px solid #000;
 }
 .quiz__choice {
     margin-bottom: 20px;
@@ -369,7 +369,7 @@ body::after {
     color: #666;
 }
 .quiz__answer::before {
-    content: "🥹 정답 : ";
+    content: "👉 정답 : ";
 }
 .quiz__desc {
     border: 1px solid #eaeaea;
@@ -379,7 +379,7 @@ body::after {
     color: #666;
 }
 .quiz__desc::before {
-    content: "🥳 설명 : ";
+    content: "👏 설명 : ";
 }
 .quiz__footer {}
 .quiz__confirm {    
