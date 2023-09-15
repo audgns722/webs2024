@@ -106,7 +106,7 @@
                 </p>
 <pre><code class="language-js">{
     const func = function() {
-    console.log("2.함수가 실행되었습니다.");
+        console.log("2.함수가 실행되었습니다.");
     }
     func();
 }
@@ -134,7 +134,7 @@
                 </p>
 <pre><code class="language-js">{
     function func(str) {
-    console.log(str);
+        console.log(str);
     }
     func("3.함수가 실행되었습니다.");
 }
@@ -161,7 +161,7 @@
                 </p>
 <pre><code class="language-js">{
     function func() {
-    return "4.함수가 실행되었습니다.";
+        return "4.함수가 실행되었습니다.";
     }
     console.log(func());
 }
@@ -190,7 +190,7 @@
                 </p>
 <pre><code class="language-js">{
     function func(str) {
-    return str;
+        return str;
     }
     console.log(func("5.함수가 실행되었습니다."))
 }
@@ -219,7 +219,7 @@
                 </p>
 <pre><code class="language-js">{
     func = () => {
-    console.log("6.함수가 실행되었습니다.");
+        console.log("6.함수가 실행되었습니다.");
     }
     func();
  }
@@ -354,7 +354,7 @@
                 </p>
 <pre><code class="language-js">{
     function func(num, str){
-    console.log(`${num}.${str}`);
+        console.log(`${num}.${str}`);
     }
     func(11, "함수가 실행되었습니다.")
 }
@@ -386,7 +386,7 @@
     const str = "함수가 실행되었습니다."
 
     function func (num, str) {
-    console.log(num + "." + str);
+        console.log(num + "." + str);
     }
     func(num, str);
 }
@@ -416,7 +416,7 @@
     const str = ["함수가 실행되었습니다.", "함수가 실행되었습니다."];
 
     function func (num, str) {
-    console.log(`${num}.${str}`);
+        console.log(`${num}.${str}`);
     }
     func(num[0], str[0]);
     func(num[1], str[1]);
@@ -446,11 +446,11 @@
                 </p>
 <pre><code class="language-js">{
     const info = {
-    num : 15,
-    str : "함수가 실행되었습니다."
+        num : 15,
+        str : "함수가 실행되었습니다."
     }
     function func (num, str) {
-    console.log(`${num}.${str}`);
+        console.log(`${num}.${str}`);
     }
     func(info.num, info.str)
 }
@@ -483,7 +483,7 @@
     { num : 17, str : "함수가 실행되었습니다."},
     ]
     function func (num, str) {
-    console.log(`${num}.${str}`);
+        console.log(`${num}.${str}`);
     }
     func(info[0].num, info[0].str);
     func(info[1].num, info[1].str);
@@ -552,7 +552,7 @@
         this.num = num;
         this.str = str;
         this.result = () => {
-        console.log(`${this.num}.${this.str}`);
+            onsole.log(`${this.num}.${this.str}`);
         }
     }
 }
@@ -585,7 +585,7 @@
         this.num = num;
         this.str = str;
     }
-    Func.prototype.result = function () {   //화살표 함수 쓸수 없음(밖으로 나와있어서)
+    Func.prototype.result = function () {    //화살표 함수 쓸수 없음(밖으로 나와있어서)
         console.log(`${this.num}.${this.str}`);
     }
 
