@@ -91,6 +91,7 @@
 .slider__inner {
     background-color: #a994ff;
     width: 100%;
+    position: relative;
 
 }
 .slider__inner > .slider {
