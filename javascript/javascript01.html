@@ -67,8 +67,8 @@
                     <li><a href="#sample21">21. 객체 : 데이터 저장(키와값) : 표현방법10 : 객체 펼침연산자</a></li>
                 </ul>
                 <ul>
-                    <li><a href="#">++ 지역변수/전역변수</a></li>
-                    <li><a href="#">++ 연산자(산술/대입/증감/비교/논리/비트)</a></li>
+                    <li><a href="#sample22">++ 지역변수/전역변수</a></li>
+                    <li><a href="#sample23">++ 연산자(산술/대입/증감/비교/논리/비트)</a></li>
                     <li><a href="#">++ 자료형(숫자/문자열/논리/null/undefined/Object/Array/Function)</a></li>
                 </ul>
             </div>
@@ -864,12 +864,260 @@
                 </div>
                 <!-- //sample21 -->
                 
+                <div id="sample22" class="sample">
+                    <h3>변수 : 지역변수 + 전역변수</h3>
+                    <p>지역 변수와 전역 변수는 서로 다른 범위에서 작동하며, 함수 내에서 선언한 지역 변수는 해당 함수 내에서만 영향을 미치며, 함수 외부의 전역 변수와는 독립적으로 동작합니다.</p>
+<pre><code class="language-js">{
+    let x = 100;                //전역변수
+    let y = 200;                //전역변수
+    let z = "javascript";       //전역변수
+
+    console.log("함수밖1:" + x, y, z);
+
+    function func(){
+        let x = 300;             //지역변수
+        y += 400;                //전역변수 y의 값에 400을 추가
+        let z = "jquery";        //전역변수 z의 값에 문자열 "jquery"를 추가
+
+        console.log("함수안:" + x, y, z);
+    }
+    func();
+
+    console.log("함수밖2:" + x, y, z);
+}
+</code></pre>
+                    <div class="desc">
+                        1. 전역 변수 (Global Variables): x, y, z는 코드의 함수 바깥에서 선언되었습니다.이 변수들은 프로그램 전체에서 접근할 수 있는 전역 범위를 가지며, 어디서든 사용할 수 있습니다.<br />
+                        2. 지역 변수 (Local Variables): x, y, z는 func 함수 내에서 다시 선언되었습니다. 이 변수들은 함수 내부에서만 사용 가능한 지역 범위를 가집니다. 함수 내에서 새로운 변수 x와 z가 선언되었기 때문에, 함수 내에서 이 변수들을 참조할 때 전역 변수와는 별개의 값이 사용됩니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            함수밖1 : 100 200 javascript<br />
+                            함수안 : 300 600 jquery<br />
+                            함수밖2 : 100 600 javascript
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample22 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 산술연산자</h3>
+                    <p></p>
+<pre><code class="language-js">{
+    let x=4;
+    let y=20;
+
+    console.log(x+y);
+    console.log(x-y);
+    console.log(x*y);
+    console.log(x/y);
+    console.log(x%y);
+}
+</code></pre>
+                    <div class="desc">
+                        덧셈 (+): 예: a + b <br />
+                        뺄셈 (-): 예: a - b<br />
+                        곱셈 (*): 예: a * b<br />
+                        나눗셈 (/): 예: a / b<br />
+                        나머지 (%): 예: a % b<br />
+                        지수 연산자 (**): 왼쪽 피연산자를 오른쪽 피연산자로 제곱합니다.
+                        예: a ** b (ES6에서 추가된 연산자)<br />
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            24 <br />
+                            -16<br />
+                            80 <br />
+                            0.2<br />
+                            4  <br />
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 문자 결합 연산자</h3>
+                    <p></p>
+<pre><code class="language-js">{
+    let x="외로운";
+    let y="둘리는";
+    let z="귀여운";
+    let a="아기공룡";
+
+    console.log(x+y+z+a);
+
+}
+</code></pre>
+                    <div class="desc">
+                    x, y, z, a 문자열을 연결하여 하나의 문자열로 만듭니다. 연결 연산자인 +를 사용하여 문자열을 연결합니다. 결과적으로 "외로운둘리는귀여운아기공룡" 문자열이 생성됩니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            외로운둘리는귀여운아기공룡
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23-1 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 대입 연산자</h3>
+                    <p>대입 연산자는 변수에 값을 할당하거나 연산 결과를 변수에 저장할 때 사용됩니다. </p>
+<pre><code class="language-js">{
+    let x=18;
+    let y=2;
+
+    console.log(x+=y); //x=x+y
+    console.log(x-=y); //x=x-y
+    console.log(x*=y); //x=x*y
+    console.log(x/=y); //x=x/y
+    console.log(x%=y); //x=x%y
+}
+</code></pre>
+                    <div class="desc">
+                    += 대입 연산자 : x에 y를 더한 결과를 x에 할당합니다.
+                    x += y는 x = x + y와 동일<br />
+                    -= 대입 연산자 : x에서 y를 뺀 결과를 x에 할당합니다.
+                    x -= y는 x = x - y와 동일<br />
+                    *= 대입 연산자 : x에 y를 곱한 결과를 x에 할당합니다.
+                    x *= y는 x = x * y와 동일<br />
+                    /= 대입 연산자 : x를 y로 나눈 결과를 x에 할당합니다.
+                    x /= y는 x = x / y와 동일<br />
+                    %= 대입 연산자 : x를 y로 나눈 나머지를 x에 할당합니다.
+                    x %= y는 x = x % y와 동일
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                        20<br />
+                        18<br />
+                        36<br />
+                        18<br />
+                        0
+
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23-2 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 증감 연산자</h3>
+                    <p>증가 및 감소 연산자(++ 및 --)를 사용하여 변수 값을 변경</p>
+<pre><code class="language-js">{
+    let num1 = 10;  
+    let num2 = 20;  
+
+    num1--;              // num1을 1 감소
+    console.log(num1);   // 감소된 num1 출력
+
+    num1++;              // num1을 1 증가
+    console.log(num1);   // 증가된 num1 출력
+
+    result=num2++;       // 후위 증가: num2의 현재 값(20)을 result에 할당, 그 후 num2를 1 증가
+    console.log(result);
+
+    result=++num2;        // 선위 증가: num2를 1 증가한 후의 값(22)을 result에 할당
+    console.log(result);
+}
+</code></pre>
+                    <div class="desc">
+                    num1-- 연산 (후위 감소): num1 변수를 1 감소시킵니다. num1은 현재 10에서 1을감소하여 9가 됩니다.<br />
+                    num1++ 연산 (후위 증가): num1 변수를 1 증가시킵니다. num1은 현재 9에서 1을증가하여 10이 됩니다.<br />
+                    result = num2++ 연산 (후위 증가): num2 변수의 현재 값인 20을 result 변수에할당합니다. 그 다음, num2 변수는 1 증가하여 21이 됩니다.<br />
+                    result = ++num2 연산 (선위 증가): num2 변수를 1 증가시킨 후의 값인 22를 result변수에 할당합니다.
+                      
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                        9 <br />
+                        10<br />
+                        20<br />
+                        22
+
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23-3 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 비교 연산자</h3>
+                    <p>증가 및 감소 연산자(++ 및 --)를 사용하여 변수 값을 변경</p>
+<pre><code class="language-js">{
+    let a = 10;
+    let b = 20;
+    let c = 10;
+    let f = "20";
+
+    console.log(a<b);
+    console.log(a>=b);
+    console.log(b==f);  // b와 f의 값이 같은지 비교
+    console.log(a!=b);  //a와 b의 값이 다른지 비교
+    console.log(b===f); // b와 f의 값과 타입이 같은지 비교
+}
+</code></pre>
+                    <div class="desc">
+                    '&lt;' (작다): 왼쪽 피연산자가 오른쪽 피연산자보다작으면 true를 반환. <br />
+                    '>=' (크거나 같다): 왼쪽 피연산자가 오른쪽피연산자보다 크거나 같으면 true를 반환.<br />
+                    ==' (동등): 왼쪽과 오른쪽 피연산자의 값을 비교하며,값이 같으면 true를 반환.<br />
+                    '!=' (부등): 왼쪽과 오른쪽 피연산자의 값을 비교하며,값이 다르면 true를 반환.<br />
+                    '===' (일치): 왼쪽과 오른쪽 피연산자의 값을 및 데이터타입을 모두 비교하며, 값과 타입이 같으면 true를반환.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                        true<br />
+                        false<br />
+                        true<br />
+                        true
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23-4 -->
+
+                <div id="sample23" class="sample">
+                    <h3>연산자 : 논리 연산자</h3>
+                    <p>증가 및 감소 연산자(++ 및 --)를 사용하여 변수 값을 변경</p>
+<pre><code class="language-js">{
+    let a = true;
+    let b = false;
+
+    let And = a&&b;
+    let Or = a||b;
+    let NotA = !a;
+    let NotB = !b;
+
+    console.log(And);
+    console.log(Or);
+    console.log(NotA);
+    console.log(NotB);
+}
+</code></pre>
+                    <div class="desc">
+                    && 연산자 (논리 AND): a && b는 a와 b가 모두 true일 때만 true를 반환하고,그렇지 않으면 false를 반환합니다.<br />
+                    || 연산자 (논리 OR): a || b는 a 또는 b 중 하나라도 true이면 true를반환하고, 둘 다 false일 때만 false를 반환합니다.<br />
+                    ! 연산자 (논리 NOT): !a는 a의 반대 값을 반환합니다. 즉, true의 반대는false이며, false의 반대는 true입니다.
+                    a는 true이므로 !a는 false를 반환합니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                        false<br />
+                        true<br />
+                        false<br />
+                        true
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample23-5 -->
             <!-- //main__sample -->
         </main>
         <!-- //main -->
 
         <footer id="footer">
-            <a href="mailto:webstoryboy@naver.com">webstoryboy@naver.com</a>
+            <a href="mailto:audgns722@naver.com">audgns722@naver.com</a>
         </footer>
         <!-- //footer -->
     </div>
