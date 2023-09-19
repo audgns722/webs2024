@@ -51,19 +51,19 @@
             object-fit: cover; /* 이미지 비율 유지하며 부모 요소에 맞춤 */
         }
         .parallax__item__img1 {
-    z-index: 4; /* 가장 위에 오는 이미지 */
-}
+            z-index: 4; /* 가장 위에 오는 이미지 */
+        }
 
-.parallax__item__img2 {
-    z-index: 3;
-}
+        .parallax__item__img2 {
+            z-index: 3;
+        }
 
-.parallax__item__img3 {
-    z-index: 2;
-}
+        .parallax__item__img3 {
+            z-index: 2;
+        }
 
-.parallax__item__img4 {
-    z-index: 1; /* 가장 아래에 오는 이미지 */}
+        .parallax__item__img4 {
+            z-index: 1; /* 가장 아래에 오는 이미지 */}
 
     </style>
 </head>
@@ -71,10 +71,14 @@
 <body>
     <section id="img" class="parallax__item">
         <div class="parallax__item__img-container">
-            <img src="assets/img/movie01.png" alt="" class="parallax__item__img1">
-            <img src="assets/img/movie02.png" alt="" class="parallax__item__img2">
-            <img src="assets/img/movie03.png" alt="" class="parallax__item__img3">
-            <img src="assets/img/movie04.png" alt="" class="parallax__item__img4">
+            <div class="box">
+                <img src="assets/img/movie01.png" alt="" class="parallax__item__img1">
+                <img src="assets/img/movie02.png" alt="" class="parallax__item__img2">
+            </div>
+            <div class="box">
+                <img src="assets/img/movie03.png" alt="" class="parallax__item__img3">
+                <img src="assets/img/movie04.png" alt="" class="parallax__item__img4">
+            </div>
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -82,16 +86,15 @@
     <script>
         const ani = gsap.timeline();
             ani.to("#img .parallax__item__img1", { xPercent: 300 }, "img")
-            ani.to("#img .parallax__item__img2", { xPercent: -300 }, "img")
-            ani.to("#img .parallax__item__img3", { xPercent: 300 }, "img")
-            ani.to("#img .parallax__item__img4", { xPercent: -300 }, "img")
+               .to("#img .parallax__item__img2", { xPercent: -300 }, "img")
+               .to("#img .parallax__item__img3", { xPercent: 300 }, "img")
+               .to("#img .parallax__item__img4", { xPercent: -300 }, "img")
 
         ScrollTrigger.create({
             animation: ani,
             trigger: "#img",
             start: "top top",
             end: "+=3000",
-            scrub: true,
             pin: true
         });
     </script>
