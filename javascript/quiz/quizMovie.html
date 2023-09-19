@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>영화 초성 퀴즈</title>
     <link rel="stylesheet" href="assets/css/movie.css">
+    <link href="https://webfontworld.github.io/earlyfont/EF_Macho.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/woori/Wooridaum.css" rel="stylesheet">
+
 </head>
 <body>
     <main id="main">
@@ -14,6 +17,7 @@
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
+        let totalScore = 0;
         // 문제 정보
         const quiz = [
             {
@@ -75,7 +79,7 @@
                 infoQuestion : "ㅊㅈㅎㄱㅈㅆ",
                 infoHint : "이영애 최민식 주연, 너나 잘하세요",
                 infoAnswer : "친절한금자씨",
-            },       
+            },
         ];
         let currentIndex = 0;  //현재 문제 값
         // 문제 출력
@@ -106,7 +110,7 @@
                                     <button class="next__btn none">다음 문제</button>
                                 </div>
                             </div>
-                            
+                            <div class="quiz__score">${totalScore}</div>
                         </div>
                     </div>
                     <!-- //quiz__main -->
@@ -119,7 +123,6 @@
         const quizAnswerBtn = quizWrap.querySelector(".answer__btn");
         const nextBtn = quizWrap.querySelector(".next__btn");
         const quizHint = quizWrap.querySelector(".hint__text");
-       
         // 힌트 확인하기
         quizhintBtn.addEventListener("click", () => {
             quizhintBtn.classList.add("none");
@@ -137,6 +140,7 @@
             }else{
                 if(useAnswer == quiz[index].infoAnswer){
                     quizElement.classList.add("good");
+                    totalScore++;
                 }else{
                     quizElement.classList.add("bad");
                 }
@@ -158,6 +162,7 @@
                 alert("퀴즈가 종료되었습니다.");
                 nextBtn.classList.remove("none");
                 quizAnswerBtn.classList.add("none");
+               
             }
         });
     }
