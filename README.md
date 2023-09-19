@@ -17,3 +17,6 @@ https://audgns722.github.io/webs2024/sql/
 ## SITE
 웹표준을 준수한 사이트를 제작합니다.
 https://audgns722.github.io/webs2024/site/
+
+## Quiz만들기
+https://audgns722.github.io/webs2024/javascript/quiz/quizMovie.html
