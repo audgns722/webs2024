@@ -42,27 +42,36 @@
         <!-- //header -->
 
         <main id="main">
-            <ul>
-                <li><a href="#s01">01. <strong>0. Math.random()</strong> : 랜덤값 변환(0~1 사이의 난수 값을 반환) : 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.round()</strong> : 반올림 : 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.floor()</strong> : 버림 : 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.ceil()</strong> : 올림: 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.max()</strong> : 가장 큰 값: 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.min()</strong> : 가장 작은 값: 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.abs()</strong> : 절댓값 : 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.trunc()</strong> : 값의 정수 부분만: 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.PI()</strong> : 원의 둘레에 대한 지름의 비율(π)을 나타내며 약 3.1459... : 반환(숫자)</a></li>
-                <li><a href="#s01">01. <strong>0. Math.sprt()</strong> : 값의 제곱근을 반환 : 반환(숫자)</a></li>
-            </ul>
             <div class="main__menu">
-                <div id="sample01" class="sample">
-                    <h3>Math.random() : 랜덤값 반환(0~1 사이의 난수값을 반환) : 반환(숫자)</h3>
-                    <p></p>
-<pre><code class="language-js">{
+                <ul>
+                    <li><a href="#samle01">01. <strong>1. Math.random()</strong> : 랜덤값 변환(0~1 사이의 난수 값을 반환) : 반환(숫자)</a></li>
+                    <li><a href="#samle02">02. <strong>2. Math.round()</strong> : 반올림 : 반환(숫자)</a></li>
+                    <li><a href="#samle03">03. <strong>3. Math.floor()</strong> : 버림 : 반환(숫자)</a></li>
+                    <li><a href="#samle04">04. <strong>4. Math.ceil()</strong> : 올림: 반환(숫자)</a></li>
+                    <li><a href="#samle05">05. <strong>5. Math.max()</strong> : 가장 큰 값: 반환(숫자)</a></li>
+                    <li><a href="#samle06">06. <strong>6. Math.min()</strong> : 가장 작은 값: 반환(숫자)</a></li>
+                    <li><a href="#samle07">07. <strong>7. Math.abs()</strong> : 절댓값 : 반환(숫자)</a></li>
+                    <li><a href="#samle08">08. <strong>8. Math.trunc()</strong> : 값의 정수 부분만: 반환(숫자)</a></li>
+                    <li><a href="#samle09">09. <strong>9. Math.PI()</strong> : 원의 둘레에 대한 지름의 비율(π)을 나타내며 약 3.1459... : 반환(숫자)</a></li>
+                    <li><a href="#samle10">10. <strong>10. Math.sprt()</strong> : 값의 제곱근을 반환 : 반환(숫자)</a></li>
+                </ul>
+            </div>
+        <!-- //main__menu -->
 
-}    
+            <div class="main__sample">
+                <div id="sample01" class="sample">
+                    <h3>1. Math.random() : 랜덤값 반환(0~1 사이의 난수값을 반환) : 반환(숫자)</h3>
+                    <p>choices의 요소들을 무작위 섞기</p>
+<pre><code class="language-js">// 보기 랜덤 섞기
+    for (let i = choices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
 </code></pre>
                     <p class="desc">
+                        반복문을 통해 배열의 뒤에서 앞까지 탐색하며 섞는다. 현재 인덱스 i를 기준으로 0부터 i까지의 무작위 정수 j를 생성합니다.<br />
+                        Math.random() 함수는 0이상 1미만의 난수를 반환하고 (i + 1) 과 곱한 후 Math.floor()함수를 사용하여 소수점을 버려 정수 j를 얻는다.<br />
+                        choices의 i,j에 해당하는 요소를 서로 교환한다. 이렇게 하면 요소 순서가 무작위로 섞이게 된다.
                     
                     </p>
                     <div class="result">
@@ -74,7 +83,35 @@
                         </details>
                     </div>                                   
                 </div>
-                <!-- //sample01 -->        
+                <!-- //sample01 -->  
+
+                <div id="sample03" class="sample">
+                    <h3> 3. Math.floor(): 버림 : 반환(숫자)</h3>
+                    <p>choices의 요소들을 무작위 섞기</p>
+<pre><code class="language-js">// 보기 랜덤 섞기
+        for (let i = choices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [choices[i], choices[j]] = [choices[j], choices[i]];
+        }
+ </code></pre>
+                    <p class="desc">
+                        반복문을 통해 배열의 뒤에서 앞까지 탐색하며 섞는다. 현재 인덱스 i를 기준으로 0부터 i까지의 무작위 정수 j를 생성합니다.<br />
+                        Math.random() 함수는 0이상 1미만의 난수를 반환하고 (i + 1) 과 곱한 후 Math.floor()함수를 사용하여 소수점을 버려 정수 j를 얻는다.<br />
+                        choices의 i,j에 해당하는 요소를 서로 교환한다. 이렇게 하면 요소 순서가 무작위로 섞이게 된다.   
+                     </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                         <div>
+                                    
+                        </div>
+                    </details>
+                        </div>                                   
+                </div>
+                    <!-- //sample03 -->
+
+                
+
             </div>
             <!-- //main__menu -->
 
