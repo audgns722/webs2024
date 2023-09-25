@@ -48,16 +48,13 @@ body {
 }
 
 .container {
-    border-radius: 15px;
-    background-color: #ffffff2b;
-    border-radius: 30px;
-    /* background-image: url(../img/quiz3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; */
+    background-image: url(../img/—Pngtree—recording\ frame\ png_8346281.png);
+    background-size: 100%;
+    
+    
     width: 100%; /* 부모 요소에 맞게 가득 차도록 설정 */
     height: 100%;
-    margin-bottom: 50px;
+
     
 }
 
@@ -239,7 +236,7 @@ body {
 
 /* 점수 */
 .quiz__score {
-    position: absolute;
+    /* position: absolute; */
     right: 22%;
     bottom: 25.3%;
     margin-top: 30px;
