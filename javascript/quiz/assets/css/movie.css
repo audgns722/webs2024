@@ -33,6 +33,7 @@ body {
     background-image: url(../img/quiz4.jpg);
     background-attachment: fixed;
     background-size: cover;    
+    
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
@@ -417,6 +418,16 @@ body {
     color: #fff;
 }
 @media (max-width : 980px) {
+    .parallax__item {
+        display: none;
+        /* 모바일 화면 크기에서 Parallax 효과를 제거할 스타일 설정 */
+        /* 예: 모든 스타일을 초기화하거나 display: none; 설정 등을 사용할 수 있음 */
+    }
+    body {
+        background-position: center;
+        width: 100%;
+        height: 100%;
+    }
     .start h2 {
         font-size: 28px;
         margin-top: 100px;
@@ -502,4 +513,73 @@ body {
         font-size: 16px;
         width: 60%;
     }
+    #header__inner .quizTimeOut {
+        font-size: 40px;
+    }
+    .ranking {
+        font-size: 35px;
+    }
+}
+@media (max-width : 400px) {
+    .start h2 {
+        font-size: 20px;
+        width: 150px;
+        margin-top: 140px;
+    }
+    .start p {
+        font-size: 25px;
+        margin-top: 110px;
+    }
+    .start__bg {
+        width: 100%;
+        top:19%
+    }
+    .header__title p {
+        font-size: 25px;
+        width: 170px;
+    }
+    .quiz__question {
+        font-size: 160%;
+        width: 60%;
+    }
+    .answer__btn,
+    .answer__btn:hover {
+        font-size: 16px;
+        
+    }
+    .hint .hint__text {
+        font-size: 16px;
+        width: 60%;
+    }
+    .hint .hint__btn,
+    .hint .hint__btn:hover {
+        font-size: 100%;
+    }
+    .background {
+        width: 100%;
+        height: 85%;
+    }
+    .quiz__input input {
+        font-size: 100%;
+    }
+    #header__inner .quizTimeOut {
+        font-size: 30px;
+        height : 150px
+    }
+    .skip__btn,
+    .skip__btn:hover {
+        font-size: 14px;
+        right: 12px;
+    }
+    .next__btn,
+    .next__btn:hover {
+        font-size: 14px;
+        right: 12px;
+    }
+    .quiz__timer > input[type=text] {
+        font-size: 25px;
+        right: 15px;
+        
+    }
+
 }
