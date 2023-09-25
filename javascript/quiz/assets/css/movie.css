@@ -427,6 +427,7 @@ body {
         background-position: center;
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
     .start h2 {
         font-size: 28px;
@@ -479,9 +480,14 @@ body {
     .quiz__timer > input[type=text] {
         font-size: 30px;
         padding: 0 10px;
+    }.start {
+        align-items: center;
     }
 }
 @media (max-width : 850px) {
+    body {
+        overflow: hidden; /* 위아래 스크롤바 숨김 */
+    }
     .quiz__question {
         font-size: 300%;
     
@@ -492,8 +498,14 @@ body {
     .header__title p {
         font-size: 30px;
     }
+    .start {
+        align-items: center;
+    }
 }
 @media (max-width : 720px) {
+    body {
+        overflow: hidden; /* 위아래 스크롤바 숨김 */
+    }
     .start h2 {
         font-size: 20px;
         margin-top: 140px;
@@ -503,6 +515,7 @@ body {
         margin-top: 110px;
     }
     .header__title p {
+        width: 50%;
         font-size: 25px;
     }
     .quiz__question {
@@ -519,8 +532,18 @@ body {
     .ranking {
         font-size: 35px;
     }
+    .start {
+        align-items: center;
+    }
+    .container {
+        top:55px;
+    }
+
 }
 @media (max-width : 400px) {
+    body {
+        overflow: hidden; /* 위아래 스크롤바 숨김 */
+    }
     .start h2 {
         font-size: 20px;
         width: 150px;
@@ -580,6 +603,9 @@ body {
         font-size: 25px;
         right: 15px;
         
+    }
+    .start {
+        align-items: center;
     }
 
 }
