@@ -37,6 +37,7 @@
     <header id="header">
         <div id="header__inner" class="none">
             <h1 class="quizTimeOut">퀴즈가 종료되었습니다.</h1>
+            <div class="rankingImage"></div>
             <h3 class="ranking"></h3>
             <p class="userScore"></p>
         </div>
@@ -69,6 +70,13 @@
             </div>
         </div>
     </main>
+
+    <footer id="footer">
+        <div class="footer__inner">
+            <p class="quiz__timer"><input id="Timer" type="text" value="" readonly/></p>
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
         const ani = gsap.timeline();
@@ -95,10 +103,40 @@
         let totalScore = 0;
         const Start = document.querySelector("#header__start");
         const quizStBtn = document.querySelector(".start__btn");
+        const rankingImage = document.querySelector(".rankingImage");
+        const quizTimer = document.querySelector(".quiz__timer > input[type=text]");
 
 
+        // totalA
 
+        const totalA = function () {
+            const userScore = document.querySelector(".userScore");
+            const posterAnimation = document.querySelector(".parallax__item");
+            const header__title = document.getElementById("header__inner");
+            const userRanking = document.querySelector(".ranking");
+            posterAnimation.classList.add("timeOut");
+            posterAnimation.classList.add("none");
+            quizWrap.classList.add("timeOut");
+            quizWrap.classList.add("none");
+            header__title.classList.remove("none");
+            quizTimer.style.display = 'none';
+            
+            userScore.innerText = "총 점수: " + totalScore + "점";
 
+            if (totalScore >= 15) {
+                userRanking.innerText = "당신의 등급 : 최고";
+                rankingImage.innerHTML = '<img src="../quiz/assets/img/rank01.jpg" alt="최고 등급 이미지">';
+            } else if (totalScore > 10) {
+                userRanking.innerText = "당신의 등급 : 고수";
+                rankingImage.innerHTML = '<img src="../quiz/assets/img/rank02.jpg" alt="고수 등급 이미지">';
+            } else if (totalScore >= 5) {
+                userRanking.innerText = "당신의 등급 : 중수";
+                rankingImage.innerHTML = '<img src="../quiz/assets/img/rank03.jpg" alt="중수 등급 이미지">';
+            } else {
+                userRanking.innerText = "당신의 등급 : 하수";
+                rankingImage.innerHTML = '<img src="../quiz/assets/img/rank04.jpg" alt="하수 등급 이미지">';
+            }
+        }
 
         // 문제 정보
         const quiz = [
@@ -226,7 +264,7 @@
                 infoTitle: "영화 초성퀴즈",
                 infoQuestion: "ㅊㅈㅂㄱㅎ",
                 infoHint: "",
-                infoAnswer: "최종병길활",
+                infoAnswer: "최종병기활",
             },
         ];
         // 현재 풀고 있는 문제 번호와 남은 문제 수
@@ -238,38 +276,38 @@
             let quizWrapTag = `
                 <div class="quiz">
                     <div class="container">
-                    <div class="background">
-                        <div class="quiz__header">
-                            <div class="header__title"><p>${quiz[index].infoTitle}</p></div>
-                        </div>
-                        <!-- //quiz__header -->
-                        <div class="quiz__main">
-                            <div class="quiz__question">${quiz[index].infoQuestion}</div>
-                            <div class="hint">
-                                <button class="hint__btn">누르면 힌트</button>
-                                <div class="hint__text none"><span>${quiz[index].infoHint}</span></div>
+                        <div class="background">
+                            <div class="quiz__header">
+                                <div class="header__title"><p>${quiz[index].infoTitle}</p></div>
                             </div>
-                            <div class="quiz__input">
-                                <input type="text" placeholder="정답을 입력해주세요!">
-                            </div>
-                            <div class="quiz__answer">
-                                <button class="answer__btn">정답 확인</button>
-                                <div class="answer__text none"><span>${quiz[index].infoAnswer}</span></div>
-                            </div>
-                            <div class="next">
-                                <div class="next__button">
-                                    <button class="next__btn none">다음 문제</button>
+                            <!-- //quiz__header -->
+
+                            <div class="quiz__main">
+                                <div class="quiz__question">${quiz[index].infoQuestion}</div>
+                                <div class="hint">
+                                    <button class="hint__btn">누르면 힌트</button>
+                                    <div class="hint__text none"><span>${quiz[index].infoHint}</span></div>
+                                </div>
+                                <div class="quiz__input">
+                                    <input type="text" placeholder="정답을 입력해주세요!">
+                                </div>
+                                <div class="quiz__answer">
+                                    <button class="answer__btn">정답 확인</button>
+                                    <div class="answer__text none"><span>${quiz[index].infoAnswer}</span></div>
+                                </div>
+                                <div class="next">
+                                    <div class="next__button">
+                                        <button class="next__btn none">다음 문제</button>
+                                    </div>
                                 </div>
                                 <div class="skip">
                                     <button class="skip__btn">모르겠다</button>
                                 </div>
+                                <div class="quiz__score">${totalScore} 점</div>
+                                <p class="abc">${index + 1} / ${quiz.length}</p>
                             </div>
-                            <div class="quiz__score">${totalScore} : 점</div>
                         </div>
                     </div>
-                    <p class="quiz__timer">
-                        <input id="Timer" type="text" value="" readonly/>
-                    </p>   
                     <!-- //quiz__main -->
                 </div>
                 `;
@@ -293,7 +331,6 @@
                 }
             });
             // 선택자
-            // const quizQuestion = quizWrap.querySelector(".quiz__question");
             const quizhintBtn = quizWrap.querySelector(".hint__btn");
             const quizAnswerBtn = quizWrap.querySelector(".answer__btn");
             const nextBtn = quizWrap.querySelector(".next__btn");
@@ -313,24 +350,33 @@
                 const useAnswer = quizInput.value;
                 const quizQuestion = quizWrap.querySelector(".quiz__question");
 
+
+
                 if (useAnswer.length < 0 || useAnswer == "") {
                     alert("답을 적어주세요");
                 } else {
                     if (useAnswer == quiz[index].infoAnswer) {
                         quizElement.classList.add("correct");
-                        totalScore++;
                         quizQuestion.classList.add("correct");
+                        totalScore++;
                     } else {
                         quizElement.classList.add("wrong");
                         quizQuestion.classList.add("wrong");
                     }
+
                     quizhintBtn.classList.add("none");
+                    quizAnswerBtn.classList.add("none");
+
                     quizHint.classList.remove("none");
                     quizAnswer.classList.remove("none");
-                    quizAnswerBtn.classList.add("none");
                     nextBtn.classList.remove("none");
+
+                    // 넘어가기 버튼 삭제
+                    const skipBtn = quizWrap.querySelector(".skip__btn");
+                    skipBtn.style.display = "none";
                 }
             });
+
             // 다음 문제 버튼
             nextBtn.addEventListener("click", () => {
                 if (currentIndex < quiz.length - 1) {
@@ -339,45 +385,38 @@
                     currentIndex++;
                     updataQuiz(currentIndex);
                 } else {
-                    alert("퀴즈가 종료되었습니다.");
                     // quizScore.textContent = `총 점수: ${totalScore}`;
                     nextBtn.classList.remove("none");
                     quizAnswerBtn.classList.add("none");
-                    const userScore = document.querySelector(".userScore");
-                    const posterAnimation = document.querySelector(".parallax__item");
-                    const header__title = document.getElementById("header__inner");
-                    const userRanking = document.querySelector(".ranking");
-                    posterAnimation.classList.add("timeOut");
-                    posterAnimation.classList.add("none");
-                    quizWrap.classList.add("timeOut");
-                    quizWrap.classList.add("none");
-                    header__title.classList.remove("none");
-                    userScore.innerText = "총 점수: " + totalScore + "점";
-
+                    totalA();
                 }
             });
+
 
             // 넘어가기 버튼
             skipBtn.addEventListener("click", () => {
                 if (currentIndex < quiz.length - 1) {
-                    currentIndex++;
-                    updataQuiz(currentIndex);
-                    
+                    const quizAnswer = quizWrap.querySelector(".answer__text");
+                    const quizInput = quizWrap.querySelector(".quiz__input input");
+                    const quizElement = quizWrap.querySelector(".quiz");
+                    const useAnswer = quizInput.value;
+                    const quizQuestion = quizWrap.querySelector(".quiz__question");
+
+                    quizElement.classList.add("wrong");
+                    quizQuestion.classList.add("wrong");
+                    quizhintBtn.classList.add("none");
+                    quizHint.classList.remove("none");
+                    quizAnswer.classList.remove("none");
+                    quizAnswerBtn.classList.add("none");
+                    nextBtn.classList.remove("none");
+
+                    const skipBtn = quizWrap.querySelector(".skip__btn");
+                    skipBtn.style.display = "none";
                 } else {
-                    alert("퀴즈가 종료되었습니다.");
-                    // quizScore.textContent = `총 점수: ${totalScore}`;
                     nextBtn.classList.remove("none");
                     quizAnswerBtn.classList.add("none");
-                    const userScore = document.querySelector(".userScore");
-                    const posterAnimation = document.querySelector(".parallax__item");
-                    const header__title = document.getElementById("header__inner");
-                    const userRanking = document.querySelector(".ranking");
-                    posterAnimation.classList.add("timeOut");
-                    posterAnimation.classList.add("none");
-                    quizWrap.classList.add("timeOut");
-                    quizWrap.classList.add("none");
-                    header__title.classList.remove("none");
-                    userScore.innerText = "총 점수: " + totalScore + "점";                  
+
+                    totalA();
                 }
             });
         }
@@ -387,8 +426,6 @@
         quizStBtn.addEventListener("click", function () {
             updataQuiz(currentIndex);
 
-            
-                
             // 타이머
             let time = 180000;
             let min = 3;
@@ -401,63 +438,29 @@
                     min = time / (60 * 1000);
                     if (sec > 0) {
                         sec = sec - 1;
-                        Timer.value = "남은 시간 " + Math.floor(min) + ':' + sec;
+                        Timer.value = '남은 시간 ' + Math.floor(min) + ':' + sec;
                     }
                     if (sec === 0) {
                         sec = 60;
-                        Timer.value = "남은 시간 " + Math.floor(min) + ':' + '00';
+                        Timer.value = '남은 시간 ' + Math.floor(min) + ':' + '00';
+                    }
+                    if (Math.floor(min) === 0 && sec <= 30) {
+                        const quizTimer = document.querySelector(".quiz__timer > input[type=text]");
+                        quizTimer.style.color = 'red';
                     }
                 }, 1000);
             }
             TIMER();
             setTimeout(function () {
-                const userScore = document.querySelector(".userScore");
-                const posterAnimation = document.querySelector(".parallax__item");
-                const header__title = document.getElementById("header__inner");
-                const userRanking = document.querySelector(".ranking");
-                posterAnimation.classList.add("timeOut");
-                posterAnimation.classList.add("none");
-                quizWrap.classList.add("timeOut");
-                quizWrap.classList.add("none");
-                header__title.classList.remove("none");
-                userScore.innerText = "총 점수: " + totalScore + "점";
-                if (totalScore >= 15) {
-                    userRanking.innerText = "당신의 등급 : 최고";
-                } else if (totalScore > 10) {
-                    userRanking.innerText = "당신의 등급 : 고수";
-                } else if (totalScore >= 5) {
-                    userRanking.innerText = "당신의 등급 : 중수";
-                } else {
-                    userRanking.innerText = "당신의 등급 : 하수";
-                }
+                totalA();
+
+                const quizTimer = document.querySelector(".quiz__timer > input[type=text]");
+                quizTimer.style.display = 'none';
+
                 clearInterval(PLAYTIME);
             }, 180000);
 
-            // 시간제한
-            // setTimeout(() => {
-            //     const userScore = document.querySelector(".userScore");
-            //     const posterAnimation = document.querySelector(".parallax__item");
-            //     const header__title = document.getElementById("header__inner");
-            //     const userRanking = document.querySelector(".ranking");
-            //     posterAnimation.classList.add("timeOut");
-            //     posterAnimation.classList.add("none");
-            //     quizWrap.classList.add("timeOut");
-            //     quizWrap.classList.add("none");
-            //     header__title.classList.remove("none");
-            //     userScore.innerText = "총 점수: " + totalScore + "점";
-            //     if (totalScore >= 15) {
-            //         userRanking.innerText = "당신의 등급 : 최고";
-            //     } else if (totalScore > 10) {
-            //         userRanking.innerText = "당신의 등급 : 고수";
-            //     } else if (totalScore >= 5) {
-            //         userRanking.innerText = "당신의 등급 : 중수";
-            //     } else {
-            //         userRanking.innerText = "당신의 등급 : 하수";
-            //     }
-            // }, 10000)
-
             Start.classList.add("none");
-
         });
 
     </script>

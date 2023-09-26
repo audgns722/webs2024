@@ -12,6 +12,19 @@
     border: none;
     color: #fff;
 }
+.abc {
+    position: absolute;
+    bottom: 45px;
+    left: 18px;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color: #3E3B43;
+    color: #fff;
+    font-weight: 800;
+    border: none;
+}
 
 * {
     margin: 0;
@@ -38,16 +51,8 @@ body {
     background-repeat: no-repeat;
     position: relative;
 }
+
 /* main */
-/* .quiz__header {} */
-#main {
-}
-/* .quiz__wrap {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-} */
 .quiz__wrap {
     top: 0;
     left: 0;
@@ -79,17 +84,17 @@ body {
   
 .background {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     background-image: url(../img/moviebg.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    top: 40%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: blink 0.7s infinite; /* 1초 간격으로 애니메이션을 반복함 */
-    
+    animation: blink 1s infinite; /* 1초 간격으로 애니메이션을 반복함 */
+    align-items: center;
 }
 #header__inner {
     width: 100%;
@@ -100,12 +105,10 @@ body {
 }
 #header__inner .quizTimeOut {
     width: 100%;
-    height: 300px;
-    /* background-color: #B73232; */
+    height: 100px;
     color: white;
     font-size: 60px;
-    /* padding: 100px 0; */
-    margin-top: 250px;
+    margin-top: 150px;
 }
 
 #header__start {
@@ -140,7 +143,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .start p {
-    margin-top: 8%;
+    margin-top: 13%;
     font-size: 45px;
 }
 .start__btn {
@@ -177,6 +180,13 @@ body {
     color: white;
     font-size: 32px;
 }
+.rankingImage {
+    height: 370px;
+}
+.rankingImage > img{
+    height: 90%; 
+    margin-top: 40px;
+}
 .ranking {
     width: 100%;
     height: 100px;
@@ -184,8 +194,8 @@ body {
     /* background-color: #189050; */
     font-size: 50px;
     font-weight: 800;
+    margin-top: 30px;
 }
-
 .header__title p {
     padding: 10px;
     width: 30%;
@@ -195,14 +205,11 @@ body {
     border-radius: 15px;
     text-align: center;
     font-weight: 500;
+    transform: translateY(95px);
 }
 /* .quiz__main {} */
 .quiz__question {
-    /* background-image: url(../img/quiz5.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; */
-    margin-top: 60px;
+    margin-top: 155px;
     width: 600px;
     font-size: 500%;
     line-height: 1.3;
@@ -213,7 +220,6 @@ body {
     text-align: center;
     font-weight: 700;
     font-family: 'EF_Macho';
-    
 }
 .hint {
     text-align: center;
@@ -327,8 +333,8 @@ body {
 }
 .next__btn {
     position: absolute;
-    bottom: 20px;
-    right:40px;
+    bottom: 24px;
+    right:36px;
     font-size: 22px;
     border-radius: 5px;
     padding: 10px 10px;
@@ -341,8 +347,8 @@ body {
 }
 .next__btn:hover {
     position: absolute;
-    bottom: 20px;
-    right:40px;
+    bottom: 24px;
+    right: 36px;
     font-size: 22px;
     border-radius: 5px;
     padding: 10px 10px;
@@ -355,8 +361,8 @@ body {
 }
 .skip__btn {
     position: absolute;
-    bottom: 70px; /* 원하는 위치로 조정하세요. */
-    right: 40px; /* 원하는 위치로 조정하세요. */
+    bottom: 45px; /* 원하는 위치로 조정하세요. */
+    right: 16px; /* 원하는 위치로 조정하세요. */
     font-size: 22px;
     border-radius: 5px;
     padding: 10px 10px;
@@ -365,13 +371,13 @@ body {
     font-weight: 800;
     border: none;
     cursor: pointer;
-    box-shadow: 3px 3px 3px #3E3B43;
+    /* box-shadow: 3px 3px 3px #3E3B43; */
 
 }
 .skip__btn:hover {
     position: absolute;
-    bottom: 70px; /* 원하는 위치로 조정하세요. */
-    right: 40px; /* 원하는 위치로 조정하세요. */
+    bottom: 45px; /* 원하는 위치로 조정하세요. */
+    right: 16px; /* 원하는 위치로 조정하세요. */
     font-size: 22px;
     border-radius: 5px;
     padding: 10px 10px;
@@ -380,24 +386,22 @@ body {
     font-weight: 800;
     border: none;
     cursor: pointer;
-    box-shadow: 3px 3px 3px #3E3B43;
+    /* box-shadow: 3px 3px 3px #3E3B43; */
 }
 
 
 /* 점수 */
 .quiz__score {
-    /* position: absolute; */
-    right: 22%;
-    bottom: 25.3%;
-    margin-top: 30px;
-    width: 100px;
-    height: 50px;
-    line-height: 50px;
+    position: absolute;
+    bottom: 145px;
+    left: 75px;
+    font-size: 22px;
     border-radius: 15px;
+    padding: 10px 10px;
     background-color: #00000085;
     color: #fff;
-    text-align: center;
-    font-size: 30px;
+    font-weight: 800;
+    border: none;
 }
 
 /* 정답 스타일 */
@@ -480,28 +484,14 @@ body {
     .quiz__timer > input[type=text] {
         font-size: 30px;
         padding: 0 10px;
-    }.start {
-        align-items: center;
-    }
-}
-@media (max-width : 850px) {
-    body {
-        overflow: hidden; /* 위아래 스크롤바 숨김 */
-    }
-    .quiz__question {
-        font-size: 300%;
-    
-    }
-    .header__title {
-        margin-top: 105px;
-    }
-    .header__title p {
-        font-size: 30px;
+        right: 17%;
+        transform: translateX(-50%);
     }
     .start {
         align-items: center;
     }
 }
+
 @media (max-width : 720px) {
     body {
         overflow: hidden; /* 위아래 스크롤바 숨김 */
@@ -600,12 +590,28 @@ body {
         right: 12px;
     }
     .quiz__timer > input[type=text] {
-        font-size: 25px;
-        right: 15px;
+        font-size: 20px;
+        left : 180px;
+        top: 15px;
+        padding: 15px;
         
     }
     .start {
         align-items: center;
     }
+    .quiz__score {
+        bottom: -50px;
+        left: 10px;
 
+    }
+    #header__inner .quizTimeOut {
+        height: 95px;
+    }
+    .abc {
+        left: 167px;
+        bottom: -45px;
+    }
+    .background {
+        top : 250px;
+    }
 }
