@@ -362,11 +362,22 @@
                 if (currentIndex < quiz.length - 1) {
                     currentIndex++;
                     updataQuiz(currentIndex);
+                    
                 } else {
                     alert("퀴즈가 종료되었습니다.");
                     // quizScore.textContent = `총 점수: ${totalScore}`;
                     nextBtn.classList.remove("none");
                     quizAnswerBtn.classList.add("none");
+                    const userScore = document.querySelector(".userScore");
+                    const posterAnimation = document.querySelector(".parallax__item");
+                    const header__title = document.getElementById("header__inner");
+                    const userRanking = document.querySelector(".ranking");
+                    posterAnimation.classList.add("timeOut");
+                    posterAnimation.classList.add("none");
+                    quizWrap.classList.add("timeOut");
+                    quizWrap.classList.add("none");
+                    header__title.classList.remove("none");
+                    userScore.innerText = "총 점수: " + totalScore + "점";                  
                 }
             });
         }

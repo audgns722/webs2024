@@ -76,6 +76,9 @@ body {
     background-repeat: no-repeat;
     position: relative;
 }
+body.fixed{
+    background-attachment: fixed;
+}
 body::after {
     content: '';
     width: 100%;
@@ -784,4 +787,145 @@ pre code.hljs {
 @keyframes opacityIn {
     0%   {opacity: 1;}
     100% {opacity: 0;}
+}
+
+.cbt__box {
+    width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    padding: 40px;
+    text-align: center;
+    display: none;
+
+}
+.cbt__box h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.cbt__box select {
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.cbt__box p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 10px;
+
+}
+.cbt__box em {
+    font-style: normal;
+    font-size: 25px;
+    font-weight: bold;
+}
+.cbt__box i {
+    font-size: 16px;
+    font-style: normal;
+    color: #666;
+}
+.cbt__box input {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #9378ff;
+    text-align: center;
+    font-size: 30px;
+    width: 40%;
+    height: 40px;
+    color: #2200ab;
+}
+.cbt__box_start {
+    display: inline-block;
+    border: 1px solid #9378ff;
+    background-color: transparent;
+    padding: 20px 40px;
+    border-radius: 40px;
+    width: 70% ;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.cbt__box_start:hover {
+    display: inline-block;
+    border: 1px solid #9378ff;
+    background-color: #3b409f;
+    padding: 20px 40px;
+    border-radius: 40px;
+    width: 70% ;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    
+}
+.cbt__wrap {
+    padding: 20px;
+}
+.cbt__header {
+    position: fixed;
+    left: 20px;
+    top: 80px;
+    z-index: 1000;
+    width: calc(100% - 370px);
+    height: 80px;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #c4c4c4;
+}
+.cbt__title {
+    font-size: 28px;
+}
+
+.cbt__header > div {
+    background-color: #3b409f;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 10px;
+    margin-left: 10px;
+}
+.cbt__conts {
+    width: calc(100% - 330px);
+    height: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+.cbt__aside {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;    
+}
+.cbt__name {
+    background-color: #3b409f;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+.cbt__submit {
+    background-color: #3b409f;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 10px; 
 }
