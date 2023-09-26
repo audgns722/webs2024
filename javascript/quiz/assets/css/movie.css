@@ -462,7 +462,7 @@ body {
         font-size: 16px;
     }
     .header__title {
-        margin-top: 105px;
+        margin-top: 5%;
     }
     .header__title p {
         font-size: 35px;
@@ -483,9 +483,10 @@ body {
     }
     .quiz__timer > input[type=text] {
         font-size: 30px;
-        padding: 0 10px;
-        right: 17%;
+        left: 50%;
         transform: translateX(-50%);
+        right: 0;
+        width: 100%;
     }
     .start {
         align-items: center;
@@ -503,6 +504,9 @@ body {
     .start p {
         font-size: 25px;
         margin-top: 110px;
+    }
+    .header__title{
+        top: 10%
     }
     .header__title p {
         width: 50%;
@@ -527,6 +531,15 @@ body {
     }
     .container {
         top:55px;
+    }
+    .quiz__timer > input[type=text] {
+        font-size: 23px;
+    }
+    .quiz__score {
+        left : 5%;
+    }
+    .background {
+        top: 40%;
     }
 
 }
@@ -571,6 +584,7 @@ body {
     .background {
         width: 100%;
         height: 85%;
+        top : 35%
     }
     .quiz__input input {
         font-size: 100%;
@@ -581,37 +595,38 @@ body {
     }
     .skip__btn,
     .skip__btn:hover {
+        bottom: 45px;
         font-size: 14px;
-        right: 12px;
+        right: 5%;
     }
     .next__btn,
     .next__btn:hover {
+        bottom: -32px;
         font-size: 14px;
-        right: 12px;
+        right: 5%;
     }
     .quiz__timer > input[type=text] {
         font-size: 20px;
-        left : 180px;
-        top: 15px;
-        padding: 15px;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
         
     }
     .start {
         align-items: center;
     }
     .quiz__score {
-        bottom: -50px;
-        left: 10px;
+        bottom: 41px;
+        left: 15%;
+        transform: translateX(-50%);
 
     }
     #header__inner .quizTimeOut {
         height: 95px;
     }
     .abc {
-        left: 167px;
-        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%);
     }
-    .background {
-        top : 250px;
-    }
+
 }
