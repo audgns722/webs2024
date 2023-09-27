@@ -347,7 +347,7 @@ body {
 }
 .next__btn:hover {
     position: absolute;
-    bottom: 24px;
+    bottom: 45px;
     right: 36px;
     font-size: 22px;
     border-radius: 5px;
@@ -441,23 +441,15 @@ body {
         font-size: 40px;
         margin-top: 100px;
     }
-    .skip__btn {
-        bottom: -40px; 
-        right: 45px;
-        font-size: 16px;
-    }
+    .skip__btn,
     .skip__btn:hover {
-        bottom: -40px; 
+        bottom: 10%; 
         right: 45px;
         font-size: 16px;
     }
-    .next__btn {
-        bottom: -85px; 
-        right: 45px;
-        font-size: 16px;
-    }
+    .next__btn,
     .next__btn:hover {
-        bottom: -85px; 
+        bottom: -30px; 
         right: 45px;
         font-size: 16px;
     }
@@ -486,7 +478,7 @@ body {
         left: 50%;
         transform: translateX(-50%);
         right: 0;
-        width: 100%;
+        width: 50%;
     }
     .start {
         align-items: center;
@@ -540,6 +532,10 @@ body {
     }
     .background {
         top: 40%;
+    }
+    .skip__btn,
+    .skip__btn:hover{
+        bottom: 19%;
     }
 
 }
