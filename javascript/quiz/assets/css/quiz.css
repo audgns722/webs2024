@@ -911,7 +911,8 @@ pre code.hljs {
     width: 300px;
     height: 500px;
     background-color: #fff;
-    border-radius: 10px;    
+    border-radius: 20px;    
+    padding: 20px;
 }
 .cbt__name {
     background-color: #3b409f;
@@ -919,7 +920,7 @@ pre code.hljs {
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    margin-top: 50px;
+    
 }
 .cbt__submit {
     background-color: #3b409f;

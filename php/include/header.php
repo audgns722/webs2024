@@ -1,7 +1,7 @@
 <header id="header" role="banner">
         <div class="header__inner container">
             <div class="left">
-                <a href="../main/main.php">
+                <a href="../index.html">
                     <span class="blind">메인으로</span>
                 </a>
             </div>
@@ -9,9 +9,16 @@
                 <a href="../main/main.php">Developer Blog</a>
             </div>
             <div class="right">
-                <ul>
-                    <li><a href="../join/join.php">회원가입</a></li>
-                </ul>
+                <?php if(isset($_SESSION['memberID'])){ ?>
+                    <ul>
+                        <li><a href="#"><?=$_SESSION['youName']?>님 환영합니다.</a></li>
+                        <li><a href="../login/logout.php">로그아웃</a></li>
+                    </ul>
+                <?php } else { ?>
+                    <ul>
+                        <li><a href="../join/join.php">회원가입</a></li>
+                    </ul>
+                <?php } ?>
             </div>
         </div>
         <nav class="nav__inner">
