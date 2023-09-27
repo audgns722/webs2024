@@ -89,14 +89,14 @@
             window.scrollBy(0, 10); // 10px씩 아래로 스크롤
             const scrollHeight = document.body.scrollHeight;
             const windowHeight = window.innerHeight;
-
+            
             if (window.scrollY + windowHeight < scrollHeight) {
                 requestAnimationFrame(autoScroll);
             }
         }
-
-        // 페이지 로드 후 1.5초 후에 자동 스크롤 시작
+        // 페이지 로드 후 1초 후에 자동 스크롤 시작
         setTimeout(autoScroll, 1500);
+        
 
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
@@ -222,7 +222,7 @@
                 infoTitle: "영화 초성퀴즈",
                 infoQuestion: "ㅌㅇㅌㄴ",
                 infoHint: "여러분, 오늘 밤 여러분과 연주할 수 있어서 영광입니다.",
-                infoAnswer: "타이나틱",
+                infoAnswer: "타이타닉",
             },
             {
                 infoTitle: "영화 초성퀴즈",
