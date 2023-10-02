@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../quizTest/css/quizTest.css">
+</head>
+<body>
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz__sta">
+                
+            </div>
+        </div>
+    </main>
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+        
+        let currentQuestionIndex = 0; // 현재 풀고 있는 문제의 인덱스
+        let correctAnswers = 0; // 맞춘 정답 수
+        let incorrectAnswers = 0; // 틀린 정답 수
+        let answered = false; // 사용자가 답변을 제출했는지 여부를 추적하는 변수
+
+        // 문제 정보 
+        let quizInfo = [];
+
+        // 문제 가져오기
+        const fetchQuiz = () => {
+            fetch("../quizTest/json/gineungsaShort.json")
+                .then(res => res.json())
+                .then(items => {
+                    quizInfo = items.map((item, index) => {
+                        const formattedQuiz = {
+                            infoDate: item.time,
+                            infoQuestion: item.question,
+                            infoDesc: item.question_desc,
+                            infoAnswer: item.correct_answer
+                        }
+
+                        return formattedQuiz;
+                    });
+                    console.log(quizInfo);
+                    updataQuiz();
+                })
+        }
+
+        // 문제 출력
+        const updataQuiz = () => {
+            const quizArray = [];
+            const quiz = quizInfo[currentQuestionIndex];
+
+            if (quiz) {
+                quizArray.push(`
+                    <div class="quiz">
+                        <div class="quiz__header">정보처리 ${quiz.infoDate}</div>
+                        <div class="quiz__status">
+                            <span class="stats__now">현재 문제 : 1</span> / 
+                            <span class="stats__lsat">남은 문제 : 0</span>
+                        </div>
+                        <div class="quiz__main">
+                            <div class="quiz__question">${currentQuestionIndex + 1}. ${quiz.infoQuestion}</div>
+                            ${quiz.infoDesc ? `<div class="quiz__desc">${quiz.infoDesc}</div>` : ''}
+                            <div class="quiz_answer">
+                                <input class="quiz__useranswer" type="text" placeholder="정답을 입력해주세요!">
+                            </div>
+                            <div class="quiz__result none">${quiz.infoAnswer}</div>
+                            <div class="quiz__check">정답 확인</div>
+                            <div class="quiz__next">
+                                <button class="nextButton">다음 문제</button>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+            
+            quizWrap.innerHTML = quizArray.join("");
+
+            // "현재 문제"와 "남은 문제" 표시 업데이트
+            const statsNow = document.querySelector(".stats__now");
+            const statsLast = document.querySelector(".stats__lsat");
+
+            statsNow.textContent = `현재 문제: ${currentQuestionIndex + 1}`;
+            statsLast.textContent = `남은 문제: ${quizInfo.length - currentQuestionIndex - 1}`;
+
+
+            // "다음 문제" 버튼에 대한 클릭 이벤트 리스너 등록
+            const nextButtons = document.querySelectorAll(".nextButton");
+            nextButtons.forEach((nextButton, index) => {
+                nextButton.addEventListener("click", () => {
+                    if (!answered) {
+                        alert("답을 입력해주세요.");
+                        return; // 사용자가 답변을 입력하지 않았다면 다음으로 진행하지 않음
+                    }
+                    nextQuestion();
+                });
+            });
+
+            // 정답 확인 버튼에 대한 클릭 이벤트 리스너 등록
+            const checkButtons = document.querySelectorAll(".quiz__check");
+            checkButtons.forEach((checkButton, index) => {
+                checkButton.addEventListener("click", () => {
+                    checkAnswer(index);
+                });
+            });
+
+            answered = false;
+        };
+
+        const nextQuestion = () => {
+            if (currentQuestionIndex < quizInfo.length - 1) {
+                currentQuestionIndex++;
+                updataQuiz();
+            } else {
+                alert("마지막 문제입니다.");
+            }
+        };
+
+        // 정답 확인
+    const checkAnswer = () => {
+        const userAnswerInput = document.querySelector(".quiz__useranswer");
+        const userAnswer = userAnswerInput.value.trim().toLowerCase().replace(/[\s,①②③④⑤]/g, '');
+        const quizResult = document.querySelector(".quiz__result");
+        const correctAnswer = quizInfo[currentQuestionIndex].infoAnswer.toLowerCase().replace(/[\s,①②③④⑤]/g, '');
+        const quizElement = document.querySelector(".quiz");
+
+        if (userAnswer === "") {
+            alert("답을 입력해주세요.");
+        } else {
+            if (userAnswer === correctAnswer) {
+                console.log("정답입니다.");
+                quizResult.classList.remove("none");
+                quizElement.classList.add("good");
+            } else {
+                console.log("오답입니다.");
+                quizResult.classList.remove("none");
+                quizElement.classList.add("bad");
+            }
+            answered = true;
+
+            // 정답 확인 버튼 비활성화
+            const checkButtons = document.querySelectorAll(".quiz__check");
+            checkButtons.forEach((checkButton) => {
+                checkButton.disabled = true;
+            });
+        }
+    }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchQuiz();
+        });
+    </script>
+</body>
+</html>

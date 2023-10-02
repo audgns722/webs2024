@@ -1,0 +1,368 @@
+@font-face {
+    font-family: 'PyeongChang';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Regular.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Regular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Regular.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Regular.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'PyeongChang';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Bold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Bold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChang-Bold.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'DalseoHealing';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingMedium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingMedium.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingMedium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingMedium.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingMedium.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'DalseoHealing';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/daegu/DalseoHealingBold.ttf') format("truetype");
+    font-display: swap;
+}
+/* 여백 초기화 */
+body,
+div,
+dl,
+dd,
+dt,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+p,
+table,
+th,
+td,
+input,
+figure,
+figcaption,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+.none {
+    display: none;
+}
+/* box-sizing 초기화 */
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+/* 링크 초기화 */
+a {
+    text-decoration: none;
+    color: var(--color__black);
+}
+
+/* 목록 초기화 */
+li, ol, ul {
+    list-style: none;
+}
+
+/* 제목 초기화 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: var(--font__size);
+}
+
+/* 폰트 스타일 */
+em, address {
+    font-style: normal;
+}
+
+/* 이미지 초기화 */
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+/* 보더 초기화 */
+img, fieldset, button {
+    border: 0;
+}
+
+/* 테이블 초기화 */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/* 클리어픽스 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+}
+.clearfix::after {
+    clear: both;
+}
+
+/* 블라인드 효과 */
+.blind {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/* ir 효과 */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PyeongChang';
+}
+
+body {
+    background-image: url(../img/bg01.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+body.fixed{
+    background-attachment: fixed;
+}
+body::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+
+/* main */
+#main { 
+    min-height: 85vh;
+    
+}
+
+/* quiz__wrap */
+.quiz__wrap {
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10%
+}
+.quiz__wrap > .quiz {
+    width: 1000px;
+    min-height: 333px;
+    background-color: #85bbca83;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    margin: 10px;
+}
+.quiz__wrap > .quiz.good {
+    position: relative;
+}
+.quiz__wrap > .quiz.good::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px; 
+    top: 20px;
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad {
+    position: relative;
+}
+.quiz__wrap > .quiz.bad::before {
+    content: '';
+    width: 150px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    border-radius: 30px;
+    transform: rotate(45deg);
+    z-index: 100;
+} 
+.quiz__wrap > .quiz.bad::after {
+    content: '';
+    width: 150px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    border-radius: 30px;
+    transform: rotate(-45deg);
+    z-index: 100;
+} 
+/* quiz__status 문제 현황 */
+.quiz__sta {
+    
+}
+.quiz__status {
+    font-size: 20px;
+    background-color: #85bbca83;
+    border-radius: 15px;
+    font-weight: 700;
+    width:270px;
+    text-align: center;
+    margin-left: auto;
+    margin-bottom: 15px;
+}
+
+.quiz__header {
+    margin: 0 auto; /* 가로 가운데 정렬을 위해 추가 */
+    width: 50%;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #1f1a1a;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #dddaff63;
+    font-weight: 700;
+}
+
+
+
+.quiz__question {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.quiz__desc {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.quiz__useranswer {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    font-family: 'DalseoHealing';
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.quiz__result {
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    border-radius: 15px;
+    border: 2px solid #000;
+    font-size: 24px;
+    padding: 5px;
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+.quiz__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz__check {
+    display: block;
+    margin: 0 auto; /* 가로 가운데 정렬을 위해 추가 */
+    width: 50%;
+    background-color: #06072c;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 15px;
+    font-size: 24px;
+    padding: 5px;
+    text-align: center;
+    margin-top: 30px;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.quiz__check:hover {
+    color: #21023a;
+    background-color: #16185a5b;
+    
+}
+.quiz__next {
+    display: flex;
+    justify-content: flex-end;
+}
+.nextButton {
+    display: inline-block;
+    width: auto;
+    background-color: #06072c;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 15px;
+    font-size: 24px;
+    padding: 5px 15px;
+    text-align: center;
+    transition: all 0.1s;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.nextButton:hover {
+    color: #21023a;
+    background-color: #16185a5b;
+}
+
+
