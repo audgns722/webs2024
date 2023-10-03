@@ -39,11 +39,11 @@
 }
 
 :root {
-    --black: #624a29;
-    --white: #fff;
+    --black: #121211;
+    --white: #ffffff;
     --primary-color: #ff9c6a;
     --primary-color-dark: #ee7331;
-    --primary-color-tint: #dbd4ff;
+    --primary-color-tint: #4cc6eb;
     --secondary-color: #fff6a4;
     --secondary-color-tint: #fffcdf;
     --secondary-color-dark: #f5d79d;
@@ -774,7 +774,7 @@ body {
     position: absolute;
     height: 2rem;
     border-radius: 2rem;
-    /* background-color: var(--secondary-color); */
+    background-color: var(--secondary-color);
 }
 
 .tiger-decor-1 {

@@ -77,10 +77,17 @@ body {
     position: relative;
 }
 body.fixed{
-    
+    background-attachment: fixed;
 }
 body::after {
-    
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
 
 /* common */
@@ -281,8 +288,7 @@ body::after {
     line-height: 1.5;
     transition: border-color 0.3s, background-color 0.3s;
     border-radius: 3px;
-    color: #666;
-    
+    color: #666;   
 }
 .quiz__choice .choice:hover {
     border-color: #9378ff;
@@ -327,7 +333,6 @@ body::after {
     border-radius: 4px;
     transform: rotate(45deg);
     margin-top: -3px;
-
 }
 .quiz__choice .choice.incorrect::after {
     content: '';
@@ -342,7 +347,6 @@ body::after {
     transform: rotate(-45deg);
     margin-top: -3px;
 }
-
 .quiz__animation {
     border: 1px dashed #b8a8ff;
     margin-bottom: 10px;
@@ -396,7 +400,6 @@ body::after {
     color: #412E91;
     cursor: pointer;
 }
-
 .quiz__next {
     width: 100%;
     border: 1px dashed #412E91;
@@ -476,13 +479,11 @@ body::after {
     cursor: pointer;
     transition: all 0.3s;
     border: 1px dashed transparent;
-
 }
 .quiz__check:hover{
     background-color: #e1d9ff;
     border: 1px dahsed #412e91;
     color: #412e91;
-
 }
 
 /* footer */
@@ -500,6 +501,7 @@ body::after {
     text-underline-position: under;
 }
 
+/* 미디어 쿼리 */
 @media (max-width: 600px){
     #header {
         flex-direction: column;
@@ -511,7 +513,6 @@ body::after {
         padding-right: 0;
         padding: 15px;
     }
-
     #header nav li a {
         width: 30px;
         height: 30px;
@@ -575,6 +576,10 @@ body::after {
     bottom: 20px;
     cursor: pointer;
 }
+.modal__btn:hover {
+    background-color: #1b0064;
+    border: none;
+}
 .modal__cont {
     width: 100%;
     height: 100vh;
@@ -634,8 +639,6 @@ body::after {
     background-color: #acb0f7;
     border-radius: 50%;
 }
-
-
 .modal__box .title .tabs {
     display: flex;
     margin-left: 50px;
@@ -682,7 +685,6 @@ body::after {
 .modal__box .cont > div.active {
     display: block;
     height: 100%;
-    
 }
 .modal__close {
     position: absolute;
@@ -732,19 +734,15 @@ pre code.hljs {
 /* 모달 애니메이션*/
 .modal__cont.show {
     animation: foldOut 1s ease forwards;
-
 }
 .modal__cont.show .modal__box {
     animation: zoomOut 0.5s 1s ease forwards;
-    
 }
 .modal__cont.show .modal__close {
     animation: opacityOut 0.5s 1.5s ease forwards;
 }
-
 .modal__cont.show.hide {
     animation: foldIn 0.3s 0.5s ease backwards;
-
 }
 .modal__cont.show.hide .modal__box {
     animation: zoomIn 0.5s ease forwards;   
@@ -752,7 +750,6 @@ pre code.hljs {
 .modal__cont.show.hide .modal__close {
     animation: opacityIn 0.5s ease forwards;
 }
-
 @keyframes foldOut {
     0%  {transform: scaleX(0.0001) scaleY(1);}
     50% {transform: scaleX(0.0001) scaleY(1);}
@@ -782,6 +779,7 @@ pre code.hljs {
     100% {opacity: 0;}
 }
 
+/* cbt */
 .cbt__box {
     width: 600px;
     background-color: #fff;
@@ -794,7 +792,6 @@ pre code.hljs {
     padding: 40px;
     text-align: center;
     display: none;
-
 }
 .cbt__box h2 {
     font-size: 30px;
@@ -814,7 +811,6 @@ pre code.hljs {
     text-align: center;
     padding: 10px 10px;
     margin: 10px;
-
 }
 .cbt__box em {
     font-style: normal;
@@ -857,8 +853,7 @@ pre code.hljs {
     color: #fff;
     font-size: 20px;
     font-weight: 400;
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 .cbt__wrap {
     padding: 20px;
@@ -881,7 +876,6 @@ pre code.hljs {
 .cbt__title {
     font-size: 28px;
 }
-
 .cbt__header > div {
     background-color: #3b409f;
     color: #fff;
@@ -913,7 +907,6 @@ pre code.hljs {
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    
 }
 .cbt__submit {
     background-color: #3b409f;

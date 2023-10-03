@@ -127,6 +127,10 @@ a {
     bottom: 20px;
     cursor: pointer;
 }
+.modal__btn:hover {
+    background-color: #1b0064;
+    border: none;
+}
 .modal__cont {
     width: 100%;
     height: 100vh;

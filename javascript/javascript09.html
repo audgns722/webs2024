@@ -43,7 +43,7 @@
 
         <main id="main">
             <div class="main__menu">
-                <h3>선택자</h3>
+                <h3><a href="#sample1">선택자</a></h3>
                 <ul>
                     <li><a href="#">01. 요소 메서드 : 선택자 : <strong>document.querySelector()</strong> : 요소 선택자</a></li>
                     <li><a href="#">02. 요소 메서드 : 선택자 : <strong>document.querySelectorAll()</strong> : 모든 요소 선택자</a></li>
@@ -52,7 +52,7 @@
                     <li><a href="#">05. 요소 메서드 : 선택자 : <strong>document.getElementsByTagName()</strong> : 태그 요소 선택자</a></li>
                 </ul>
 
-                <h3>텍스트</h3>
+                <h3><a href="#sample2">텍스트</a></h3>
                 <ul>
                     <li><a href="#">01. 요소 메서드 : 텍스트 : <strong>element.innerText()</strong> : 요소 텍스트 설정하기</a></li>
                     <li><a href="#">02. 요소 메서드 : 텍스트 : <strong>element.textContent()</strong> : 요소 텍스트 설정하기</a></li>
@@ -60,7 +60,7 @@
                     <li><a href="#">04. 요소 메서드 : 텍스트 : <strong>element.outerHTML()</strong> : 요소 텍스트(태그포함, 자식포함) 설정하기</a></li>
                 </ul>
 
-                <h3>클래스</h3>
+                <h3><a href="#sample3">클래스</a></h3>
                 <ul>
                     <li><a href="#">01. 요소 메서드 : 클래스 : <strong>element.classList.add()</strong> : 클래스 추가하기</a></li>
                     <li><a href="#">02. 요소 메서드 : 클래스 : <strong>element.classList.remove()</strong> : 클래스 삭제하기</a></li>
@@ -70,7 +70,7 @@
                     <li><a href="#">06. 요소 속성 : 클래스 : <strong>element.value</strong> : 요소의 속성값 가져오기</a></li>
                 </ul>
 
-                <h3>크기 및 위치</h3>
+                <h3><a href="#sample4">크기 및 위치</a></h3>
                 <ul>
                     <li><a href="#">01. 요소 속성 : 크기 및 위치 : <strong>element.clientWidth</strong> : 요소의 가로값(마진/보더 미포함)</a></li>
                     <li><a href="#">02. 요소 속성 : 크기 및 위치 : <strong>element.clientHeight</strong> : 요소의 세로값(마진/보더 미포함)</a></li>
@@ -80,14 +80,54 @@
                     <li><a href="#">06. 요소 속성 : 크기 및 위치 : <strong>element.offsetHeigh</strong>t : 요소의 세로값(보더/패딩 포함)</a></li>
                     <li><a href="#">07. 요소 속성 : 크기 및 위치 : <strong>element.offsetTop</strong> : 요소의 Y축 값(문서 기준)</a></li>
                     <li><a href="#">08. 요소 속성 : 크기 및 위치 : <strong>element.offsetLeft</strong> : 요소의 X축 값(문서 기준)</a></li>
-                    <li><a href="#">09. 요소 속성 : 크기 및 위치 : <strong>element.getBoundingClientRect</strong> : 요소의 크기 및 위치 값</a></li><h3>9번정리</h3>
+                    <li><a href="#sample4-09">09. 요소 속성 : 크기 및 위치 : <strong>element.getBoundingClientRect</strong> : 요소의 크기 및 위치 값</a></li>
                 </ul>
             </div>
             <!-- //main__menu -->
-
+            
             <div class="main__sample">
-                
-            </div>
+                <h2 id="sample4">크기 및 위치</h2>
+                <div id="sample4-09" class="sample">
+                    <h3>09. 요소 속성 : 크기 및 위치 : element.getBoundingClientRect : 요소의 크기 및 위치 값</h3>
+                    <p>마우스 커서 요소의 크기와 위치 정보를 얻고, 마우스 이동 이벤트를 감지하여 마우스 커서를 따라 이동시킵니다.</p>
+<pre><code class="language-js">{
+    // 선택자
+        const mouseCursor = document.querySelector(".mouse__cursor");
+        const rect = mouseCursor.getBoundingClientRect();
+
+        window.addEventListener("mousemove", e => {
+            gsap.to(".mouse__cursor", {
+                duration : 0.5,
+                // left : e.pageX - mouseCursor.clientWidth/2,
+                // top : e.pageY - mouseCursor.clientHeight/2
+                left : e.pageX - rect.width/2,
+                top : e.pageY - rect.height/2
+            });
+        });
+
+        console.log(rect);
+}
+</code></pre>
+                    <p class="desc">
+                        mouseCursor 요소의 크기와 위치 정보를 rect 변수에 저장합니다.<br />
+                        mousemove 이벤트를 window 객체에 추가하여 마우스 이동을 감지합니다.<br />
+                        GSAP의 gsap.to() 메서드를 사용하여 마우스 커서 요소인 ".mouse__cursor"를 부드럽게 이동시킵니다.<br />
+                        e.pageX와 e.pageY는 마우스 이벤트의 현재 페이지 내 위치를 나타냅니다.<br />
+                        left와 top 속성을 사용하여 마우스 커서를 이동시킵니다. rect.width와 rect.height를 사용하여 마우스 커서 요소의 크기를 고려합니다.<br />
+                        duration은 이동 애니메이션의 지속 시간을 설정합니다.
+
+                    </p>
+                    <!-- <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                
+                            </div>
+                        </details>
+                    </div> -->
+                </div>
+                <!-- //sample01 -->
+
             <!-- //main__sample -->
         </main>
         <!-- //main -->

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../assets/css/default.min.css">
 </head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -44,165 +46,499 @@
         <main id="main">
             <div class="main__menu">
                 <ul>
-                    <li><a href="#">01. if문</a></li>
-                    <li><a href="#">02. 다중 if문</a></li>
-                    <li><a href="#">03. 중첩 if문</a></li>
-                    <li><a href="#">04. if문 생략 & 삼항 연산자</a></li>
-                    <li><a href="#">05. switch문</a></li>
-                    <li><a href="#">06. while문</a></li>
-                    <li><a href="#">07. do while문</a></li>
-                    <li><a href="#">08. for문</a></li>
-                    <li><a href="#">09. break문</a></li>
-                    <li><a href="#">10. continue문</a></li>
+                    <li><a href="#sample1">01. if문</a></li>
+                    <li><a href="#sample2">02. 다중 if문</a></li>
+                    <li><a href="#sample3">03. 중첩 if문</a></li>
+                    <li><a href="#sample4">04. if문 생략 & 삼항 연산자</a></li>
+                    <li><a href="#sample5">05. switch문</a></li>
+                    <li><a href="#sample6">06. while문</a></li>
+                    <li><a href="#sample7">07. do while문</a></li>
+                    <li><a href="#sample8">08. for문</a></li>
+                    <li><a href="#sample9">09. break문</a></li>
+                    <li><a href="#sample10">10. continue문</a></li>
                 </ul>
             </div>
             <!-- //main__menu -->
 
+            <div class="main__sample">
+
+                <!-- sample1 -->
+                <div id="sample1" class="sample">
+                    <h3>01. if문</h3>
+                    <p>if 조건문을 사용하여 특정 조건을 평가하고 결과에 따라 메시지를 출력하는 예제이다.</p>
+<pre><code class="language-js">{
+    // true : true, "문자열", 1, 2, "1", "2", [], {}
+    // false : fasle, 0, null, undefined ""(빈문자열)
+
+    if (0) {
+        document.write("실행되었습니다.(true)");
+    } else {
+        document.write("실행되었습니다.(false)");
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        true : true, "문자열", 1, 2, "1", "2", [], {}<br />
+                        false : fasle, 0, null, undefined ""(빈문자열)
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                실행되었습니다.(false)
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample2 -->
+                <div id="sample2" class="sample">
+                    <h3>02. 다중 if문</h3>
+                    <p>여러 조건을 순차적으로 검사하여 해당하는 조건에 따라 결과를 실행하는 예제이다.</p>
+<pre><code class="language-js">{
+    const num = 100;
+
+    if (num == 90) {
+        document.write("실행되었습니다.(num = 90)");
+    } else if (num == 95) {
+        document.write("실행되었습니다.(num = 95)");
+    } else if (num == 100) {
+        document.write("실행되었습니다.(num = 100)");
+    } else if (num == 105) {
+        document.write("실행되었습니다.(num = 105)");
+    } else {
+        document.write("실행되었습니다.");
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        'num'이라는 변수값에 100을 저장하고 num값과 비교하여 조건이 참(true)인 경우에 코드블럭을 실행한다.<br />
+                        첫 번째 if (num == 90) 조건은 거짓이므로 해당 코드 블록은 실행되지 않습니다.<br />
+                        두 번째 else if (num == 95) 조건도 거짓이므로 해당 코드 블록은 실행되지 않습니다.<br />
+                        세 번째 else if (num == 100) 조건은 참이므로 해당 코드 블록이 실행되어 "실행되었습니다.(num = 100)"이 출력됩니다. 이후의 else if와 else 블록은 실행되지 않습니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                실행되었습니다.(num = 100)
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample3 -->
+                <div id="sample3" class="sample">
+                    <h3>03. 중첩 if문</h3>
+                    <p>중첩된 if 문을 사용하여 여러 개의 중첩된 조건을 검사하고, 각 조건이 참(true)일 때 해당 코드 블록을 실행하는 예제이다.</p>
+<pre><code class="language-js">{
+    const num = 100;
+
+    if (num == 100) {
+        document.write("실행되었습니다.1");
+        if (num == 100) {
+            document.write("실행되었습니다.2");
+            if (num == 100) {
+                document.write("실행되었습니다.3");
+            }
+        }
+    } else {
+        document.write("실행되었습니다.4");
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        num 변수의 값이 100이므로 첫 번째 if (num == 100) 조건이 참입니다. 따라서 "실행되었습니다.1"이 출력됩니다.<br />
+                        두 번째 중첩된 if (num == 100) 조건도 참이므로 "실행되었습니다.2"가 출력됩니다.<br />
+                        세 번째 중첩된 if (num == 100) 조건 역시 참이므로 "실행되었습니다.3"이 출력됩니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                실행되었습니다.1실행되었습니다.2실행되었습니다.3
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample4 -->
+                <div id="sample4" class="sample">
+                    <h3>04. if문 생략 & 삼항 연산자</h3>
+                    <p>if 문과 삼항 연산자를 사용하여 조건에 따라 다른 동작을 수행하는 예제이다.</p>
+<pre><code class="language-js">{
+    const num = 100;
+
+    // if(num == 100){
+    //     document.write("실행되었습니다.(true)");
+    // }
+
+    if (num == 100) document.write("실행되었습니다.(true)");
+
+    // if(num == 100){
+    //     document.write("실행되었습니다.(true)");
+    // } else {
+    //     document.write("실행되었습니다.(false)");
+    // }
+
+    if (num == 100) document.write("실행되었습니다.(true)");
+    else document.write("실행되었습니다.(false)");
+
+    // 삼항 연산자(조건식 연산자)
+    (num == 100) ? document.write("true") : document.write("false");
+}
+</code></pre>
+                    <p class="desc">
+                        첫번째 두번째 if 문은 if (num == 100) 조건이 참(true)이므로 해당 코드 블록이 실행되어 "실행되었습니다.(true)"이 출력됩니다.<br />
+                        그리고 else 블록은 해당 조건이 거짓인 경우에 실행되는데, 이 경우에는 실행되지 않습니다.<br />
+                        삼항 연산자 (num == 100) ? document.write("true") : document.write("false");는 조건이 참인 경우 "true"를 출력하고, 거짓인 경우 "false"를 출력합니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                실행되었습니다.(true)실행되었습니다.(true)true
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample5 -->
+                <div id="sample5" class="sample">
+                    <h3>05. switch문</h3>
+                    <p>switch 문을 사용하여 다양한 조건에 따라 다른 동작을 수행하는 예제이다.</p>
+<pre><code class="language-js">{
+    const num = 100;
+
+    switch (num) {
+        case 90:
+            document.write("실행되었습니다.(90)");
+            break;
+        case 95:
+            document.write("실행되었습니다.(95)");
+            break;
+        case 100:
+            document.write("실행되었습니다.(100)");
+            break;
+        case 105:
+            document.write("실행되었습니다.(105)");
+            break;
+        default:
+            document.write("실행되었습니다.");
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        num 변수의 값은 100이므로 switch 문의 조건을 만족하는 case 100: 아래의 코드 블록이 실행됩니다.<br />
+                        "실행되었습니다.(100)"이 출력됩니다.그리고 break 문이 사용되어 스위치 문에서 나갑니다.<br />
+                        switch 문은 다양한 조건을 처리할 때 유용하며, 각 case 문은 특정 조건에 대한 동작을 정의하고, break 문을 사용하여 다른 case 문으로의 이동을 방지합니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                실행되었습니다.(100)
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample6 -->
+                <div id="sample6" class="sample">
+                    <h3>06. while문</h3>
+                    <p>while 반복문을 사용하여 1부터 10까지의 숫자를 출력하는 예제이다.</p>
+<pre><code class="language-js">{
+    let num = 1;
+    while (num &lt;= 10) {
+        document.write(num);
+        num++;
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        num 변수를 1로 초기화하고, while 반복문은 조건인 num &lt;= 10이 참(true)인 동안 반복됩니다.<br />                     
+                        반복문 내부에서 document.write(num)을 사용하여 현재의 num 값을 출력합니다. num 값을 1씩 증가시킵니다 (num++)<br />
+                        반복문이 실행될 때마다 num 값은 1씩 증가하고, 출력되는 숫자는 1부터 10까지 차례대로 출력됩니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                12345678910
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample7 -->
+                <div id="sample7" class="sample">
+                    <h3>07. do while문</h3>
+                    <p>do...while 반복문을 사용하여 1부터 10까지의 숫자를 출력하는 예제이다.</p>
+<pre><code class="language-js">{
+    let num = 1;
+    do {
+        document.write(num);
+        num++;
+    } while (num &lt;= 10);
+}
+</code></pre>
+                    <p class="desc">
+                        num 변수를 1로 초기화하고, do 내부에서 document.write(num)을 사용하여 현재 num 값을 출력합니다. num 값을 1씩 증가시킵니다 (num++)<br />
+                        while 조건인 num &lt;= 10이 여전히 참(true)이면, 루프가 계속해서 실행됩니다.<br />                        
+                        이 과정을 반복하여 num 값이 10까지 증가하면서 1부터 10까지의 숫자가 차례대로 출력됩니다.<br />
+                        do...while 반복문을 사용하고 있으므로 조건 검사가 루프를 실행하기 전에 아닌 후에 수행됩니다. 이것은 반복문이 적어도 한 번은 실행되도록 보장합니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                12345678910
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample8 -->
+                <div id="sample8" class="sample">
+                    <h3>08. for문</h3>
+                    <p>for 반복문을 사용하여 1부터 10까지의 숫자를 출력하는 예제이다.</p>
+<pre><code class="language-js">{
+    for (let i = 1; i &lt;= 10; i++) {
+        document.write(i);
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        let i = 1 : i 변수를 1로 초기화합니다.<br />
+                        i &lt;= 10 : 조건이 참(true)인 동안 반복합니다.<br />
+                        i++ : i 값을 1씩 증가시킵니다.<br />
+                        반복문 내부에서 document.write(i)을 사용하여 현재의 i 값을 출력합니다.<br />
+                        반복문이 실행될 때마다 i 값은 1씩 증가하고, 출력되는 숫자는 1부터 10까지 차례대로 출력됩니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                12345678910
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample9 -->
+                <div id="sample9" class="sample">
+                    <h3>09. break문</h3>
+                    <p>for 반복문을 사용하여 1부터 9까지의 숫자를 출력, i 값이 5가 되면 루프를 중단하는 예제이다.</p>
+<pre><code class="language-js">{
+    for (let i = 1; i &lt; 10; i++) {
+        if (i == 5) {
+            break;
+        }
+        document.write(i);
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        let i = 1 : i 변수를 1로 초기화합니다.<br />
+                        i &lt;= 10 : 조건이 참(true)인 동안 반복합니다.<br />
+                        i++ : i 값을 1씩 증가시킵니다.<br />
+                        반복문 내부 if 문을 사용하여 현재의 i 값을 검사합니다. i가 5와 같다면 (i == 5), break 문을 실행하여 루프를 중단합니다.<br />
+                        반복문이 실행될 때마다 i 값은 1씩 증가하고, 출력되는 숫자는 1부터 4까지 차례대로 출력됩니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                1234
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- sample10 -->
+                <div id="sample10" class="sample">
+                    <h3>10. continue문</h3>
+                    <p>for 반복문을 사용하여 1부터 9까지의 숫자를 출력하며, i 값이 5일 때 루프를 건너뛰는 예제이다.</p>
+<pre><code class="language-js">{
+    for (let i = 1; i &lt; 10; i++) {
+        if (i == 5) {
+            continue;
+        }
+        document.write(i);
+    }
+}
+</code></pre>
+                    <p class="desc">
+                        let i = 1 : i 변수를 1로 초기화합니다.<br />
+                        i &lt;= 10 : 조건이 참(true)인 동안 반복합니다.<br />
+                        i++ : i 값을 1씩 증가시킵니다.<br />
+                        반복문 내부에서 if 문을 사용하여 현재의 i 값을 검사합니다. i가 5와 같다면 (i == 5), continue 문을 실행하여 건너뜁니다.<br />
+                        반복문이 실행될 때마다 i 값은 1씩 증가하고, 출력되는 숫자는 1부터 4까지, 그리고 6부터 9까지 차례대로 출력됩니다. 5는 if 조건에 해당하여 건너뛰었습니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                12346789
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+
+            </div>
+        
+        <!-- //main__sample -->
         </main>
-        <!-- //main -->
 
         <footer id="footer">
             <a href="mailto:audgns722@naver.com">audgns722@naver.com</a>
         </footer>
         <!-- //footer -->
 
-        <script>
-            // 01. if문
-            {
-                // true : true, "문자열", 1, 2, "1", "2", [], {}
-                // false : fasle, 0, null, undefined ""(빈문자열)
-
-                if(0){
-                    document.write("실행되었습니다.(true)");
-                } else {
-                    document.write("실행되었습니다.(false)");
-                }
-            }
-
-            // 02. 다중 if문
-            {
-                const num = 100;
-
-                if(num == 90){
-                    document.write("실행되었습니다.(num = 90)");
-                } else if(num == 95){
-                    document.write("실행되었습니다.(num = 95)");
-                } else if(num == 100){
-                    document.write("실행되었습니다.(num = 100)");
-                } else if(num == 105){
-                    document.write("실행되었습니다.(num = 105)");
-                } else {
-                    document.write("실행되었습니다.");
-                }
-            }
-
-            // 03. 중첩 if문 
-            {
-                const num = 100;
-
-                if(num == 100){
-                    document.write("실행되었습니다.1");
-                    if(num == 100){
-                        document.write("실행되었습니다.2");
-                        if(num == 100){
-                            document.write("실행되었습니다.3");
-                        }
-                    }
-                } else {
-                    document.write("실행되었습니다.4");
-                }
-            }
-
-            // 04. if문 생략 & 삼항 연산자
-            {
-                const num = 100;
-
-                // if(num == 100){
-                //     document.write("실행되었습니다.(true)");
-                // }
-
-                if(num == 100) document.write("실행되었습니다.(true)");
-
-                // if(num == 100){
-                //     document.write("실행되었습니다.(true)");
-                // } else {
-                //     document.write("실행되었습니다.(false)");
-                // }
-
-                if(num == 100) document.write("실행되었습니다.(true)");
-                else document.write("실행되었습니다.(false)");
-
-                // 삼항 연산자(조건식 연산자)
-                (num == 100) ? document.write("true") : document.write("false");
-            }
-
-            // 05. switch문
-            {
-                const num = 100;
-
-                switch(num){
-                    case 90: 
-                        document.write("실행되었습니다.(90)");
-                        break;
-                    case 95:
-                        document.write("실행되었습니다.(95)");
-                        break;
-                    case 100:
-                        document.write("실행되었습니다.(100)");
-                        break;
-                    case 105:
-                        document.write("실행되었습니다.(105)");
-                        break;
-                    default:
-                        document.write("실행되었습니다.");
-                }
-            }
-
-            // 06. while문
-            {
-                let num = 1;
-                while(num<=10){
-                    document.write(num);
-                    num++;
-                }
-            }
-
-            // 07. do while문
-            {
-                let num = 1;
-                do {
-                    document.write(num);
-                    num++;
-                } while(num<=10);
-            }
-
-            // 08. for문 
-            {
-                for( let i=1; i<=10; i++ ){
-                    document.write(i);
-                }
-            }
-
-            // 09. break문
-            {
-                for(let i=1; i<10; i++){
-                    if( i == 5 ){
-                        break;
-                    }
-                    document.write(i);
-                }
-            }
-
-            // 10. continue문
-            {
-                for(let i=1; i<10; i++){
-                    if( i == 5 ){
-                        continue;
-                    }
-                    document.write(i);
-                }
-            }
-        </script>
     </div>
+
+        <!-- script -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <script>
+            // // 01. if문
+            // {
+            //     // true : true, "문자열", 1, 2, "1", "2", [], {}
+            //     // false : fasle, 0, null, undefined ""(빈문자열)
+
+            //     if (0) {
+            //         document.write("실행되었습니다.(true)");
+            //     } else {
+            //         document.write("실행되었습니다.(false)");
+            //     }
+            // }
+
+            // // 02. 다중 if문
+            // {
+            //     const num = 100;
+
+            //     if (num == 90) {
+            //         document.write("실행되었습니다.(num = 90)");
+            //     } else if (num == 95) {
+            //         document.write("실행되었습니다.(num = 95)");
+            //     } else if (num == 100) {
+            //         document.write("실행되었습니다.(num = 100)");
+            //     } else if (num == 105) {
+            //         document.write("실행되었습니다.(num = 105)");
+            //     } else {
+            //         document.write("실행되었습니다.");
+            //     }
+            // }
+
+            // // 03. 중첩 if문 
+            // {
+            //     const num = 100;
+
+            //     if (num == 100) {
+            //         document.write("실행되었습니다.1");
+            //         if (num == 100) {
+            //             document.write("실행되었습니다.2");
+            //             if (num == 100) {
+            //                 document.write("실행되었습니다.3");
+            //             }
+            //         }
+            //     } else {
+            //         document.write("실행되었습니다.4");
+            //     }
+            // }
+
+            // // 04. if문 생략 & 삼항 연산자
+            // {
+            //     const num = 100;
+
+            //     // if(num == 100){
+            //     //     document.write("실행되었습니다.(true)");
+            //     // }
+
+            //     if (num == 100) document.write("실행되었습니다.(true)");
+
+            //     // if(num == 100){
+            //     //     document.write("실행되었습니다.(true)");
+            //     // } else {
+            //     //     document.write("실행되었습니다.(false)");
+            //     // }
+
+            //     if (num == 100) document.write("실행되었습니다.(true)");
+            //     else document.write("실행되었습니다.(false)");
+
+            //     // 삼항 연산자(조건식 연산자)
+            //     (num == 100) ? document.write("true") : document.write("false");
+            // }
+
+            // // 05. switch문
+            // {
+            //     const num = 100;
+
+            //     switch (num) {
+            //         case 90:
+            //             document.write("실행되었습니다.(90)");
+            //             break;
+            //         case 95:
+            //             document.write("실행되었습니다.(95)");
+            //             break;
+            //         case 100:
+            //             document.write("실행되었습니다.(100)");
+            //             break;
+            //         case 105:
+            //             document.write("실행되었습니다.(105)");
+            //             break;
+            //         default:
+            //             document.write("실행되었습니다.");
+            //     }
+            // }
+
+            // // 06. while문
+            // {
+            //     let num = 1;
+            //     while (num <= 10) {
+            //         document.write(num);
+            //         num++;
+            //     }
+            // }
+
+            // // 07. do while문
+            // {
+            //     let num = 1;
+            //     do {
+            //         document.write(num);
+            //         num++;
+            //     } while (num <= 10);
+            // }
+
+            // // 08. for문 
+            // {
+            //     for (let i = 1; i <= 10; i++) {
+            //         document.write(i);
+            //     }
+            // }
+
+            // // 09. break문
+            // {
+            //     for (let i = 1; i < 10; i++) {
+            //         if (i == 5) {
+            //             break;
+            //         }
+            //         document.write(i);
+            //     }
+            // }
+
+            // // 10. continue문
+            // {
+            //     for (let i = 1; i < 10; i++) {
+            //         if (i == 5) {
+            //             continue;
+            //         }
+            //         document.write(i);
+            //     }
+            // }
+        </script>
 </body>
+
 </html>

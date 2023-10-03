@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>정보처리기기능사 주관식풀이</title>
     <link rel="stylesheet" href="../quizTest/css/quizTest.css">
 </head>
 <body>
+    <header id="header">
+        <h1>
+            <a href="../index.html">Quiz</a>
+        </h1>
+    </header>
     <main id="main">
         <div class="quiz__wrap">
             <div class="quiz__sta">
@@ -14,6 +19,11 @@
             </div>
         </div>
     </main>
+    <footer id="footer">
+        <a href="audgns722@gmail.com">audgns722@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
@@ -28,7 +38,7 @@
 
         // 문제 가져오기
         const fetchQuiz = () => {
-            fetch("../quizTest/json/gineungsaShort.json")
+            fetch("https://audgns722.github.io/webs2024/quizTest/json/gineungsaShort.json")
                 .then(res => res.json())
                 .then(items => {
                     quizInfo = items.map((item, index) => {
