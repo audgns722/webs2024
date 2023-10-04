@@ -24,15 +24,15 @@
                 <li><a href="quizEffect03.html">3</a></li>
                 <li><a href="quizEffect04.html">4</a></li>
                 <li><a href="quizEffect05.html">5</a></li>
-                <li><a href="quizEffect06.html">5</a></li>
-                <li class="active"><a href="quizEffect07.html">6</a></li>
+                <li><a href="quizEffect06.html">6</a></li>
+                <li class="active"><a href="quizEffect07.html">7</a></li>
             </ul>
         </nav>
     </header>
     <!-- //header -->
 
     <main id="main">
-       <div class="cbt__box">
+        <div class="cbt__box none">
             <h2>기능사 시험</h2>
             <select id="cbtSelect1">
                 <option value="gineungsaJC2005_02">정보처리기능사 2005년 2회</option>
@@ -92,19 +92,19 @@
                 <i>총 시간은 60분이며, 60점 이상 맞아야 합격입니다.</i>
             </p>
             <button class="cbt__box_start">시작하기</button>
-       </div>
+        </div>
 
-       <div class="cbt__wrap">
+        <div class="cbt__wrap">
             <div class="cbt__header">
-                <h1 class="cbt__title">2020년 1회 정보처리기능사 기출문제</h1>
+                <h1 class="cbt__title"></h1>
                 <div class="cbt__time">남은시간 <span>60분 00초</span></div>
-        
+
             </div>
             <!-- //cbt__header -->
 
             <div class="cbt__conts">
                 <div class="cbt__quiz">
-                    <div class="cbt">
+                    <!-- <div class="cbt">
                         <div class="cbt__question">1. gof의 디자인 패턴은?</div>
                         <div class="cbt__choices">
                             <input type="radio" id="choice1">
@@ -116,8 +116,10 @@
                             <input type="radio" id="choice4">
                             <label for="choice4"><span class="choice">Bridge</span></label>
                         </div>
-                        <div class="cbt__desc"></div>
-                    </div>
+                        <div class="cbt__desc">
+                            현재 수행중인 명령어는 명령 레지스터(Instruction Register)에 저장되면 다음 수행 명령번지는 PC(프로그램카운터)에 저장 됩니다.
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <!-- //cbt__conts -->
@@ -125,30 +127,77 @@
             <div class="cbt__aside">
                 <div class="cbt__name">수험자 : 명훈</div>
                 <div class="cbt__submit">답안지 제출하기</div>
-                <div class="cbt__omr"></div>
+                <div class="cbt__omr">
+                    <!-- <div class="omr">
+                        <strong>1</strong>
+                        <input type="radio" name="omr1" id="omr1">
+                        <label for="omr1">
+                            <span class="label__inner">1</span>
+                        </label>
+                        <input type="radio" name="omr2" id="omr2">
+                        <label for="omr2">
+                            <span class="label__inner">2</span>
+                        </label>
+                        <input type="radio" name="omr3" id="omr3">
+                        <label for="omr3">
+                            <span class="label__inner">3</span>
+                        </label>
+                        <input type="radio" name="omr4" id="omr4">
+                        <label for="omr4">
+                            <span class="label__inner">4</span>
+                        </label>
+                    </div> -->
+                </div>
             </div>
             <!-- //cbt__aside -->
-
-       </div>
-       
+        </div>
     </main>
 
     <!-- //main -->
 
-    <footer id="footer">
+    <!-- <footer id="footer">
         <a href="mailto:audgns722@naver.com">audgns722@naver.com</a>
-    </footer>
+    </footer> -->
     <!-- //footer -->
 
     <script>
-       // 선택자
-       const cbtBox = document.querySelector(".cbt__box");
-       const cbtBoxStart = document.querySelector(".cbt__box_start")
 
-       cbtBoxStart.addEventListener("click", () => {
-            cbtBox.style.display = "none";
-       });
+        // 문제 정보
+        let quizInfo = [];  //모든 퀴즈 정보
 
+        let quizScore = 0;  //퀴즈 점수
+        let quizCorrect = 0;    //퀴즈 맞은 갯수 
+
+        // cbt__title 요소에 infoDate 값을 적용
+        const cbtTitle = document.querySelector(".cbt__title");
+
+        // 문제 가져오기
+        const fetchQuiz = () => {
+            fetch("https://audgns722.github.io/webs2024/json/gineungsaJC2011_05.json")
+                .then(res => res.json())
+                .then(items => {
+                    console.log(items);
+                    quizInfo = items.map((item, index) => {
+                        const formattedQuiz = {
+                            infoDate : "2011년 5회",
+                            infoType : "정보처리 기능사"
+                            
+                        }
+                        return formattedQuiz;
+                    });
+                    console.log(quizInfo)
+
+                    // cbtTitleElement에 infoDate 값을 적용
+                    if (cbtTitle && quizInfo.length > 0) {
+                        cbtTitle.textContent = quizInfo[0].infoDate;
+                    }
+                })
+        }
+        
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchQuiz();
+        });
     </script>
 </body>
 

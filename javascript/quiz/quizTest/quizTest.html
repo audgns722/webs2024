@@ -29,8 +29,8 @@
         const quizWrap = document.querySelector(".quiz__wrap");
         
         let currentQuestionIndex = 0; // 현재 풀고 있는 문제의 인덱스
-        let correctAnswers = 0; // 맞춘 정답 수
-        let incorrectAnswers = 0; // 틀린 정답 수
+        // let correctAnswers = 0; // 맞춘 정답 수
+        // let incorrectAnswers = 0; // 틀린 정답 수
         let answered = false; // 사용자가 답변을 제출했는지 여부를 추적하는 변수
 
         // 문제 정보 
@@ -38,7 +38,7 @@
 
         // 문제 가져오기
         const fetchQuiz = () => {
-            fetch("https://audgns722.github.io/webs2024/quizTest/json/gineungsaShort.json")
+            fetch("https://audgns722.github.io/webs2024/javascript/quiz/quizTest/json/gineungsaShort.json")
                 .then(res => res.json())
                 .then(items => {
                     quizInfo = items.map((item, index) => {
@@ -152,7 +152,7 @@
             // 정답 확인 버튼 비활성화
             const checkButtons = document.querySelectorAll(".quiz__check");
             checkButtons.forEach((checkButton) => {
-                checkButton.disabled = true;
+                checkButton.style.display = 'none'
             });
         }
     }
