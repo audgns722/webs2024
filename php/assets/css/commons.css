@@ -40,6 +40,11 @@
     border-radius: 50%;
     overflow: hidden;
 }
+.intro__img.main {
+    max-width: 500px;
+    height: 300px;
+    border-radius: 250px;
+}
 .intro__img.small {
     max-width: 200px;
     height: 100px;
