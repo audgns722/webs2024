@@ -113,7 +113,7 @@
 
                 echo "<tr>";
                 echo "<td>".$info['boardID']."</td>";
-                echo "<td>".$info['boardTitle']."</td>";
+                echo "<td><a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</a></td>";
                 echo "<td>".$info['youName']."</td>";
                 echo "<td>".date('Y-m-d', $info['regTime'])."</td>";
                 echo "<td>".$info['boardView']."</td>";
@@ -148,9 +148,9 @@
     if($endPage > $boardTotalCount) $endPage = $boardTotalCount;
 
     // 이전 페이지, 처음으로 가기
-    if ($page > 1) {
+    if ($page > 1) {    // $page != 1 {$prevPage = $page -1;}
         echo "<li class='first'><a href='board.php?page=1'>처음으로</a></li>";
-        echo "<li class='prev'><a href='board.php?page=" . ($page - 1) . "'>이전</a></li>";
+        echo "<li class='prev'><a href='board.php?page=" . ($page - 1) . "'>이전</a></li>"; //{$prevPage}
     } 
     // else {   //else를 사용하면 처음 페이지에서도 처음으로 이전 버튼 활성화
     //     echo "<li class='first disabled'><a href='#'>처음으로</a></li>";
@@ -173,10 +173,12 @@
     //     }
 
     // 다음 페이지, 마지막으로 가기
-    if ($page < $boardTotalCount) {
-        echo "<li class='next'><a href='board.php?page=" . ($page + 1) . "'>다음</a></li>";
+    if ($page < $boardTotalCount) { // $page != $boardTotalCount) {$nextPage = $page +1 ;}
+        echo "<li class='next'><a href='board.php?page=" . ($page + 1) . "'>다음</a></li>"; //{$nextPage}
         echo "<li class='last'><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
     } 
+
+
     // else {
     //     echo "<li class='next disabled'><a href='#'>다음</a></li>";
     //     echo "<li class='last disabled'><a href='#'>마지막으로</a></li>";

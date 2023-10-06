@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판 글쓰기 저장</title>
+    <title>PHP 블로그 만들기</title>
 </head>
 <body>
 <?php
@@ -26,7 +26,7 @@
         echo "<script>alert('로그인 후에 게시글을 작성할 수 있습니다.'); window.history.back()</script>";
     } else {
         // 데이터 입력 여부 확인
-        if(empty($boardTitle) || empty($boardContent)) {
+        if(empty($boardTitle) || empty($boardContents)) {
             echo "<script>alert('제목과 내용을 모두 입력해야 합니다.'); window.history.back()</script>";
         } else {
             $boardTitle = $connect -> real_escape_string($boardTitle);
