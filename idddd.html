@@ -1,4 +1,62 @@
-<!DOCTYPE html>
+<script>
+    // {
+    // const arr = [100, 200, "javascript"];함수 : 비동기 함수 : 콜백 함수 중요
+
+    // const [a, b, c] = arr;
+
+    // document.write(a);
+    // document.write(b);
+    // document.write(c);
+    // }
+
+    {
+    const obj = [
+        {a: 100, b: 200, c: "javascript"}
+    ];
+
+    document.write(obj[0]);
+    document.write(obj[0].a);
+    document.write(obj[0].b);
+    document.write(obj[0].c);
+
+    const obj1 = [
+        {a: 100, b: 200, c: "javascript"},
+        {a: 300, b: 400, c: "jquery"}
+    ];
+    
+    document.write(obj1[0]);
+    document.write(obj1[0].a);
+    document.write(obj1[0].b);
+    document.write(obj1[0].c);
+    document.write(obj1[1]);
+    document.write(obj1[1].a);
+    document.write(obj1[1].b);
+    document.write(obj1[1].c);
+    }
+    {
+    const arr1 = [100, 200, "javascript"];
+    const arr2 = [300, 400, "jquery"];
+    const arr3 = [...arr1, 500]
+
+    document.write(arr1);
+    document.write(...arr1);
+    document.write(...arr1, ...arr2);
+    document.write(...arr3);
+    }
+    {
+    const obj = new Object();
+
+    obj.a = 100;
+    obj.b = 200;
+    obj.c = "javascript";
+
+    document.write(obj);
+    document.write(obj.a);
+    document.write(obj.b);
+    document.write(obj.c);
+    }
+</script>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -221,4 +279,4 @@
         console.log(z1);
     }       
     </script>
-</html>
+</html> -->
