@@ -1118,8 +1118,6 @@ body::after {
     background-color: #acb0f7;
     border-radius: 50%;
 }
-
-
 .modal__box .title .tabs {
     display: flex;
     margin-left: 50px;
@@ -1210,19 +1208,15 @@ body::after {
 /* 모달 애니메이션*/
 .modal__cont.show {
     animation: foldOut 1s ease forwards;
-
 }
 .modal__cont.show .modal__box {
     animation: zoomOut 0.5s 1s ease forwards;
-    
 }
 .modal__cont.show .modal__close {
     animation: opacityOut 0.5s 1.5s ease forwards;
 }
-
 .modal__cont.show.hide {
     animation: foldIn 0.3s 0.5s ease backwards;
-
 }
 .modal__cont.show.hide .modal__box {
     animation: zoomIn 0.5s ease forwards;   
@@ -1230,7 +1224,6 @@ body::after {
 .modal__cont.show.hide .modal__close {
     animation: opacityIn 0.5s ease forwards;
 }
-
 @keyframes foldOut {
     0%  {transform: scaleX(0.0001) scaleY(1);}
     50% {transform: scaleX(0.0001) scaleY(1);}

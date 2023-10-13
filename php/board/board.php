@@ -54,7 +54,7 @@
                         <form action="boardSearch.php" name="boardSearch" method="get">
                             <fieldset>
                                 <legend class="blind">게시판 검색 영역</legend>
-                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
+                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!" required>
                                 <select name="searchOption" id="searchOption">
                                     <option value="title">제목</option>
                                     <option value="content">내용</option>

@@ -848,62 +848,19 @@ console.log(obj3);
 </code></pre>
                 <div class="desc">
                     JSON.parse(jsonString)를 사용하여 JSON 문자열을 JavaScript 객체로 변환합니다. 이 객체는 jsonObj에 저장됩니다.<br />
-                    person 객체에 이름(name)과 나이(age) 속성이 정의되어 있습니다.
-JSON.stringify(person)를 사용하여 JavaScript 객체를 JSON 형식의 문자열로 변환합니다. 이 문자열은 jsonPerson에 저장됩니다.
-jsonPerson 문자열을 콘솔에 출력하면 객체가 JSON 형식으로 변환된 문자열이 출력됩니다.
-이렇게 JSON 데이터와 JavaScript 객체 간의 변환은 데이터의 직렬화와 역직렬화를 가능하게 하며, 데이터를 다른 시스템에서 전송하거나 저장할 때 유용합니다.
+                    person 객체에 이름(name)과 나이(age) 속성이 정의되어 있습니다. JSON.stringify(person)를 사용하여 JavaScript 객체를 JSON 형식의 문자열로 변환합니다.<br />
+                    jsonPerson 문자열을 콘솔에 출력하면 객체가 JSON 형식으로 변환된 문자열이 출력됩니다.
+                    이렇게 JSON 데이터와 JavaScript 객체 간의 변환은 데이터의 직렬화와 역직렬화를 가능하게 하며, 데이터를 다른 시스템에서 전송하거나 저장할 때 유용합니다.
                 </div>
                 <details class="result">
                     <summary>결과 확인하기</summary>
                     <div>
-                        (obj1)의 값은 a: 100, b: 200, c: 'javascript'<br>
-                        (obj2)의 값은 a: 100, b: 200, c: 'javascript', d: 'jquert'<br>
-                        (obj2.a)의 값은 100<br>
-                        (obj2.b)의 값은 200<br>
-                        (obj2.c)의 값은 javascirpt<br>
-                        (obj2.d)의 값은 jquery<br>
-                        (obj3)의 값은 a: 100, b: 200, c: 'javascript', d: 'jquert'
+                        webs<br />
+                        {"name":"webs","age":30}
                     </div>
                 </details>
             </div>
-            <!-- //sample21 -->
-
-            <div id="sample22" class="sample">
-                <h3>21. 객체 : 데이터 저장(키과값) : 표현방법10 : 객체 펼침연산자</h3>
-                <p>자바스크립트에서 객체 펼침 연산자(Object Spread Operator)는 객체의 속성을 펼쳐서 새로운 객체를 생성하거나 기존 객체에 다른 객체의 속성을 병합하는 기능을
-                    제공합니다. 객체 펼침 연산자는 ES6(ECMAScript 2015)부터 도입되었습니다.</p>
-<pre><code class="language-js">{
-const obj1 = {a: 100, b: 200, c: "javascript"};
-const obj2 = {...obj1, d: "jquert"};
-const obj3 = {...obj1, ...obj2};
-
-console.log(obj1);
-console.log(obj2);
-console.log(obj2.a);
-console.log(obj2.b);
-console.log(obj2.c);
-console.log(obj2.d);
-console.log(obj3);
-}
-</code></pre>
-                <div class="desc">
-                    객체 펼침 연산자는 객체를 복사하거나 속성을 조작할 때 편리하게 사용할 수 있는 기능입니다. 다만, 객체 내부의 중첩된 객체까지는 얕은 복사만 수행되므로, 깊은
-                    복사(deep copy)를 하려면 별도의 방법을 사용해야 합니다.
-                </div>
-                <details class="result">
-                    <summary>결과 확인하기</summary>
-                    <div>
-                        (obj1)의 값은 a: 100, b: 200, c: 'javascript'<br>
-                        (obj2)의 값은 a: 100, b: 200, c: 'javascript', d: 'jquert'<br>
-                        (obj2.a)의 값은 100<br>
-                        (obj2.b)의 값은 200<br>
-                        (obj2.c)의 값은 javascirpt<br>
-                        (obj2.d)의 값은 jquery<br>
-                        (obj3)의 값은 a: 100, b: 200, c: 'javascript', d: 'jquert'
-                    </div>
-                </details>
-            </div>
-            <!-- //sample21 -->
+            <!-- //sample21-1 -->
             
             <div id="sample22" class="sample">
                 <h3>변수 : 지역변수 + 전역변수</h3>
