@@ -188,8 +188,6 @@ a {
     background-color: #acb0f7;
     border-radius: 50%;
 }
-
-
 .modal__box .title .tabs {
     display: flex;
     margin-left: 50px;
@@ -239,6 +237,7 @@ a {
     position: absolute;
     right: 20px;
     top: 20px;
+    color: #000;
     background-color: #ffffff;
     padding: 1rem 1rem 0.8rem 1rem;
     border-radius: 5px;

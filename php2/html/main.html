@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>회원가입 페이지</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="gray">
+    <div id="skip">
+        <a href="#header">헤더 영역 바로가기</a>
+        <a href="#main">콘텐츠 영역 바로가기</a>
+        <a href="#footer">푸터 영역 바로가기</a>
+    </div>
+
+    <header id="header" role="banner">
+        <div class="header__inner container">
+            <div class="left">
+                <a href="../index.html">
+                    <span class="blind">메인으로</span>
+                </a>
+            </div>
+            <div class="logo">
+                <a href="../html/main.html">Developer Blog</a>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="join.html">회원가입</a></li>
+                </ul>
+            </div>
+        </div>
+        <nav class="nav__inner">
+            <ul>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">게시판</a></li>
+                <li><a href="#">블로그</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- //header -->
+
+    <main id="main" role="main">
+        <div class="intro__inner bmStyle container">
+            <div class="intro__img main">
+                <img srcset="../assets/img/intro1-1@1x.jpg 1x,
+                             ../assets/img/intro1-2@2x.jpg 2x,
+                             ../assets/img/intro1-3@3x.jpg 3x" alt="소개 이미지">
+            </div>
+            <div class="intro__text" style="font-family: IMHyemin; font-weight: 500;">
+                여행은 젊은이에게는 교육의 일부이며, 연장자에겐 경험의 일부이다.<br />
+                자기가 가려는 나라의 말을 다소나마 알지 못하고<br />
+                여행하려는 사람은 여행을 그만두고 학교로 가라.<br />
+                &lt; 프란시스 베이컨 &gt;
+            </div>
+        </div>
+        <!-- intro__inner -->
+
+        <section class="card__wrap bmStyle2 container">
+            <h2>today topic</h2>
+            <div class="card__inner column4">
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/japan.jpg 1x,
+                                     ../assets/img/japan@2x.jpg 2x,
+                                     ../assets/img/japan@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>해외여행 1위는 '일본'</span></h3>
+                        <p class="line3">
+                            일본은 거리가 가까워 한국인이 즐겨 찾는 여행지 중 한 곳이다. 
+                            지난해 10월 일본 정부가 외국인 무비자 입국을 재개하고 최근 엔화 약세에 따라 여행 수요가 증가한 것으로 보인다. 
+                            엔화는 지난 6월 8년여 만에 800원대를 기록한 이후 800원대에서 등락하고 있다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/tvimg3.jpg 1x,
+                                     ../assets/img/tvimg3@2x.jpg 2x,
+                                     ../assets/img/tvimg3@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>여름휴가 해외여행 5명 중 1명이 다녀왔다</span></h3>
+                        <p class="line3">
+                            올해 여름휴가로 해외여행을 다녀온 사람이 작년 4배에 달하면서 코로나 직전의 활황 때만은 못해도 2016년 수준을 회복한 것으로 나타났다. 
+                            국내여행은 최고치에 달했던 작년보다 소폭 낮아졌지만 평년 수준을 유지했다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/bedbug.jpg 1x,
+                                     ../assets/img/bedbug@2x.jpg 2x,
+                                     ../assets/img/bedbug@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                         </a>
+                    </figure>
+                    <div>
+                        <h3><span>'빨갛게 붓고 가려워요' 해외여행 시 '이것' 주의하세요</span></h3>
+                        <p class="line3">
+                            숙소에서 짐가방을 구석 바닥이나 침대와 가까운 곳에 두는 것은 빈대를 집으로 데려올 가능성이 높다고 한다. 
+                            침대 매트리스와 멀리 떨어진 곳, 높은 테이블이나 선반에 올려둘 것을 권하고 빈대가 숨을 곳이 많은 소파도 피하는 것이 좋다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/incheon.jpg 1x,
+                                     ../assets/img/incheon@2x.jpg 2x,
+                                     ../assets/img/incheon@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>인천공항에서 만나는 6K 윤동주…해외여행 전 봐야 할 '이것'</span></h3>
+                        <p class="line3">
+                            한국문학번역원과 인천국제공항공사는 9월 27일부터 내년 2월 29일까지 '국경을 넘은 문학 향유'를 
+                            주제로 미디어전시 '세계인이 함께 읽는 한국 문학'을 공동 개최합니다. 이번 전시에는 윤동주의 '별 헤는 밤'과 한강의 '흰'을 애니메이션화한 작품 2점으로 구성됐으며, 
+                            인천공항 제1·2여객터미널 출국장 주요 대형 전광판 9곳에서 상영됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="card__more"><span class="ir">더보기</span></a>
+        </section>
+
+        <!-- card__wrap -->
+
+        <section class="card__wrap bmStyle2 container">
+            <h2>travel tip</h2>
+            <div class="card__inner column3">
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/ticket.jpg 1x,
+                                     ../assets/img/ticket@2x.jpg 2x,
+                                     ../assets/img/ticket@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>비행기 티켓 싸게 사는 방법</span></h3>
+                        <p class="line3">
+                            비행기 티켓은 실시간으로 가격이 변동됩니다. 이럴 때에는 웹 방문기록과 쿠키 및 사이트에 남아있는 데이터를 지우고 검색해 보세요! 
+                            항공사에서 비행기 티켓 예매 시 화요일 오후 3시경에 예매하는 것이 가장 저렴한 티켓을 얻을 수 있다고 하는데요. 
+                            항공권 특가를 놓쳤다면 이 팁들을 사용해서 저렴한 항공권을 노려보세요.</p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/seat.jpg 1x,
+                                     ../assets/img/seat@2x.jpg 2x,
+                                     ../assets/img/seat@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>비행기 좌석 고르는 팁</span></h3>
+                        <p class="line3">
+                            3 좌석 이상이 붙어있는 항공기 좌석의 경우 양쪽 사이드를 제외한 가운데 좌석이 가장 선호도가 낮은데요. 
+                            만석이 아닌 이상 누군가가 가운데 샌드위치 좌석을 선택할 확률은 드물죠. 따라서 두 명이서 세 자리를 차지해 편안히 여행할 수 있답니다!</p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/googlemap.jpg 1x,
+                                     ../assets/img/googlemap@2x.jpg 2x,
+                                     ../assets/img/googlemap@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                         </a>
+                    </figure>
+                    <div>
+                        <h3><span>인터넷 없이 구글맵 사용하는 법</span></h3>
+                        <p class="line3">
+                            구글맵에서는 인터넷 연결 없이 지도를 확인할 수 있는 '오프라인 지도 저장' 서비스를 제공합니다. 
+                            스마트폰의 GPS는 오프라인에서도 작동하는데요. 여행지의 지도를 미리 오프라인으로 저장해 두면 인터넷이 없는 환경에서도 당황하지 않을 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="card__more"><span class="ir">더보기</span></a>
+        </section>
+
+        <section class="card__wrap bmStyle2 container">
+            <h2>recommend travel</h2>
+            <div class="card__inner column2">
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/hongkong.jpg 1x, ../assets/img/hongkong@2x.jpg 2x, ../assets/img/hongkong@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>홍콩 3박 4일 여행코스 추천</span></h3>
+                        <p class="line3">
+                            작은 지역인만큼 3박 4일이라면 첫 날에는 숙소 근처를 돌아보고 2, 3일차는 각각 홍콩섬 상단과 침사추이 남단, 
+                            4일차에는 대형 쇼핑몰이나 동선상 어려웠던 명소를 방문하는 코스를 추천합니다. 홍콩과 우리나라의 시차는 1시간으로 홍콩이 우리나라보다 늦습니다. 
+                            여행하기 가장 좋은 시기는 12월에서 2월이며 항공권은 왕복 기준 1인 30~40만원 정도에 형성되어 있습니다. 
+                            오전과 이른 오후에 도착하는 편이 있어 첫날부터 체크인 이후 여유롭게 관광을 즐길 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/okinawa.jpg 1x, ../assets/img/okinawa@2x.jpg 2x, ../assets/img/okinawa@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>오키나와 여행 코스는 이걸로 끝!</span></h3>
+                        <p class="line3">
+                            일본의 작은 미국이라 불리우는 오키나와는 4계절 온화한 날씨로 계절에 구애받지않고 여행을 하기 좋은 곳인데요. 
+                            특히 맛있는 음식들과 천혜의 자연의 조화로 고나광객들에게 천국인 곳입니다. 슈리성에서는 지금은 사라진 류큐 왕국의 역사를 생생하게 볼 수 있는데요. 
+                            본관 내부는 원래 건축 양식을 살려 복원했지만, 북관과 남관은 현대식 박물관으로 쓰입니다. 
+                            슈리성은 성 자체만으로도 빼어난 관광지이지만 슈리성을 둘러싼 공원에서 나하 시내의 기막힌 전망을 볼 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="card__more"><span class="ir">더보기</span></a>
+        </section>
+
+        <section class="card__wrap bmStyle2 container">
+            <h2>recommend k-pood</h2>
+            <div class="card__inner column6">
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/burger.jpg 1x,
+                                     ../assets/img/burger@2x.jpg 2x,
+                                     ../assets/img/burger@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>'수제버거'로 소문난 파주 맛집의 정체</span></h3>
+                        <p class="line3">
+                            최근 온라인 커뮤니티에서는 드라이브를 하다가 방문한 파주의 한 대형카페에서 한 방문객이 맛봤다는 '수제버거'가 화제가 되고 있습니다. 
+                            입소문을 타고 무려 5만개나 판매되는 등 큰 인기를 얻고 있는데요.최근 온라인 커뮤니티에서는 드라이브를 하다가 방문한 파주의 한 대형카페에서 한 방문객이 맛봤다는 
+                            '수제버거'가 화제가 되고 있습니다. 입소문을 타고 무려 5만개나 판매되는 등 큰 인기를 얻고 있는데요.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/bread.jpg 1x,
+                                     ../assets/img/bread@2x.jpg 2x,
+                                     ../assets/img/bread@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>전국 10대 빵집에 선정된 빵 맛집 추천 BEST 8</span></h3>
+                        <p class="line3">
+                            밥보다 빵이 더 좋은 빵순이, 빵돌이 분들은 주목하세요! 빵은 디저트와 간식으로는 물론, 식사대신으로도 즐길 수 있는데요. 
+                            전국 각지에서 다양한 재료로 만들어진 빵들은 지역의 문화를 선도하기도 합니다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/pork.jpg 1x,
+                                     ../assets/img/pork@2x.jpg 2x,
+                                     ../assets/img/pork@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>제주공항 근처 흑돼지 구이 맛집 추천 총정리!</span></h3>
+                        <p class="line3"></p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/hongdae.jpg 1x,
+                                     ../assets/img/hongdae@2x.jpg 2x,
+                                     ../assets/img/hongdae@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>홍대 맛집 리스트 총정리</span></h3>
+                        <p class="line3"></p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/kpood.jpg 1x,
+                                     ../assets/img/kpood@2x.jpg 2x,
+                                     ../assets/img/kpood@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>믿고먹는 풍자픽 맛집! 또간집 성수편 리스트 총정리</span></h3>
+                        <p class="line3"></p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/street.jpg 1x,
+                                     ../assets/img/street@2x.jpg 2x,
+                                     ../assets/img/street@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                         </a>
+                    </figure>
+                    <div>
+                        <h3><span>서울 레전드 길거리 토스트 맛집 모음</span></h3>
+                        <p class="line3"></p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="card__more"><span class="ir">더보기</span></a>
+        </section>
+
+        <section class="card__wrap container">
+            <h2>travel news</h2>
+            <div class="card__inner column1">
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/disney.jpg 1x,
+                                     ../assets/img/disney@2x.jpg 2x,
+                                     ../assets/img/disney@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>일본·중국에 있는 디지니랜드가 한국에 못들어오는 진짜 이유</span></h3>
+                        <p class="line1">
+                            일본에는 도쿄 디즈니랜드가, 중국에는 홍콩과 상해에 디즈니랜드가 있는데 그 사이에 있는 대한민국에는 왜 디즈니랜드가 없는 걸까요? 
+                            현재 디즈니테마파크는 미국 올랜도에 있는 디즈니월드를 포함해 전 세계 6곳(미국 올랜도·애너하임, 프랑스 파리, 일본 도쿄, 중국 상하이, 홍콩 란터우)에서 
+                            운영 중인데 이중 절반이 아시아권에 몰려 있어 한국에 추가로 조성될 가능성은 낮다는 설명입니다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/golf.jpg 1x,
+                                     ../assets/img/golf@2x.jpg 2x,
+                                     ../assets/img/golf@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>골퍼가 사랑하는 섬 하이난, 시선 쏠리는 이유</span></h3>
+                        <p class="line1">
+                            골퍼가 사랑하는 섬 중국 하이난이 돌아왔다. 보다 더 다양한 표정으로 골퍼를 반긴다. 
+                            가성비에 가심비까지 챙긴 대중적인 골프투어부터 품격 높은 럭셔리 골프투어까지 모든 골퍼들의 입맛을 충족시키기에 충분하다. 
+                            올해 여름부터 티웨이항공이 인천-산야 노선을 잇기 시작한 이후 골퍼들의 시선이 온통 하이난으로 쏠리고 있는 이유다. 
+                            비자를 받아야 하는 중국 다른 지역과 달리 하이난은 비자 없이 30일까지 여행할 수 있어 더욱 매력적이다. 
+                            가성비부터 럭셔리 골프까지 하이난의 다양한 골프 매력을 알리겠다고 선언한 쿨세계여행과 함께 하이난을 다녀왔다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/taiwan.jpg 1x,
+                                     ../assets/img/taiwan@2x.jpg 2x,
+                                     ../assets/img/taiwan@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>타이완 아웃도어 트립</span></h3>
+                        <p class="line1">
+                            타이완은 우리나라 면적의 35%에 불과하다. 경상남북도를 합쳐 놓은 크기. 그런데 다양하다. 
+                            사면이 바다로 둘러싸인 데다가 평지, 분지, 구릉이 이어지는 극단적인 지형. 백두산보다 높거나 버금가는 산도 많다. 라이딩, 트레킹, 등산, 서핑이 자유로운 곳. 
+                            타이완의 아웃도어를 탐구했다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/Senior.jpg 1x,
+                                     ../assets/img/Senior@2x.jpg 2x,
+                                     ../assets/img/Senior@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>돌아온 액티브 시니어, 특색 있는 프리미엄 해외여행 원한다</span></h3>
+                        <p class="line1">
+                            코로나 이후 주춤했던 시니어(60대 이상)층의 해외여행이 회복세를 보이고 있다. 
+                            본인의 취향에 맞는 프리미엄 테마여행을 선호하는 경향을 보였다. 시니어는 해외 패키지 시장의 주요 고객층이다. 
+                            주요 여행사의 세대별 해외 패키지 예약 현황을 집계한 결과, 현재 패키지 예약의 20~30%대 비중을 차지하고 있는 것으로 드러났다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/Israel.jpg 1x,
+                                     ../assets/img/Israel@2x.jpg 2x,
+                                     ../assets/img/Israel@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                        </a>
+                    </figure>
+                    <div>
+                        <h3><span>전쟁으로 파랗게 질린 이스라엘…여행시장도 '험로'</span></h3>
+                        <p class="line1">
+                            이스라엘과 팔레스타인 하마스 간의 전쟁으로 이스라엘 여행시장은 당분간 타격을 면치 못할 전망이다. 
+                            지난 7~8일 사이 양측의 공격에 따라 사망자만 2,100여명을 넘으며 긴장된 상태가 이어지고 있어서다.
+                            외교부는 “현지 상황이 안정될 때까지 이스라엘 여행 예정자들은 가급적 여행을 취소하고 현지 체류 우리 국민은 귀국하여 주시기 바란다”라고 권고했다. 
+                            사실상 정상적인 여행이 불가능한 상태가 됐다고 볼 수 있다.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img srcset="../assets/img/jejuair.jpg 1x,
+                                     ../assets/img/jejuair@2x.jpg 2x,
+                                     ../assets/img/jejuair@3x.jpg 3x" alt="blog">
+                        <a href="#" title="콘텐츠 바로가기" class="go">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z" fill="white"></path>
+                            </svg>
+                         </a>
+                    </figure>
+                    <div>
+                        <h3><span>제주항공, 부산-보홀 신규 취항…필리핀 7개 노선 운항</span></h3>
+                        <p class="line1">
+                            주항공이 부산-필리핀 하늘길을 넓힌다. 10월29일부터 부산-보홀 노선에 주7회(매일) 일정으로 신규 취항한다. 
+                            제주항공의 부산-보홀 노선은 지난 7월 취항한 부산-울란바토르 노선에 이어 두 번째 부산발 신규 취항 노선이다. 
+                            제주항공은 "2019년 10월 인천 출발에 이어 4년 만에 부산 출발 보홀 노선에 취항하며, 이로써 국적항공사 중 가장 많은 필리핀 노선(7개)을 운항하게 됐다"라고 밝혔다.
+                        </p>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+    </main>
+    <!-- //main -->
+
+    <footer id="footer" class="mt80" role="contentinfo">
+        <div class="footer__inner container btStyle">
+            <div>Copyright 2023 audgns722</div>
+            <div>blog by webs</div>
+        </div>
+
+    </footer>
+    <!-- //footer -->
+</body>
+</html>

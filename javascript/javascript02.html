@@ -65,6 +65,8 @@
                     <li><a href="#sample19">19. 객체 : 데이터 불러오기 : for in</a></li>
                     <li><a href="#sample20">20. 객체 : 데이터 불러오기 : 객체 펼침 연산자</a></li>
                     <li><a href="#sample21">21. 객체 : 데이터 불러오기 : 객체 구조 분해 할당</a></li>
+                    <li><a href="#sample22">22. 파일 : 서버 데이터 불러오기 : XMLHttpRequest</a></li>
+                    <li><a href="#sample23">23. 파일 : 서버 데이터 불러오기 : fetch API</a></li>
                 </ul>
             </div>
             <!-- //main__menu -->
@@ -948,39 +950,101 @@
 }
 </code></pre>
                     <p class="desc">
-                        obj1 객체 정의 및 해체:<br>
-                        obj1은 {a: 100, b: 200, c: "javascript"} 객체를 정의합니다.<br>
-                        객체 해체를 사용하여 객체의 속성 a, b, c 값을 각각 변수 a, b, c에 할당하고 출력합니다.<br>
-                        객체 속성을 다른 변수에 할당:<br>
-                        객체 해체를 사용하여 obj1의 속성 a, b, c를 각각 변수 x, y, z에 할당하고 출력합니다.<br>
-                        기본값 설정:<br>
-                        obj4 객체 생성:<br>
-                        obj2는 {d: 100, e: 200, f: "javascript"} 객체를 정의합니다.<br>
-                        객체 해체를 사용하여 obj2의 속성 d, e, f를 추출하고, 속성 g에 기본값 "jquery"를 설정하고 출력합니다.<br>
-                        obj3는 {x1: 100, y1: {a1: 100, b1: 200}, z1: "javascript"} 객체를 정의합니다.<br>
-                        객체 해체를 사용하여 obj3의 속성 x1, y1의 속성 a1, b1, 그리고 속성 z1을 추출하고 출력합니다.<br>
-                        
+                        obj1의 속성 값을 변수 a, b, c에 대입하고 출력, 객체 해체를 사용하여 a, b, c를 x, y, z에 대입합니다. 이렇게 하면 변수 이름을 재정의<br />
+                        객체 해체를 사용하여 d, e, f를 변수로 가져옴, g는 기본값이 "jquery"로 설정되어 있습니다. 만약 obj2에 g 속성이 없다면 "jquery"가 출력<br />
+                        obj3 객체를 정의하고, 중첩된 객체 해체를 사용하여 x1, a1, b1, z1을 변수로 가져옴, 중첩된 객체의 속성에도 접근할 수 있음
                     </p>
                     <div class="result">
                         <details>
                             <summary>결과 확인하기</summary>
                             <div>
-                                100<br>
-                                200<br>
-                                "javascript"<br>
-                                100<br>
-                                200<br>
-                                "javascript"<br>
-                                "jquery"<br>
-                                100<br>
-                                100<br>
-                                200<br>
-                                "javascript"<br>
+                                100<br />
+                                200<br />
+                                javascript<br />
+                                100<br />
+                                200<br />
+                                javascript<br />
+                                jquery<br />
+                                100<br />
+                                100<br />
+                                200<br />
+                                javascript
                             </div>
                         </details>
                     </div>
                 </div>
                 <!-- //sample21 -->
+
+                <div id="sample22" class="sample">
+                    <h3>22. 파일 : 서버 데이터 불러오기 : XMLHttpRequest</h3>
+                    <p> JSON 데이터를 비동기적으로 불러와서 처리하는 JavaScript 코드이다.</p>
+<pre><code class="language-js">{
+    var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json", true);
+        
+        xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                        var responseData = xhr.responseText;
+                        var jsonData = JSON.parse(responseData);
+    
+                        console.log(jsonData);
+                } else if (xhr.readyState === 4) {
+                        console.error("데이터 불러오기 오류: " + xhr.status);
+                }
+        };
+
+xhr.send();
+}
+</code></pre>
+                    <p class="desc">
+                        XMLHttpRequest 객체를 생성하고 초기화합니다.<br />
+                        요청 상태를 감시하고 응답을 처리하는 콜백 함수를 정의합니다.<br />
+                        요청이 완료되면 데이터를 처리, 실패하면 오류를 처리합니다.<br />
+                        결과적으로, 이 코드는 원격 서버에서 JSON 데이터를 가져와서 성공적으로 불러오면 해당 데이터를 콘솔에 출력하고, 오류가 발생하면 오류 메시지를 콘솔에 출력합니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                Array(60)
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <!-- //sample22 -->
+
+                <div id="sample22" class="sample">
+                    <h3>23. 파일 : 서버 데이터 불러오기 : fetch API</h3>
+                    <p>fetch 함수를 사용하여 원격 서버에서 JSON 데이터를 가져오고 처리하는 방법</p>
+<pre><code class="language-js">{
+    fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+</code></pre>
+                    <p class="desc">
+                        fetch 함수를 사용하여 원격 서버에서 데이터를 가져옵니다.<br />
+                        then 메서드를 사용하여 데이터를 처리합니다. fetch 함수는 Promise를 반환하며, 응답 객체(response)를 받아서 JSON 데이터로 파싱하는 response.json() 메서드를 호출합니다.<br />
+                        JSON 데이터가 성공적으로 파싱되면, 파싱된 데이터를 data 변수에 저장하고 콘솔에 출력합니다. 데이터를 가져오는 과정에서 오류가 발생하면, 해당 오류를 error 변수에 저장하고 콘솔에 출력합니다.<br />
+                        결과적으로, 이 코드는 fetch 함수를 사용하여 원격 서버에서 JSON 데이터를 가져오고, 이 데이터를 JSON 형식으로 파싱한 후 성공적인 경우에는 데이터를 콘솔에 출력하며, 오류가 발생한 경우에는 오류 메시지를 콘솔에 출력하는 비동기 데이터 로딩 및 처리 코드입니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                Array(60)
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <!-- //sample23 -->
         </main>
         <!-- //main -->
         
@@ -1298,6 +1362,37 @@
             console.log(a1);
             console.log(b1);
             console.log(z1); 
+        }
+        // 22. 파일 : 서버 데이터 불러오기 : XMLHttpRequest
+        {
+            var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json", true);
+                
+                xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                                var responseData = xhr.responseText;
+                                var jsonData = JSON.parse(responseData);
+            
+                                console.log(jsonData);
+                        } else if (xhr.readyState === 4) {
+                                console.error("데이터 불러오기 오류: " + xhr.status);
+                        }
+                };
+        
+        xhr.send();
+        }
+        // 23. 파일 : 서버 데이터 불러오기 : fetch API
+        {
+            fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     </script>
 </body>
