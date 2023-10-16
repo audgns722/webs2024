@@ -93,3 +93,122 @@
     border-bottom: 3px solid #fff;
     border-top: 3px solid #fff;
 }
+
+/* page3 */
+.main__page3 {
+    width: 100%;
+    height: 980px;
+    background-color: #F8F4EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.page3__text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.page3__text h4 {
+    font-size: 2.4rem;
+    color: #285A5B;
+    margin-bottom: 30px;
+}
+.page3__text p {
+    font-size: 1.4rem;
+
+}
+.companyWrap {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+.companyBox {
+    width: 24%;
+    height: 450px;
+    background-color: #fff;
+    margin: 0 20px 0 0 ;
+    border: 1px solid #285A5B;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.companyBox:last-child {
+    margin: 0;
+}
+.companyBox .dunkin{
+    width: 95px;
+    height: 95px;
+    background-image: url(../img/dunkin.png);
+}
+.company__text {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 2;
+}
+.company__text em {
+    font-size: 2rem;
+    color: #285A5B;
+    font-weight: 500;
+}
+.company__result {
+    display: flex;
+    width: 100%;
+}
+.company__result span{
+    margin-top: 15px;
+    font-size: 3.5rem;
+    color: #9e9b9b;
+}
+.company__result .result1 { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+}
+.company__result .result1 h4 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+ }
+.company__result .result1 img {
+    width: 75px;
+    height: 75px;
+ }
+ .company__result .result2 { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+}
+.company__result .result2 h4 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+.company__result .result2 img {
+    width: 75px;
+    height: 75px;
+}
+.companyBox .nature{
+    width: 95px;
+    height: 95px;
+    background-image: url(../img/nature.png);
+}
+.companyBox .starbucks{
+    width: 95px;
+    height: 95px;
+    background-image: url(../img/starbucks.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.companyBox .baemin{
+    width: 95px;
+    height: 95px;
+    background-image: url(../img/baemin.png);
+}
