@@ -44,6 +44,9 @@ table,
 textarea {
     font-family: var(--main-gmark), var(--main-gmark), 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움';
 }
+body {
+    padding-top: 100px;
+}
 
 /* 링크 초기화 */
 a {

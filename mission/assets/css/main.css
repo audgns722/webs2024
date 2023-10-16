@@ -1,21 +1,30 @@
 #header {
-    width:100%;
+    /* max-width: 1920px; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid #285A5B;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 .header__logo {
-    width: 400px;
+    width: 25%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .header__logo h1 {
-    font-size: 30px;
+    background-image: url(../img/logo2.jpg);
+    width: 131px;
+    height: 56px;
 }
 .header__nav {
-    width: 900px;
+    width: 50%;
 }
 .header__nav ul {
     height: 100px;
@@ -28,30 +37,51 @@
 }
 .header__nav ul a {}
 .header__search {
-    width: 390px;
+    width: 20%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    margin-right: 2rem;
 }
+
 .header__search input {
-    width: 312px;
+    width: 80%;
     height: 30px;
     border-radius: 15px;
     background-color: #F2F1EC;
     color: #969696;
     border: none;
-    padding-left: 15px;
+    padding-left: 1.2rem;
+    position: relative;
+}
+.search__zoom {
+    background-image: url(../img/zoom.svg);
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 10%;
+    display: flex;
+    justify-content: center;
 }
 .header__login {
-    width: 250px;
+    width: 5%;
     height: 100px;
     display: flex;
-    align-items: center;
 }
 .login__btn {
-    margin-left: 60px;
     background-color: #fff;
+    position: relative;
+}
+.login__btn a {}
+.login__btn .login__icon {
+    background-image: url(../img/loginicon.svg);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: -40%;
+    top: 35%;
 }
 
 #slider {
@@ -59,21 +89,22 @@
 .sliderWrap {
     width: 100%;
     display: flex;
-    position: relative;
-    
-    
+    position: relative; 
 }
 .sliderWrap .slider .s1 {
-    height: 980px;
+    /* height: 980px; */
+    position: relative;
 }
-/* .sliderWrap .slider .s2 {
-    display: none;
+.sliderBtn {
+    background-image: url(../img/sliderswipe.png);
+    position: absolute;
+    width: 230px;
+    height: 40px;
+    right: 5%;
+    bottom: 11%;
 }
-.sliderWrap .slider .s3 {
-    display: none;
-} */
 .slider__text {
-    width: 820px;
+    width: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -83,11 +114,11 @@
     transform: translate(-50%, -50%);
 }
 .slider__text h2 {
-    font-size: 50px;
+    font-size: 3.2rem;
     color: #fff;
 }
 .slider__text p {
-    font-size: 80px;
+    font-size: 5rem;
     color: #fff;
     text-align: center;
     border-bottom: 3px solid #fff;
@@ -157,6 +188,8 @@
 .company__result {
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 .company__result span{
     margin-top: 15px;
