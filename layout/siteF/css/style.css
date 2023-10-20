@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+
+/* reset */
+*{
+    margin: 0 auto;
+    padding: 0;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+    width: 100%;
+}
+
+#wrap {
+    width: 100%;
+}
+/* header */
+#header {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header__logo {
+    width: 250px;
+    height: 100px;
+}
+.header__logo h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+.header__nav {
+    width: 80%;
+    height: 100px;
+    position: relative;
+}
+.header__nav > ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 15px;
+}
+.header__nav > ul > li {
+    
+}
+.header__nav > ul > li > a {
+    display: block;
+    background-color: #ffd2d283;
+    padding: 15px 45px;
+}
+.header__nav > ul > li > ul {
+    display: none;
+    left: 0;
+    width: 25%;
+    position: absolute;
+    background-color: #fff;
+    
+    
+    
+}
+.header__nav > ul > li > ul > li {}
+.header__nav > ul > li > ul > li a {
+    display: block;
+    padding: 10px 20px;
+}
+
+
+/* main */
+#main {
+    width: 1200px;
+}
+.slider {
+    height: 300px;
+    background-color: #696969;
+}
+.contents {
+    width: 100%;
+    display: flex;
+    height: 200px;
+    
+}
+.contents .info {
+    width: 400px;
+    background-color: #333;
+}
+.contents .info__menu {}
+.contents .info__cont {}
+
+.banner {
+    width: 400px;
+    background-color: #fff;
+}
+.link {
+    width: 400px;
+    background-color: #cdcdcd;
+}
+/* footer */
+#footer {
+    width: 1200px;
+    height: 100px;
+    display: flex;
+}
+.footer1 {
+    width: 15%;
+    background-color: #665566;
+}
+.footer2 {
+    width: 70%;
+    background-color: #d8d8d8;
+}
+.footer3 {
+    width: 15%;
+    background-color: #cccccc;
+}
