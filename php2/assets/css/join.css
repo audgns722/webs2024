@@ -169,39 +169,17 @@
         padding: 5% 20px;
     }
 }
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-.area {
+.intro__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 30px;
+}
+.box {
+  width: 50%;
+  height: 300px;
   text-align: center;
-  font-size: 40px;
-  color: #000000;
-  letter-spacing: -7px;
-  font-weight: 500;
-  text-transform: uppercase;
-  animation: blur .75s ease-out infinite;
-  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
 }
 
-@keyframes blur {
-  from {
-    text-shadow:0px 0px 10px #fff,
-      0px 0px 10px #fff, 
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 50px #fff,
-      0px 0px 50px #fff,
-      0px 0px 50px #7B96B8,
-      0px 0px 150px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px -10px 100px #7B96B8,
-      0px -10px 100px #7B96B8;
-  }
-}
+#morning,#sunset,#night{   opacity: 0,}

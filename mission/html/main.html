@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    
+
 
 </head>
+
 <body>
     <header id="header">
-        <div class="header__logo">
+        <a class="header__logo" href="main.html">
             <h1></h1>
-        </div>
+        </a>
         <nav class="header__nav">
             <ul>
                 <li><a href="#">분리배출</a></li>
@@ -22,47 +24,69 @@
             </ul>
         </nav>
         <div class="header__search">
-            <input type="text" placeholder="1. 용기분리배출" >
+            <input type="text" placeholder="1. 용기분리배출">
         </div>
         <div class="search__zoom"></div>
         <div class="header__login">
             <button class="login__btn">
-                <a href="#">Login</a>
-                <div class="login__icon"></div>
+                <a href="login.html">Login</a>
+                <a class="login__icon" href="login.html"></a>
             </button>
         </div>
-        
+
     </header>
 
-    <div id="slider">
-        <div class="sliderWrap">
-            <div class="slider s1">
-                <img src="../assets/img/sliderimg01.png" alt="">
-                <div class="sliderBtn"></div>
-                <div class="slider__text">
-                    <h2>clean earth</h2>
-                    <p>Green Support<br>
-                        Bright Tomorrow</p>
-                </div>
-            </div>
-            <!-- <div class="slider s2">
-                <div class="slider__text">
-                    <h2>clean earth</h2>
-                    <p>Green Support<br>
-                        Bright Tomorrow</p>
-                </div>
-            </div>
-            <div class="slider s3">
-                <div class="slider__text">
-                    <h2>clean earth</h2>
-                    <p>Green Support<br>
-                        Bright Tomorrow</p>
-                </div>
-            </div> -->
-        </div>
-    </div>
-
     <main id="main">
+        <div id="slider">
+            <div class="sliderWrap">
+                <div class="sliderimg">
+                    <img src="../assets/img/sliderimg01.png" alt>
+                    <!-- <div class="sliderBtn"></div> -->
+                    <div class="slider__text">
+                        <h2>clean earth</h2>
+                        <p>Green Support<br>
+                            Bright Tomorrow</p>
+                    </div>
+                </div>
+                <div class="sliderimg">
+                    <img src="../assets/img/sliderimg02.jpg" alt>
+                    <!-- <div class="sliderBtn"></div> -->
+                    <div class="slider__text">
+                        <h2>clean earth</h2>
+                        <p>Green Support<br>
+                            Bright Tomorrow</p>
+                    </div>
+                </div>
+                <div class="sliderimg">
+                    <img src="../assets/img/sliderimg03.jpg" alt>
+                    <!-- <div class="sliderBtn"></div> -->
+                    <div class="slider__text">
+                        <h2>clean earth</h2>
+                        <p>Green Support<br>
+                            Bright Tomorrow</p>
+                    </div>
+                </div>
+                <div class="sliderimg">
+                    <img src="../assets/img/sliderimg04.jpg" alt>
+                    <!-- <div class="sliderBtn"></div> -->
+                    <div class="slider__text">
+                        <h2>clean earth</h2>
+                        <p>Green Support<br>
+                            Bright Tomorrow</p>
+                    </div>
+                </div>
+                <div class="sliderimg">
+                    <img src="../assets/img/sliderimg05.jpg" alt>
+                    <!-- <div class="sliderBtn"></div> -->
+                    <div class="slider__text">
+                        <h2>clean earth</h2>
+                        <p>Green Support<br>
+                            Bright Tomorrow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="main__page3">
             <div class="page3__text">
                 <h4>자원 순환을 위해 앞장서는 기업</h4>
@@ -162,12 +186,36 @@
                                 13,771kg<br>
                                 탄소저감량
                             </h4>
-                        </div>                       
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
+    <script>
+        window.onload = function(){
+            let currentIndex = 0; //현재 이미지
+            const sliderWrap = document.querySelector(".sliderWrap");   //전체 이미지 저장
+            const slider = document.querySelectorAll(".sliderimg");    //각각의 이미지
+            const sliderClone = sliderWrap.firstElementChild.cloneNode(true);   //첫번째 이미지 저장
+            sliderWrap.appendChild(sliderClone);    //이미지 마지막 영역에 추가
+
+            setInterval(() => {     //3초에 한번씩 실행
+                currentIndex++;     //현재 이미지 1씩 증가
+                sliderWrap.style.transition = "all 0.7s";   //애니메이션 효과 추가
+                sliderWrap.style.marginLeft = -currentIndex * 100 + "%";    //왼쪽으로 100%씩 이동
+
+                if(currentIndex == slider.length){
+                    setTimeout(() => {
+                        sliderWrap.style.transition = "0s";     //애니메이션 효과 정지
+                        sliderWrap.style.marginLeft = "0";      //이미지 위치를 초기화
+
+                        currentIndex = 0;   //현재 이미지를 초기화
+                    }, 700);
+                }
+            }, 3000);
+        };
+    </script>
 </body>
+
 </html>

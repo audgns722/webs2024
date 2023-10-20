@@ -1,0 +1,337 @@
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 100;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 800;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'TheJamsil';
+}
+li {
+    list-style: none;
+}
+body {
+    background-color: #fffeef;
+}
+.search__title h1{
+    font-family: 'TheJamsil';
+}
+.container {
+    width: 1280px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* header */
+#header {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#header.fix {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+#header h1 a {
+    display: inline-block;
+    color: #000000;
+    padding: 1.3rem;
+    font-size: 1.8rem;
+}
+#header nav {
+    padding-right: 1.3rem;
+}
+#header nav li {
+    display: inline-block;
+}
+#header nav li a {
+    padding: 7px;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #000000;
+    text-align: center;
+    box-shadow: 1px 1px 0px #000000;
+    line-height: 1;
+    color: #000000;
+}
+#header nav li.active a {
+    background-color: #e3ff97;
+    color: #000;
+}
+
+.search__wrap {
+    width: 70%;
+    height: 800px;
+    background-color: #ecffc8;
+    border: 2px solid #bbff00;
+    border-radius: 15px;
+    display: flex;
+}
+.search__title {
+    text-align: center;
+}
+.search__title h1 {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 3.8rem;
+}
+.search__title span {
+    font-size: 1.3rem;
+}
+.search__box {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.search__btn {
+    position: absolute;
+    padding: 10px;
+    right: 10%;
+    top: 16%;
+    border-radius: 30px;
+    border: 0;
+    background-color: #00703c;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3;
+}
+.search__btn:hover {
+    background-color: #128d54;
+}
+.search__box p {
+    margin-top: 10px;
+}
+.search__box p em {
+    text-decoration: underline;
+    text-underline-position: under;
+    font-style: normal;
+}
+.search__box label {
+    display: none;
+}
+.search__box input {
+    border-radius: 1rem;
+    border: none;
+    width: 60%;
+    height: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.search__select {
+    height: 50px;
+    margin-top: 20px;
+
+}
+.search__select span {
+    padding: 10px;
+    border: 1px dashed #bbff00;
+    background-color: #f5ffd8;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.search__select span:hover {
+    background-color: #000000b0;
+    color: #bbff00;
+}
+.search__info {
+    font-size: 1.3rem;    
+}
+.search__info span {
+    font-size: 1.4rem;
+    color: rgb(46, 172, 73);
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+.search__list {
+    padding: 1rem;
+    border-top: 2px dashed #000000;
+    width: 100%;
+    height: 80%;
+    overflow-y: scroll;
+    line-height: 1.3;
+}
+.search__list li {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #00703c4f;
+}
+.search__list li > i {
+    margin-right: 10px;
+    display: inline-block;
+    font-style: normal;
+    width: 110px;
+    flex-direction: row-reverse;
+    border-right: 2px solid #000;
+
+}
+.search__list li.show {
+    display: block;
+}
+.search__list li.hide {
+    display: none;
+}
+.search__list span {
+    display: inline-block;
+    margin: 5px 10px 5px 10px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px dashed #4b6405;
+    background-color: #d1d1d12d;
+    cursor: pointer;
+}
+.search__list span:hover,
+.search__list span.active {
+    background-color: #4b6405;
+    color: #fff;
+}
+
+
+.search__star {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search__star ul {
+    display: flex;
+    margin: 30px 0 50px 0;
+}
+.search__star ul li {
+    text-align: center;
+    font-size: 13px;
+    height: 40px;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid #4b6405;
+    border-radius: 30px;
+}
+.search__box__result {
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: #bbff006e;
+    padding: 15px;
+    border: 1px solid #bbff00;
+}
+.search__box__result::before {
+    content: '💬 ';
+    font-style: normal;
+    padding: 0 5px 0 0;
+    margin-right: 5px;
+    border-right: 2px solid #070707;
+}
+
+/* footer */
+#footer {
+    text-align: center;
+    font-size: 1rem;
+}
+#footer a {
+    display: block;
+    color: #000000;
+    padding: 2.2rem;
+}
+#footer a:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+/* scroll style */
+.scroll__style::-webkit-scrollbar {
+    width: 10px;
+    background-color: #eaffaf;
+    border: 1px solid #00000034;
+}
+.scroll__style::-webkit-scrollbar-thumb {
+    background-color: #0000003d;
+    border-radius: 1.3rem;
+}
+.scroll__style::-webkit-scrollbar-track {
+    background-color: var(--black500);
+    border-radius: 1.3rem;
+}

@@ -1,0 +1,12 @@
+.login__box input {
+    width: 353px;
+    padding: 0.5rem;
+    border-bottom: 1px solid #C1C1C1 !important;
+    border: none;
+    color: #353535;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+.images__wrap span {
+    background-image: url(../img/joinimg.png);
+}

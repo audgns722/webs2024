@@ -117,3 +117,9 @@ table {
     line-height: 0;
     text-indent: -9999px;
 }
+
+@media(max-width : 1100px ){
+    body {
+        padding-top: 70px;
+    }
+}
