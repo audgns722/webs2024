@@ -3,44 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 페이지</title>
+    <title>PHP 블로그 만들기</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <?php include "../include/head.php" ?>
+    
 </head>
 <body class="gray">
-    <div id="skip">
-        <a href="#header">헤더 영역 바로가기</a>
-        <a href="#main">콘텐츠 영역 바로가기</a>
-        <a href="#footer">푸터 영역 바로가기</a>
-    </div>
+    <?php include "../include/skip.php" ?>
+    <!-- //skip -->
 
-    <header id="header" role="banner">
-        <div class="header__inner container">
-            <div class="left">
-                <a href="../index.html">
-                    <span class="blind">메인으로</span>
-                </a>
-            </div>
-            <div class="logo">
-                <a href="main.html">Developer Blog</a>
-            </div>
-            <div class="right">
-                <ul>
-                    <li><a href="join.html">회원가입</a></li>
-                </ul>
-            </div>
-        </div>
-        <nav class="nav__inner">
-            <ul>
-                <li><a href="#">회원가입</a></li>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">게시판</a></li>
-                <li><a href="#">블로그</a></li>
-            </ul>
-        </nav>
-
-    </header>
+    <?php include "../include/header.php" ?>
     <!-- //header -->
 
     <main id="main" role="main">
@@ -54,6 +27,7 @@
                 회원가입을 해주시면 다양한 정보를 자유롭게 볼 수 있습니다.
             </div>
         </div>
+
         <section class="join__inner container">
             <h2>회원가입</h2>
             <div class="join__index">
@@ -126,18 +100,64 @@
                     </fieldset>
                 </form>
             </div>
-
         </section>
 
     </main>
     <!-- //main -->
-    <footer id="footer" role="contentinfo">
-        <div class="footer__inner container btStyle">
-            <div>Copyright 2023 audgns722</div>
-            <div>blog by webs</div>
-        </div>
 
-    </footer>
+    <?php include "../include/footer.php" ?>
     <!-- //footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        let isIdCheck = false;
+
+        function idChecking(){
+            let youId = $("#youId").val();
+            
+            if(youId == null || youId == ''){
+                $("#youIdComment").text("** 아이디를 입력해주세요!!");
+            } else {
+                //아이디 유효성 검사
+                let getYouId = RegExp(/^[a-zA-Z0-9_-]{4,20}$/);
+
+                if(!getYouId.test($("#youId").val())){
+                    $("#youIdComment").text("아이디는 영어와 숫자를 포함하여 4~20글자 이내로 작성성이 가능합니다.");
+                    $("#youId").val('');
+                    $("#youId").focus();
+
+                    return false;
+                } else {
+                    $("#youIdComment").text("멋진아이디입니다.");
+                    $("#youIdComment").addClass("green");
+                } 
+                $.ajax({
+                    type : "POST",
+                    url : "joinCheck.php",
+                    data : {"youId" : youId, "type" : "isIdCheck"},
+                    dataType : "json",
+                    success : function (data){
+                        if(data.result == "good"){
+                            $("#youIdComment").text("사용 가능한 아이디 입니다.");
+                            isIdCheck = true;
+                        } else {
+                            $("#youIdComment").text("이미 존재하는 아이디 입니다.");
+                            isIdCheck = false;
+                        }
+                    }
+                })
+            }
+        }
+
+        function joinChecks(){
+
+            // ID유효성 검사
+            if( $("#youId").val() == '' ){
+                $("#youIdComment").text("-> 아이디를 작성해주세요!");
+                $("#youId").focus();
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
