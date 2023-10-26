@@ -1,13 +1,78 @@
-.join__inner {
-    padding: 80px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
+
+/* join__insert */
+.join__insert {
+    padding: 5% 10%;
 }
 .join__inner h2 {
     font-size: 30px;
     text-align: center;
+}
+.join__insert .join {
+    margin-top: 50px;
+}
+.join__insert div label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.join__insert div input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.join__insert div .msg {
+    color: var(--red);
+    margin-bottom: 3rem;
+}
+.join__insert .check {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.join__insert .check label {
+    width: 100%;
+}
+.join__insert .check input {
+    width: 69%;
+    height: 58px;
+}
+.join__insert .check .btn {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 58px;
+}
+.join__btn {
+    margin-top: 70px;
+    text-align: center;
+}
+.join__btn a {
+    display: inline-block;
+}
+@media (max-width: 800px){
+    .join__insert {
+        padding: 0;
+    }
+}
+@media (max-width: 600px){
+    .join__insert .check {
+        flex-direction: column;
+    }
+    .join__insert .check input {
+        width: 100%;
+        height: 47px;
+    }
+    .join__insert .check .btn {
+        width: 100%;
+        height: 47px;
+        margin-bottom: 10px;
+    }
 }
 .join__index {
     text-align: center;
@@ -53,7 +118,7 @@
 .agree__box .scroll {
     width: 830px;
     height: 280px;
-    background-color: #e8eeee;
+    background-color: #ffffff;
     overflow-y: scroll;
     padding: 15px;
     white-space: pre-line;
@@ -103,7 +168,7 @@
     padding: 80px 20%;
 }
 .join__form div {
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
 }
 .join__form label {
     display: block;
@@ -115,9 +180,9 @@
     display: inline-block;
 }
 .join__form .check {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 .join__form .check label {
     width: 100%;
@@ -126,7 +191,9 @@
     width: 68%;
 }
 .join__form .check .check__btn {
-    width: 30%;
+    width: 28%;
+    text-align: center;
+    margin-left: 10px;
 }
 .join__form .check2 {
     display: flex;
@@ -173,7 +240,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    flex-direction: column;
+
+    padding: 80px 0;
     margin-bottom: 30px;
 }
 .box {

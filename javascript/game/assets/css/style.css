@@ -1,0 +1,71 @@
+body {
+    
+}
+#wrap {
+    width: 100%;
+    height: 100vh;
+
+}
+#wrap.bg01 {
+    background-image: url(../img/bg01.gif);
+    background-size: cover;
+
+}
+
+
+
+/* main */
+.icon__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.icon__menu img {
+    width: 80px;
+    height: 80px;
+}
+
+/* musicWrap */
+#musicWrap {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 350px;
+    height: 700px;
+    background-image: url(../img/gameboy.png);
+    border-radius: 30px;
+}
+.music__inner {}
+
+
+.music__header {
+    position: relative;
+}
+.music__header h2 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2rem;
+    color: #000;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    letter-spacing : 3px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+.music__contents {
+    height: 700px;
+}
+.music__contents .music__view {
+    background-image: url(../img/musicscreen1.jpg);
+    width: 280px;
+    height: 255px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 80px;
+    right: 35px;
+    border-radius: 15px;
+}
+.music__control {
+    height: 400px;
+}
