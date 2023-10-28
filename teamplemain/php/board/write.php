@@ -52,9 +52,9 @@ include "../connect/session.php";
         <section class="board__inner">
             <div class="board__nav">
                 <ul>
-                    <li><a href="../board/notice.html">공지사항</a></li>
-                    <li><a href="../board/question.html">질문하기</a></li>
-                    <li><a href="../board/question2.html">1:1문의</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="question.php">질문하기</a></li>
+                    <li><a href="#">1:1문의</a></li>
                 </ul>
             </div>
 

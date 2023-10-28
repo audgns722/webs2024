@@ -2,12 +2,28 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    $boardSql = "SELECT * FROM teamBoard WHERE boardDelete = 1 ORDER BY boardID DESC";
-    $boardInfo = $connect -> query($boardSql);
+    // 한 페이지에 보여질 항목 수
+    $viewNum = 10;
 
-    if (!$boardInfo) {
-        echo "<script>alert('쿼리 실행 오류: " . $connect->error . "');</script>";
+    // 현재 페이지 번호를 가져옴
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
     }
+
+    // 시작 레코드 인덱스 계산
+    $viewLimit = ($viewNum * $page) - $viewNum;
+
+    // SQL 쿼리
+    $boardSql = "SELECT * FROM teamBoard WHERE boardDelete = 1 ORDER BY boardID DESC LIMIT $viewLimit, $viewNum";
+    $boardInfo = $connect->query($boardSql);
+
+    $sql = "SELECT count(boardID) FROM teamBoard";
+    $result = $connect->query($sql);
+
+    $boardTotalCount = $result->fetch_array(MYSQLI_ASSOC);
+    $boardTotalCount = $boardTotalCount['count(boardID)'];
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +50,7 @@
             <div class="board__nav">
                 <ul>
                     <li><a href="#">공지사항</a></li>
-                    <li><a href="../board/question.php" class="active">질문하기</a></li>
+                    <li><a href="question.php" class="active">질문하기</a></li>
                     <li><a href="#">1:1문의</a></li>
                 </ul>
             </div>
@@ -81,7 +97,7 @@
     while ($row = $boardInfo->fetch_assoc()) {
         echo "<tr>";
         echo "<td>{$row['boardID']}</td>";
-        echo "<td>{$row['boardTitle']}</td>";
+        echo "<td><a href='boardView.php?boardID={$row['boardID']}'>{$row['boardTitle']}</a></td>";
         echo "<td>{$row['boardAuthor']}</td>";
         echo "<td>" . date('Y-m-d', $row['regTime']) . "</td>";
         echo "<td>{$row['boardView']}</td>";
@@ -94,13 +110,30 @@
 
             <div class="board__pages">
                 <ul>
-                    <li class="first"><a href="#"></a></li>
-                    <li class="prev"><a href="#"></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li class="next"><a href="#"></a></li>
-                    <li class="last"><a href="#"></a></li>
+<?php
+    // 총 페이지 갯수
+    $boardTotalCount = ceil($boardTotalCount / $viewNum);
+
+    // 이전 페이지, 처음으로 가기
+    if ($page > 1) {
+        echo "<li class='first'><a href='question.php?page=1'>처음으로</a></li>";
+        echo "<li class='prev'><a href='question.php?page=" . ($page - 1) . "'>이전</a></li>";
+    }
+
+    // 페이지
+    for ($i = 1; $i <= $boardTotalCount; $i++) {
+        $active = "";
+        if ($i == $page) $active = "active";
+
+        echo "<li class='{$active}'><a href='question.php?page={$i}'>${i}</a></li>";
+    }
+
+    // 다음 페이지, 마지막으로 가기
+    if ($page < $boardTotalCount) {
+        echo "<li class='next'><a href='question.php?page=" . ($page + 1) . "'>다음</a></li>";
+        echo "<li class='last'><a href='question.php?page={$boardTotalCount}'>마지막으로</a></li>";
+    }
+?>
                 </ul>
             </div>
         </section>

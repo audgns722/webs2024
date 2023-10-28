@@ -4,6 +4,7 @@ body {
 #wrap {
     width: 100%;
     height: 100vh;
+    position: relative;
 
 }
 #wrap.bg01 {
@@ -28,6 +29,7 @@ body {
 
 /* musicWrap */
 #musicWrap {
+    display: none;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -35,8 +37,11 @@ body {
     height: 700px;
     background-image: url(../img/gameboy.png);
     border-radius: 30px;
+    z-index: 1000;
 }
-.music__inner {}
+.music__inner {
+    
+}
 
 
 .music__header {
@@ -68,4 +73,20 @@ body {
 }
 .music__control {
     height: 400px;
+}
+
+
+
+
+
+.fight {
+}
+.fight img {
+    width: 70%;
+    position: absolute;
+    bottom: 0;
+}
+.hpbar img {
+    position: absolute;
+    top: 0;
 }

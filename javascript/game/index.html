@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <div id="wrap" class="bg01">
         <header id="header">
@@ -18,7 +20,7 @@
         <main>
             <div class="icon__menu">
                 <a href="#" class="iconnMusic">
-                    <img src="assets/img/musicicon02.png" alt="icon-music">
+                    <!-- <img src="assets/img/musicicon02.png" alt="icon-music"> -->
                 </a>
             </div>
 
@@ -34,15 +36,65 @@
                     </div>
                 </div>
             </div>
+            <div class="hpbar">
+                <img src="assets/img/hpbar.png" alt="">
+            </div>
+            <div class="fight">
+                <img src="assets/img/action.gif" alt="">
+            </div>
 
         </main>
         <!-- //main -->
-        
+
         <footer>
 
         </footer>
         <!-- //footer -->
     </div>
+    <script>
+        const images = document.querySelectorAll(".fight");
+
+        function handleKeydown(event) {
+            if (event.key === "[" || event.key === "[") {
+                // 'H' 키를 누르면 모든 이미지를 숨깁니다.
+                images.forEach(image => {
+                    if (image) { // 이미지가 존재하는지 확인
+                        image.style.display = "none";
+                    }
+                });
+            } else if (event.key === "]" || event.key === "]") {
+                // 'S' 키를 누르면 모든 이미지를 다시 보이게 합니다.
+                images.forEach(image => {
+                    if (image) { // 이미지가 존재하는지 확인
+                        image.style.display = "block"; // 또는 "inline" 또는 "initial"로 설정할 수 있습니다.
+                    }
+                });
+            }
+        }
+        let keyPressedSequence = ""; // 방향키 입력 순서를 추적할 문자열
+
+document.addEventListener("keydown", function(event) {
+    if (event.code === "ArrowUp" || event.code === "ArrowDown") {
+        if (keyPressedSequence.endsWith("ArrowDown")) {
+            // 방향키 아래를 누르고 다시 방향키 위를 누르면 musicWrap을 나타나게 함
+            const musicWrap = document.getElementById("musicWrap");
+            if (musicWrap) {
+                musicWrap.style.display = "block";
+            }
+            keyPressedSequence = ""; // 입력 순서 초기화
+        }
+        keyPressedSequence += event.code; // 방향키 입력을 문자열에 추가
+    } else {
+        // 다른 키를 누를 경우 입력 순서 초기화
+        keyPressedSequence = "";
+    }
+});
+
+// 이벤트 리스너 등록
+document.addEventListener("keydown", handleKeydown);
+
+    </script>
     <!-- //wrap -->
 </body>
+
 </html>

@@ -224,11 +224,10 @@
 
         // 랜덤정렬하기 정렬하기
         document.querySelector(".btn6").addEventListener("click", () => {
-            cssProperty.sort((a, b) => {
-                let x = a.name;
-                let y = b.name;
-                return y.localeCompare(x);
-            });
+            for (let i = cssProperty.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cssProperty[i], cssProperty[j]] = [cssProperty[j], cssProperty[i]];
+            }
             listUpdate();
         });
 
