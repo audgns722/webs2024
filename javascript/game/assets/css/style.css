@@ -23,8 +23,8 @@ body {
     height: 100vh;
 }
 .icon__menu img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 /* musicWrap */
@@ -48,9 +48,9 @@ body {
     position: relative;
 }
 .music__header h2 {
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #000;
     font-family: 'NeoDunggeunmoPro-Regular';
     letter-spacing : 3px;
@@ -61,15 +61,16 @@ body {
     height: 700px;
 }
 .music__contents .music__view {
-    background-image: url(../img/musicscreen1.jpg);
-    width: 280px;
-    height: 255px;
+    background-image: url(../img/musicbg02.gif);
+    width: 300px;
+    height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
-    top: 80px;
-    right: 35px;
-    border-radius: 15px;
+    top: 52px;
+    right: 23px;
+    border-radius: 2px;
+    opacity: 0.4;
 }
 .music__control {
     height: 400px;
@@ -82,7 +83,7 @@ body {
 .fight {
 }
 .fight img {
-    width: 70%;
+    height: 800px;
     position: absolute;
     bottom: 0;
 }
