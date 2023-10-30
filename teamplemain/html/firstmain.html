@@ -13,6 +13,7 @@
         @import url("https://fonts.googleapis.com/css?family=Bungee+Hairline|Lato:300");
         html,
         body {
+        position: relative;
         height: 100%;
         color: white;
         }
@@ -134,10 +135,11 @@
 
         /* mouse scroll */
         .mouse__scroll {
-            width: 500px;
-            height: 500px;
-            margin: 0 auto;
-            margin-left: 950px;
+            position: absolute;
+            left: 50%;
+            bottom: 0%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
         }
         .container {
             position: relative;
@@ -226,8 +228,7 @@
             width: 500px;
             height: 300px;
             align-items: center;
-            margin: 0 auto;
-            padding-left: 200px;
+            padding-left: 43%;
         }
         .clickMe span {
             color: #fff;

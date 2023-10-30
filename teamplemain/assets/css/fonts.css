@@ -142,3 +142,78 @@
          url('https://cdn.jsdelivr.net/gh/webfontworld/dgb/IMHyeminBold.ttf') format("truetype");
     font-display: swap;
 }
+
+
+
+/* 테스트 */
+
+@font-face {
+    font-family: 'BinggraeMelona';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaRegular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaRegular.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaRegular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaRegular.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaRegular.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'BinggraeMelona';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaBold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaBold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/BinggraeMelona/BinggraeMelonaBold.ttf') format("truetype");
+    font-display: swap;
+} 
+
+@font-face {
+    font-family: 'Jalnan';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KotraHope';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kotra/KotraHope.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kotra/KotraHope.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kotra/KotraHope.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kotra/KotraHope.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kotra/KotraHope.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonMaplestory';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryLight.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryLight.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryLight.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryLight.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NexonMaplestory';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryBold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryBold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/NexonMaplestory/NexonMaplestoryBold.ttf') format("truetype");
+    font-display: swap;
+}
+

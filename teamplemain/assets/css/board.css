@@ -97,7 +97,7 @@
     height: 35px; */
 }
 .board__pages {
-    margin-top: 100px;
+    margin-top: 50px;
 
 }
 .board__pages ul {
@@ -105,10 +105,14 @@
     align-items: center;
     justify-content: center;
 }
+.board__pages ul li {
+
+    
+}
 .board__pages li a {
-    font-size: 1.2rem;
-    padding: 10px 15px;
-    margin-left: -1px;
+    background-color: #c5c5c550;
+    padding: 5px;
+    border: 0.1px dashed #00000021;
 }
 .board__btns {
     display: flex;
@@ -135,6 +139,14 @@
 }
 
 /* boardwrite */
+#boardCategory {
+    width: 8rem;
+    font-size: 1rem;
+    padding: 8px 0;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #999999;
+}
 .write__table {
     border-top: 2px solid var(--mycolor1);
     border-bottom: 1px solid #999999;
@@ -158,6 +170,11 @@
     border-radius: 1rem;
     margin: 1rem 0;
 }
+.file {
+    margin-top: 5px;
+    padding: 10px
+
+}
 #boardTitle {
     padding-left: 1.5rem;
     font-size: 1rem;
@@ -173,10 +190,24 @@
 .write__btn {
     background-color: var(--mycolor1);
     color: var(--white);
-    font-size: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 5px;
     width: 8rem;
     font-weight: 500;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.write__btn2 {
+    display: flex;
+    justify-content: center;
+    background-color: #999999;
+    color: var(--black);
+    padding: 0.5rem;
+    margin: 5px;
+    width: 8rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
 }

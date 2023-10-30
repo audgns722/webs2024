@@ -1,51 +1,122 @@
 <header id="header">
-        <a class="header__logo" href="main.html">
-            <h1></h1>
-        </a>
-        <nav class="header__nav">
+    <a class="header__logo" href="../main/main.php"><img src="../../assets/img/logo2.jpg" alt="사이트로고"></a>
+    <a class="headerLogo__icon" href='../main/main.php'><img src="../../assets/img/logoicon.svg" alt="홈"></a>
+    <div id="sidenav" class="sidenav">
+        <div id="slidebtn" class="slideBtn"> &#9776; </div>
+        <div id="close" class="close" onclick="closeNav()">☓</div>
+        <div class="menu">
+            <a href="#">분리배출</a>
+            <a href="#"><p>가구</p></a>
+            <a href="#"><p>가전</p></a>
+            <a href="#"><p>용기포장</p></a>
+            <a href="#"><p>패션잡화</p></a>
+            <a href="#"><p>음식물</p></a>
+            <a href="#"><p>기타</p></a>
+            <a href="#">탄소발자국</a>
+            <a href="../board/question.php">커뮤니티</a>
+            <a href="#"><p>공지사항</p></a>
+            <a href="../board/question.php"><p>질문하기</p></a>
+            <a href="#">만든사람들</a>
+        </div>
+    </div>
+    <nav class="header__nav">
+        <ul>
+            <li><a href="#">분리배출</a>
+                <ul class="submenu">
+                    <li><a href="#">가구</a></li>
+                    <li><a href="#">가전</a></li>
+                    <li><a href="#">용기포장</a></li>
+                    <li><a href="#">패션잡화</a></li>
+                    <li><a href="#">음식물</a></li>
+                    <li><a href="#">기타</a></li>
+                </ul>
+            </li>
+            <li><a href="#">탄소발자국</a>
+            </li>
+            <li><a href="#">커뮤니티</a>
+                <ul class="submenu">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="../board/question.php">질문하기</a></li>
+                    <li><a href="#">1:1 질문</a></li>
+                </ul>
+            </li>
+            <li><a href="#">만든사람들</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="header__search">
+        <input type="text" placeholder="1. 용기분리배출">
+        <div class="search__zoom"></div>
+    </div>
+    <div class="header__login">
+        <?php if (isset($_SESSION['memberId'])) { ?>
             <ul>
-                <li><a href="../main.html">
-                        <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 22L2 22" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                            <path d="M2 11L10.1259 4.49931C11.2216 3.62279 12.7784 3.62279 13.8741 4.49931L22 11"
-                                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                            <path opacity="0.5"
-                                d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5"
-                                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                            <path d="M4 22V9.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                            <path d="M20 22V9.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                            <path opacity="0.5"
-                                d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393C9 14.8787 9 15.5858 9 17V22"
-                                stroke="#1C274C" stroke-width="1.5" />
-                            <path opacity="0.5"
-                                d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z"
-                                stroke="#1C274C" stroke-width="1.5" />
-                        </svg></a></li>
-                <li><a href="../../html/subboard/subpage.html">분리배출</a></li>
-                <li><a href="../../html/subboard/subpage2.html">탄소발자국</a></li>
-                <li><a href="../../html/board/notice.html">커뮤니티</a></li>
-                <li><a href="#">만든사람들</a></li>
+                <li class="login__wellcom"><a href="#">
+                        <?= $_SESSION['youName'] ?>님
+                    </a></li>
+                <li class="login__logout"><a href="../login/logout.php">로그아웃</a></li>
             </ul>
-        </nav>
-        <div class="header__search">
-            <input type="text" placeholder="1. 용기분리배출">
-            <span class="search__zoom"></span>
-        </div>
-        <div class="header__login">
+        <?php } else { ?>
             <button class="login__btn">
-                <span><a href="../login/login.html"></a><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.5"
-                            d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
-                            stroke="#1C274C" stroke-width="1.5" />
-                        <path
-                            d="M11 12C11 13.3807 9.88071 14.5 8.5 14.5C7.11929 14.5 6 13.3807 6 12C6 10.6193 7.11929 9.5 8.5 9.5C9.88071 9.5 11 10.6193 11 12Z"
-                            stroke="#1C274C" stroke-width="1.5" />
-                        <path d="M11 12H15.5M15.5 12H17C17.5523 12 18 12.4477 18 13V14M15.5 12V13.5" stroke="#1C274C"
-                            stroke-width="1.5" stroke-linecap="round" />
-                    </svg></span>
-                <a href="../login/login.html">Login</a>
+                <a href="../login/login.html"></a><img src="../../assets/img/login.svg" alt="loginicon">
+                <a href="../login/login.php">Login</a>
             </button>
-        </div>
-    </header>
+        <?php } ?>
+    </div>
+</header>
+<!-- //header -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    // 메뉴 
+    window.onload = function () {
+            let navList = document.querySelectorAll(".header__nav > ul > li");
+
+            navList.forEach(function (navItem) {
+                navItem.addEventListener("mouseover", function () {
+                    const submenu = this.querySelector(".submenu");
+                    submenu.style.height = submenu.scrollHeight + "px";
+                });
+            });
+            navList.forEach(function (navItem) {
+                navItem.addEventListener("mouseout", function () {
+                    this.querySelector(".submenu").style.height = "0px";
+                });
+            });
+        };
+
+
+    //HAMBERGER MENU
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "0%";
+  document.getElementById("slidebtn").style.display = "block";
+}
+
+
+$(document).ready(function(){
+  $(".slideBtn").click(function(){    
+    if($("#sidenav").width() == 0){      
+        document.getElementById("sidenav").style.width = "40%";
+      
+        // document.getElementById("main").style.paddingRight = "250px";
+      
+        // document.getElementById("slidebtn").style.paddingRight = "0px";
+      document.getElementById("slidebtn").style.display = "none";
+    }else{
+        document.getElementById("sidenav").style.width = "0";
+        document.getElementById("main").style.paddingRight = "0";
+        document.getElementById("slidebtn").style.paddingRight = "0";
+    }
+  });
+});
+</script>
+
+    
+
+
+
+
+<!-- //script -->

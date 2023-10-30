@@ -37,14 +37,23 @@
                 <span>filter()를 이용하여 검색하기</span>
                 <h1>CSS 속성 중요도 검색하기</h1>
             </div>
+            <div class="search__info">
+                <div>CSS 속성 갯수 : <span class="num">0</span>개</div>
+            </div>
             <div class="search__star">
                 <ul>
-                    <li>⭐<br><span>사용 안함</span></li>
+                    <li data-star="1" data-desc=" 사용 안함">⭐</li>
+                    <li data-star="2" data-desc=" 가끔 사용">⭐⭐</li>
+                    <li data-star="3" data-desc=" 보통 사용">⭐⭐⭐</li>
+                    <li data-star="4" data-desc=" 자주 사용">⭐⭐⭐⭐</li>
+                    <li data-star="5" data-desc=" 필수 사용">⭐⭐⭐⭐⭐</li>
+                </ul>
+                    
+                <!-- <li>⭐<br><span>사용 안함</span></li>
                     <li>⭐⭐<br><span>가끔 사용</span></li>
                     <li>⭐⭐⭐<br><span>보통 사용</span></li>
                     <li>⭐⭐⭐⭐<br><span>자주 사용</span></li>
-                    <li>⭐⭐⭐⭐⭐<br><span>필수 사용</span></li>
-                </ul>
+                    <li>⭐⭐⭐⭐⭐<br><span>필수 사용</span></li> -->
             </div>
             <div class="search__list scroll__style">
                 <ul>
@@ -169,33 +178,30 @@
         const searchList = document.querySelector(".search__list ul");
         const searchBox = document.querySelector(".search__box input");
         const searchBoxResult = document.querySelector(".search__box__result");
-        const searchBtn = document.querySelector(".search__btn");
+        const searchStarItems = document.querySelectorAll(".search__star li");
+        const searchInfoNum = document.querySelector(".search__info .num");
 
         // 출력하기
         function listUpdate(list){
             let listItem = "";
 
             for(const data of list){
-                const starRating = "⭐".repeat(data.star);
-
-                listItem += `<li><i>${starRating}</i><strong>${data.name}</strong> : ${data.desc}</li>`
-                
+                let listStar = searchStarItems[data.star-1].innerText;
+                listItem += `<li><strong>${data.name}</strong> : ${data.desc}${listStar}</li>`;
             }
             searchList.innerHTML = listItem;
-
+            searchInfoNum.textContent = list.length;
         }
-        //     cssProperty.map((element, index) => {
-        //         const listItem = document.createElement("li");
-        //         const starRating = "⭐".repeat(element.star);
-
-        //         searchList.innerHTML += `<li><strong>${element.name}</strong> : ${element.desc}<i>${starRating}</li>`
-                
-        //         searchList.appendChild(listItem);
-        //     });
-        // }
         listUpdate(cssProperty);
-        
-        // 별표 출력하기
+
+        // 클릭하기
+        searchStarItems.forEach(star => {
+            star.addEventListener("click", () => { 
+                const target = star.dataset.star;   
+                const filterList = cssProperty.filter(data => data.star == target);
+                listUpdate(filterList);
+            })
+        })
 
     </script>
 </body>

@@ -1,0 +1,105 @@
+.intro__inner {
+    margin-bottom: 0;
+}
+.blog__layout {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    align-items: baseline;
+}
+
+.blog__contents {
+    width: calc(100% - 340px);
+}
+
+.blog__aside {
+    width: 300px;
+    background-color: #e6e6e6;
+}
+
+/* blog__intro */
+.blog__intro {
+
+}
+/* blog__card  */
+.card__text h3 {
+    border-bottom: 1px dashed #333;
+    background-color: #effaff;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.card__text a {
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+
+/* blog__wirte */
+.blog__write {
+    width: 100%;
+    padding: 80px 0;
+}
+.blog__write select {
+    width: 200px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    color: var(--black300);
+    font-weight: 500;
+}
+.blog__write input {
+    border-radius: 0;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    color: var(--black300);
+    font-weight: 500;
+}
+.blog__write textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 400px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    resize: none;
+    color: var(--black300);
+    font-weight: 500;
+}
+.blog__write .file p {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
+.blog__write .btn {
+    text-align: right;
+}
+
+.ck-editor__editable {
+    height: 600px;
+    margin-bottom: 10px;
+}
+
+.blog__category h3 {
+    padding: 10px;
+    border-top: 2px solid var(--black);
+    border-bottom: 1px solid var(--black);
+}
+
+.blog__category ul {
+    padding: 20px;
+}
+.blog__category ul li {
+    list-style: circle;
+}
+
+.blog__index {
+    border-top: 1px solid var(--black500);
+    border-bottom: 1px solid var(--black500);
+    padding: 30px 0;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

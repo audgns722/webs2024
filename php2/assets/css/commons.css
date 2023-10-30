@@ -83,6 +83,16 @@
     background-color: var(--black);
     color: var(--white);
 }
+.intro__inner.blogStyle .intro__img {
+    max-width: 200px;
+    height: 200px;
+}
+.intro__inner.blogStyle .intro__text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+
 @media (max-width: 800px){
     .intro__inner {
         padding: 50px 0;
@@ -249,6 +259,8 @@
 /* main */
 #main {
     min-height: 80vh;
+    font-family: var(--main-cbnu);
+    font-weight: 500;
 }
 /* footer */
 #footer {

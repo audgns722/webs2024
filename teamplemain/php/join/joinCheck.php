@@ -6,7 +6,7 @@
 
     if( $type == "isIdCheck"){
         $youId = $connect -> real_escape_string(trim($_POST['youId']));
-        $sql = "SELECT youId FROM myMembers WHERE youId = '{$youId}'";
+        $sql = "SELECT youId FROM teamMembers WHERE youId = '{$youId}'";
     }
     $result = $connect -> query($sql);
     if($result -> num_rows == 0){
