@@ -61,7 +61,9 @@
         width: 72%;
     }
     .login__btn2{
-        border : 1px solid #fff;
+        width: 300px;
+        background-color: #fff;
+        color: #285A5B;
     }
     .btn {
         width: 25%;
@@ -78,6 +80,9 @@
         .login__box {
             height: 530px;
         }
+        .images__wrap {
+            height: 70vh;
+        }
     }
 </style>
 </head>
@@ -90,7 +95,7 @@
                 <div class="images__wrap">
                     <span></span>
                     <h1>회원가입을 축하드립니다.</h1>
-                    <button class="login__btn2 btn__style1"><a href="../../login/login.html">로  그  인</a></button>
+                    <button class="login__btn2 btn__style1"><a href="../login/login.php">로  그  인</a></button>
                 </div>
             </div>
         </div>

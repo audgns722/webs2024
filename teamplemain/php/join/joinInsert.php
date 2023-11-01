@@ -80,7 +80,6 @@
                 display: flex;
                 align-items: center;
             }
-        
     }
 </style>
 </head>
@@ -98,7 +97,7 @@
             <div class="join__insert">
                 <div class="login__box">
                     <h2>가입하기</h2>
-                    <h3>이미 계정이 있습니까?<a href="login.html" class="joinbtn">로그인</a></h3>
+                    <h3>이미 계정이 있습니까?<a href="../login/login.php" class="joinbtn">로그인</a></h3>
                     <form action="joinResult.php" name="joinResult" method="post" onsubmit="return joinChecks();">
                         <div class="join">
                             <label for="youId">
@@ -125,14 +124,12 @@
                                 <p class="msg" id="youNameComment"></p>
                             </label>
                         </div>
-
                         <div class="joinadress">
                             <label for="youAddress1" class="required"></label>
                             <div class="check">
                                 <input type="text" id="youAddress1" name="youAddress1" placeholder="우편번호"
                                     class="input__style">
                                 <div class="btn" id="addressCheck">주소 찾기</div>
-
                             </div>
                             <label for="youAddress2" class="required blind">주소</label>
                             <input type="text" id="youAddress2" name="youAddress2" placeholder="주소"

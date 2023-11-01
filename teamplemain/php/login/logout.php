@@ -5,5 +5,5 @@
     unset($_SESSION['youId']);
     unset($_SESSION['youName']);
     
-    header("Location: ../main/main.php");
+    echo '<script>window.history.back();</script>'
 ?>

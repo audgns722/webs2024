@@ -1,3 +1,8 @@
+<?php
+    include "../connect/connect.php";
+    include "../connect/session.php";
+?> 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,7 +27,7 @@
                 </div>
                 <div class="login__box">
                     <h2>로 그 인</h2>
-                    <h3>아직 회원이 아니십니까?<a href="joinagree.html" class="joinbtn">회원가입</a></h3>
+                    <h3>아직 회원이 아니십니까?<a href="../join/joinAgree.php" class="joinbtn">회원가입</a></h3>
                     <form action="loginSave.php" name="loginSave" method="post" class="login__form">
                         <label for="youId">
                             <input type="text" id="youId" name="youId" placeholder="아이디">
@@ -31,8 +36,8 @@
                             <input type="password" id="youPass" name="youPass" placeholder="비밀번호">
                         </label>
                         <div class="login__find">
-                            <a class="active" href="../join/joinId.php">아이디 찾기</a>
-                            <a href="joinpass.html">비밀번호 찾기</a>
+                            <a href="../join/joinId.php">아이디 찾기</a>
+                            <a href="../join/joinpass.php">비밀번호 찾기</a>
                         </div>
                         <button class="login__btn2 btn__style1">로  그  인</button>
                     </form>

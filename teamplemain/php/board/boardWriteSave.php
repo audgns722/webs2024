@@ -3,10 +3,14 @@ include "../connect/connect.php";
 include "../connect/session.php";
 
 
-$memberID = 1;
+$memberId = 1;
 $boardTitle = $_POST['boardTitle'];
 $boardContents = nl2br($_POST['boardContents']);
 
+if(!isset($_SESSION['memberId'])) {
+    echo "<script>alert('로그인을 해주세요');</script>";
+    echo '<script>window.location.href = "../login/login.php";</script>';
+}
 if (empty($boardTitle) || empty($boardContents)) {
     echo "<script>alert('제목 또는 내용을 입력해야 합니다.');</script>";
     echo "<script>window.history.back();</script>";
@@ -35,7 +39,7 @@ if (empty($boardTitle) || empty($boardContents)) {
             if (in_array($fileExtension, ["jpg", "jpeg", "png", "gif", "webp"])) {
                 $boardImgDir = "../../assets/board/";
                 $newFileName = "Img_" . time() . rand(1, 99999) . "." . $fileExtension; // 새로운 파일 이름
-                $sql = "INSERT INTO teamBoard(memberID, boardTitle, boardContents, boardCategory, boardAuthor, boardView, regTime, boardImgFile, boardImgSize, boardDelete) VALUES('$memberID', '$boardTitle', '$boardContents', '$boardCategory', '$boardAuthor', '$boardView', '$regTime', '$newFileName', '$boardImgSize', '$boardDelete')";
+                $sql = "INSERT INTO teamBoard(memberId, boardTitle, boardContents, boardCategory, boardAuthor, boardView, regTime, boardImgFile, boardImgSize, boardDelete) VALUES('$memberId', '$boardTitle', '$boardContents', '$boardCategory', '$boardAuthor', '$boardView', '$regTime', '$newFileName', '$boardImgSize', '$boardDelete')";
             } else {
                 echo "<script>alert('올바른 이미지 확장자가 아닙니다. jpg, jpeg, png, gif, webp 파일만 허용됩니다.')</script>";
                 echo "<script>window.history.back();</script>";
@@ -47,7 +51,7 @@ if (empty($boardTitle) || empty($boardContents)) {
         }
     } else {
         $newFileName = "Img_default.jpg"; // 기본 이미지 파일 이름
-        $sql = "INSERT INTO teamBoard(memberID, boardTitle, boardContents, boardCategory, boardAuthor, boardView, regTime, boardImgFile, boardImgSize, boardDelete) VALUES('$memberID', '$boardTitle', '$boardContents', '$boardCategory', '$boardAuthor', '$boardView', '$regTime', '$newFileName', '$boardImgSize', '$boardDelete')";
+        $sql = "INSERT INTO teamBoard(memberId, boardTitle, boardContents, boardCategory, boardAuthor, boardView, regTime, boardImgFile, boardImgSize, boardDelete) VALUES('$memberId', '$boardTitle', '$boardContents', '$boardCategory', '$boardAuthor', '$boardView', '$regTime', '$newFileName', '$boardImgSize', '$boardDelete')";
     }
 
     // 이미지 사이즈 확인
@@ -61,14 +65,14 @@ if (empty($boardTitle) || empty($boardContents)) {
             if ($boardImgSize > 0) {
                 if (move_uploaded_file($boardImgTmp, $boardImgDir . $newFileName)) {
                     echo "<script>alert('저장이 완료되었습니다.');</script>";
-                    echo "<script>window.location.href = 'question.php';</script>";
+                    echo "<script>window.location.href = 'board.php';</script>";
                 } else {
                     echo "<script>alert('이미지 파일을 저장하는 중에 문제가 발생했습니다.');</script>";
                     echo "<script>window.history.back();</script>";
                 }
             } else {
                 echo "<script>alert('저장이 완료되었습니다.');</script>";
-                echo "<script>window.location.href = 'question.php';</script>";
+                echo "<script>window.location.href = 'board.php';</script>";
             }
         } else {
             echo "<script>alert('데이터베이스에 저장 중 오류가 발생했습니다.');</script>";

@@ -60,7 +60,7 @@
                 </a>
             </h3>
             <p>
-                <?=substr($blog['blogContents'], 0, 100)?>            
+                <?=substr($blog['blogContents'], 0, 100)?> 
             </p>
         </div>
     </div>

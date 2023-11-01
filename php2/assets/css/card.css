@@ -2,6 +2,7 @@
     padding: 25px 0;
     position: relative;
 }
+
 .card__wrap h2 {
     display: inline-block;
     font-size: 1rem;
@@ -12,80 +13,99 @@
     margin-top: 50px;
     margin-bottom: 1rem;
     text-transform: capitalize;
-    
+
 }
+
 .card__inner {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.card__inner.column2 > div {
+.card__inner.column2>div {
     width: 49%;
 }
-.card__inner.column3 > div {
+
+.card__inner.column3>div {
     width: 32%;
 }
-.card__inner.column4 > div {
+
+.card__inner.column4>div {
     width: 24%;
 }
-.card__inner.column6 > div {
+
+.card__inner.column6>div {
     width: 16%;
 }
-.card__inner.column6 > div p {
+
+.card__inner.column6>div p {
     display: none;
 }
-.card__inner.column6 > div h3 {
+
+.card__inner.column6>div h3 {
     font-size: 0.9;
 }
 
 .card__inner.column1 {
     flex-direction: column;
- }
-.card__inner.column1 > div {
+}
+
+.card__inner.column1>div {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.card__inner.column1 > div h3 {
+
+.card__inner.column1>div h3 {
     font-size: 1.4rem;
 }
-.card__inner.column1 > div figure {
+
+.card__inner.column1>div figure {
     width: 20%;
 }
-.card__inner.column1 > div div {
+
+.card__inner.column1>div div {
     width: 78%;
 }
 
-.card__inner > div {
+.card__inner>div {
     width: 24%;
     margin-bottom: 50px;
 }
-.card__inner > div h3 {
+
+.card__text {
+    background-color: #fff;
+}
+
+.card__inner>div h3 {
     display: inline-block;
-    font-size: 1.2rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: 1rem;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 500;
 }
-.card__inner > div span {
+
+.card__inner>div span {
     border-bottom: 1px solid var(--black);
     padding-bottom: 3px;
-    font-size: 1.2rem;;
+    font-size: 1.2rem;
+    ;
 }
-.card__inner > div p {
+
+.card__inner>div p {
     color: var(--black200);
+    padding: 3px 5px;
 }
-.card__inner > div figure {
+
+.card__inner>div figure {
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
 }
-.card__inner > div figure .go {
+
+.card__inner>div figure .go {
     position: absolute;
     right: -50px;
     bottom: 10px;
@@ -99,17 +119,21 @@
     transform: rotate(760deg);
     transition: all 0.6s ease-in-out;
 }
-.card__inner > div figure:hover .go {
+
+.card__inner>div figure:hover .go {
     right: 10px;
     transform: rotate(0deg);
 }
-.card__inner > div figure img {
+
+.card__inner>div figure img {
     filter: saturate(70%);
     transition: all 0.3s;
 }
-.card__inner > div figure:hover img {
+
+.card__inner>div figure:hover img {
     filter: saturate(30%);
 }
+
 .card__more {
     position: absolute;
     bottom: -16px;
@@ -122,11 +146,13 @@
     z-index: 100;
     border: 1px solid var(--mycolor2);
 }
+
 .card__more:hover {
     /* background-color: var(--black400); */
     /* border-color: var(--black400); */
     background-color: var(--mycolor2);
 }
+
 .card__more::before {
     content: '';
     width: 20px;
@@ -136,6 +162,7 @@
     left: 4px;
     top: 13.4px;
 }
+
 .card__more::after {
     content: '';
     width: 2px;
@@ -145,76 +172,96 @@
     left: 13.2px;
     top: 4px;
 }
+
 .card__more:hover::before {
     background-color: var(--white);
 }
+
 .card__more:hover::after {
     background-color: var(--white);
 }
 
-@media (max-width: 960px){
+@media (max-width: 960px) {
     .card__wrap {
         padding: 20px;
     }
-    .card__inner.column4 > div {
+
+    .card__inner.column4>div {
         width: 32%;
     }
-    .card__inner.column6 > div {
+
+    .card__inner.column6>div {
         width: 32%;
         margin-bottom: 15px;
     }
-    .card__inner.column6 > div h3 {
+
+    .card__inner.column6>div h3 {
         font-size: 1.2rem;
     }
+
     .card__inner.column1 {
         flex-direction: row;
     }
-    .card__inner.column1 > div {
+
+    .card__inner.column1>div {
         flex-direction: column;
         width: 32%;
     }
-    .card__inner.column1 > div figure {
+
+    .card__inner.column1>div figure {
         width: 100%;
     }
-    .card__inner.column1 > div div {
+
+    .card__inner.column1>div div {
         width: 100%;
     }
-    .card__inner.column1 > div h3 {
+
+    .card__inner.column1>div h3 {
         font-size: 1.2rem;
     }
-    .card__inner.column1 > div p {
+
+    .card__inner.column1>div p {
         display: none;
     }
 
 }
-@media (max-width: 600px){
-    .card__inner.column1 > div {
+
+@media (max-width: 600px) {
+    .card__inner.column1>div {
         width: 49%;
     }
-    .card__inner.column3 > div {
+
+    .card__inner.column3>div {
         width: 49%;
     }
-    .card__inner.column4 > div {
+
+    .card__inner.column4>div {
         width: 49%;
     }
-    .card__inner.column6 > div {
+
+    .card__inner.column6>div {
         width: 49%;
     }
 }
-@media (max-width: 400px){
-    .card__inner.column1 > div {
+
+@media (max-width: 400px) {
+    .card__inner.column1>div {
         width: 100%;
     }
-    .card__inner.column2 > div {
+
+    .card__inner.column2>div {
         width: 100%;
     }
-    .card__inner.column3 > div {
+
+    .card__inner.column3>div {
         width: 100%;
     }
-    .card__inner.column4 > div {
+
+    .card__inner.column4>div {
         width: 100%;
     }
-    .card__inner.column6 > div {
+
+    .card__inner.column6>div {
         width: 100%;
     }
 }

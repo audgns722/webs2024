@@ -17,12 +17,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap;
 }
 .board__search .left {
-    margin-left: 50px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
-.board__search .right {}
 .board__search .right input {
     padding: 11px 20px;
     border: 0;
@@ -31,21 +30,28 @@
     border-radius: 50px;
 }
 .board__search .right select {
-    width: 150px;
     padding: 10px;
     border: 0;
     color: var(--black300);
     background-color: #F5F5F2;
     border-radius: 50px;
 }
-.board__search .right a {
-    width: 100px;
-    height: 43px;
-    color: var(--white);
-    font-size: 1rem;
-    padding: 0.6rem 2rem;
-    border-radius: 50px;
+.search__btn {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+    align-items: center;
 }
+.search__btn .btn__style2 {
+    font-size: 16px;
+
+}
+.search__btn a {
+    padding-top: 7px;
+    text-align: center;
+    font-size: 16px;
+}
+
 .board__nav {
     display: flex;
     align-items: center;
@@ -59,15 +65,12 @@
     align-items: center;
     background-color: #F5F5F2;
     border-radius: 50px;
-    width: 40%;
+    width: 30%;
     height: 50px;
 }
-.board__nav li {
-    
-}
-.board__nav li a.active{
+.board__nav li.active{
     text-decoration: underline;
-    text-underline-position: unset;
+    text-underline-position: under;
 }
 .board__nav li a {
     margin: 0 2rem 0 2rem;
@@ -90,12 +93,6 @@
 .board__table tr:hover {
     background-color: #e9e2d01e;
 }
-.board__table td.active {
-    /* background-color: #ccc;
-    border-radius: 50px;
-    width: 70px;
-    height: 35px; */
-}
 .board__pages {
     margin-top: 50px;
 
@@ -106,18 +103,30 @@
     justify-content: center;
 }
 .board__pages ul li {
-
-    
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+.board__pages ul li.active{
+    background-color: #0d5c115e;
+    border-radius: 50%;
 }
 .board__pages li a {
-    background-color: #c5c5c550;
-    padding: 5px;
-    border: 0.1px dashed #00000021;
+    position: absolute;
+    text-align: center;
+    display: block;
+    left: 35%;
+    top: 13%;
+
+}
+.board__pages li a.active {
+    font-weight: 700;
 }
 .board__btns {
     display: flex;
     justify-content: right;
     margin-top: 10px;
+    padding-right: 2px;
 }
 .board__view {
     border-top: 2px solid var(--black);
@@ -140,12 +149,11 @@
 
 /* boardwrite */
 #boardCategory {
-    width: 8rem;
-    font-size: 1rem;
-    padding: 8px 0;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #999999;
+    padding: 10px;
+    border: 0;
+    color: var(--black300);
+    background-color: #F5F5F2;
+    border-radius: 50px;
 }
 .write__table {
     border-top: 2px solid var(--mycolor1);

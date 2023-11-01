@@ -3,7 +3,9 @@
     width: 96%;
     margin: 0 auto;
 }
-
+.hidden {
+    display: none;
+}
 /* scroll style */
 .scroll__style::-webkit-scrollbar {
     width: 10px;

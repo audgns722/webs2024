@@ -2,11 +2,8 @@
 include "../connect/connect.php";
 include "../connect/session.php";
 
-// echo "<pre>";
-// var_dump($_SESSION);
-// echo "</pre>";
+$memberId = $_SESSION['memberId'];
 ?>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -53,7 +50,7 @@ include "../connect/session.php";
             <div class="board__nav">
                 <ul>
                     <li><a href="#">공지사항</a></li>
-                    <li><a href="question.php">질문하기</a></li>
+                    <li><a href="board.php">질문하기</a></li>
                     <li><a href="#">1:1문의</a></li>
                 </ul>
             </div>
@@ -63,8 +60,17 @@ include "../connect/session.php";
                     <div>
                         <label for="boardCategory" class="blind">카테고리</label>
                         <select name="boardCategory" id="boardCategory">
-                            <option value="질문게시판">질문 게시판</option>
-                            <option value="문의게시판">문의 게시판</option>
+                            <option value="질문하기">질문하기</option>
+                            <option value="문의하기">문의하기</option>
+<?php 
+    if ($memberId >= 9999) {
+        echo '<option value="공지사항">공지사항</option>';
+    } else {
+        echo '<option value="공지사항" class="hidden">공지사항</option>';
+    }
+?>
+                            
+
                         </select>
                     </div>
                     <table class="write__table">
@@ -84,7 +90,7 @@ include "../connect/session.php";
                         <p>* jpg, gif, png, webp 파일만 넣을 수 있습니다. 이미지 용량은 1MB를 넘길 수 없습니다.</p>
                     </div>
                     <div class="board__btns">
-                        <a href="question.php" class="write__btn2">취소</a>
+                        <a href="board.php" class="write__btn2">취소</a>
                         <button type="submit" class="write__btn">저장하기</button>
                     </div>
                 </form>

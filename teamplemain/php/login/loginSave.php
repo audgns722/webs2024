@@ -60,7 +60,8 @@
             // $_SESSION['youEmail'] = $memberInfo['youEmail'];
             $_SESSION['youName'] = $memberInfo['youName'];
         
-            echo '<script>window.location.href = "../main/main.php";</script>';
+            echo '<script>window.location.href = "../main/main.php"</script>';
+            
         }
     }
 ?> 

@@ -1,6 +1,7 @@
 .intro__inner {
     margin-bottom: 0;
 }
+
 .blog__layout {
     display: flex;
     justify-content: space-between;
@@ -13,32 +14,26 @@
 }
 
 .blog__aside {
-    width: 300px;
-    background-color: #e6e6e6;
+    /* width: 300px; */
+    background-color: var(--main-cbnu);
+    padding: 10px;
 }
 
 /* blog__intro */
-.blog__intro {
+.blog__intro {}
 
-}
 /* blog__card  */
 .card__text h3 {
-    border-bottom: 1px dashed #333;
-    background-color: #effaff;
-    border-radius: 5px;
+    padding-top: 5px;
     padding-left: 5px;
 }
-.card__text a {
-    font-size: 1.2rem;
-    margin-left: 5px;
-}
-
 
 /* blog__wirte */
 .blog__write {
     width: 100%;
-    padding: 80px 0;
+    padding: 50px 0;
 }
+
 .blog__write select {
     width: 200px;
     padding: 0.8rem 1rem;
@@ -48,6 +43,7 @@
     color: var(--black300);
     font-weight: 500;
 }
+
 .blog__write input {
     border-radius: 0;
     padding: 0.8rem 1rem;
@@ -57,6 +53,7 @@
     color: var(--black300);
     font-weight: 500;
 }
+
 .blog__write textarea {
     width: 100%;
     border: 1px solid #ccc;
@@ -67,11 +64,13 @@
     color: var(--black300);
     font-weight: 500;
 }
+
 .blog__write .file p {
     color: #333;
     margin-bottom: 20px;
     font-size: 0.8rem;
 }
+
 .blog__write .btn {
     text-align: right;
 }
@@ -90,6 +89,7 @@
 .blog__category ul {
     padding: 20px;
 }
+
 .blog__category ul li {
     list-style: circle;
 }
@@ -102,4 +102,239 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.blog__comment {
+    padding: 100px 0;
+}
+
+.blog__comment h4 {
+    width: 100%;
+    border-top: 2px solid var(--black);
+    border-bottom: 1px dashed var(--black);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.comment__view {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.comment__view .avata {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(../face/Awe.svg);
+    background-color: #feffc5;
+    background-size: cover;
+    border: 2px solid #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.comment__view:nth-child(even) .avata {
+    left: auto;
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.comment__view:nth-child(even) .text {
+    text-align: right;
+}
+
+.comment__view:nth-child(even) .text p {
+    border-radius: 10px 0 10px 10px;
+    text-align: left;
+}
+
+.comment__view:nth-child(2) .avata {
+    background-image: url(../face/Blank.svg);
+}
+
+.comment__view:nth-child(3) .avata {
+    background-image: url(../face/Driven.svg);
+}
+
+.comment__view:nth-child(4) .avata {
+    background-image: url(../face/Old.svg);
+}
+
+.comment__view:nth-child(5) .avata {
+    background-image: url(../face/Fear.svg);
+}
+
+.comment__view .text {
+    margin-left: 60px;
+    padding-right: 60px;
+}
+
+.comment__view .text>span {
+    display: block;
+    font-size: 14px;
+    color: var(--black300);
+}
+
+.comment__view .text p {
+    background-color: #cadce4;
+    padding: 10px;
+    border-radius: 0 10px 10px 10px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.comment__view .text .modify {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.comment__view .text .modify:hover {
+    color: var(--black);
+}
+
+.comment__view .text .delete {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.comment__view .text .delete:hover {
+    color: var(--black);
+}
+
+.comment__input {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px dashed var(--black);
+}
+
+.comment__input fieldset {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.comment__input #commentName {
+    width: 49.5%;
+}
+
+.comment__input #commentPass {
+    width: 49.5%;
+}
+
+.comment__input #commentWrite {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#popupDelete {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+}
+
+.comment__delete {
+    width: 400px;
+    height: 400px;
+    background-color: var(--black500);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border: 2px solid var(--black);
+}
+
+.comment__delete h4 {
+    margin-bottom: 10px;
+}
+
+.comment__delete input {
+    border: 1px solid var(--black400);
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.comment__delete p {
+    margin-top: 10px;
+    color: var(--black300);
+}
+
+.comment__delete .btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.comment__delete .btn button {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+
+#popupModify {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+}
+
+.comment__modify {
+    width: 400px;
+    height: 400px;
+    background-color: var(--black500);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border: 2px solid var(--black);
+}
+
+.comment__modify h4 {
+    margin-bottom: 10px;
+}
+
+.comment__modify textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+}
+
+.comment__modify input {
+    border: 1px solid var(--black400);
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.comment__modify p {
+    margin-top: 10px;
+    color: var(--black300);
+}
+
+.comment__modify .btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.comment__modify .btn button {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 5px 20px;
+    cursor: pointer;
 }
