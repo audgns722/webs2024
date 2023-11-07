@@ -5,14 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    
-
-</head>
+<?php include "../include/head.php" ?>
 <body>
 <?php include "../include/header.php" ?>
 
@@ -28,42 +21,43 @@
                 <div class="login__box">
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $youId = $_POST['youId'];
     $youPass = $_POST['youPass'];
-    
-    // echo $youId, $youPass;
-    
+
     // 메세지 출력
-    function msg($alert){
+    function msg($alert)
+    {
         echo "<p>$alert</p>";
     }
-    
+
     // 데이터 조회
-    // members 데이터 중에 이메일/비밀번호
-    $sql = "SELECT memberId, youName, youPass FROM teamMembers WHERE youId = '$youId' AND youPass = '$youPass'";
-    $result = $connect -> query($sql);
-    
-    if($result){
-        $count = $result -> num_rows;
-    
-        if($count == 0){
-            msg("이메일 또는 비밀번호가 틀렸습니다. 다시 한번 확인해주세요!");
+    $sql = "SELECT memberId, youName, youPass, youDelete FROM teamMembers WHERE youId = '$youId' AND youPass = '$youPass'";
+    $result = $connect->query($sql);
+
+    if ($result) {
+        $count = $result->num_rows;
+
+        if ($count == 0) {
+            msg("이메일 또는 비밀번호가 틀렸거나 회원이 아니십니다. 다시 한번 확인해주세요!");
         } else {
-            $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
-        
-            // echo "<pre>";
-            // var_dump($memberInfo);
-            // echo "</pre>";
-        
-            // 로그인 성공 --> 세션 생성
-            $_SESSION['memberId'] = $memberInfo['memberId'];
-            // $_SESSION['youEmail'] = $memberInfo['youEmail'];
-            $_SESSION['youName'] = $memberInfo['youName'];
-        
-            echo '<script>window.location.href = "../main/main.php"</script>';
-            
+            $memberInfo = $result->fetch_array(MYSQLI_ASSOC);
+
+            if ($memberInfo['youDelete'] == 2) {
+                // 회원 탈퇴 상태
+                msg("이미 탈퇴한 계정입니다. 다시 가입하려면 회원 가입을 진행해주세요!");
+            } elseif ($memberInfo['youDelete'] == 1) {
+                // 정상 로그인 처리
+                $_SESSION['memberId'] = $memberInfo['memberId'];
+                $_SESSION['youName'] = $memberInfo['youName'];
+                echo '<script>window.location.href = "../main/main.php"</script>';
+            } elseif ($memberInfo['youDelete'] == 0) {
+                // 회원 가입 필요
+                msg("가입된 계정이 아닙니다. 회원 가입을 진행해주세요!");
+            }
         }
     }
+}
 ?> 
                 </div>
             </div>

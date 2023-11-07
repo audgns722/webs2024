@@ -2,434 +2,88 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    if(isset($_SESSION['memberId'])){
-        $memberId = $_SESSION['memberId'];   
+    if (isset($_SESSION['memberId'])) {
+        $memberId = $_SESSION['memberId'];
     } else {
         $memberId = 0;
     }
 
-    // echo "<pre>";
-    // var_dump($_SESSION);
-    // echo "</pre>";
-    if(isset($_GET['boardId'])){
+    if (isset($_GET['boardId'])) {
         $boardId = $_GET['boardId'];
     } else {
         Header("Location: board.php");
     }
+    // 사용자 정보를 데이터베이스에서 가져옴
+    $userInfoSql = "SELECT * FROM teamMembers WHERE memberId = $memberId";
+    $userInfoResult = $connect->query($userInfoSql);
+    $userInfo = $userInfoResult->fetch_assoc();
+
+    $youName = $userInfo['youName'];
+
+    // 사용자 프로필 이미지 표시
+    if ($userInfo['youImgSrc'] != "") {
+        $profileImagePath = $userInfo['youImgSrc'];
+    } else {
+        $profileImagePath = "Img_default.jpg"; // 디폴트 이미지 경로
+    }
+        $commentSql = "SELECT c.*, m.youImgSrc 
+               FROM boardComment AS c 
+               LEFT JOIN teamMembers AS m ON c.memberId = m.memberId 
+               WHERE c.boardId = '$boardId' AND c.commentDelete = '1' 
+               ORDER BY c.commentId ASC";
+
 
     // 조회수 추가
     $updateViewSql = "UPDATE teamBoard SET boardView = boardView + 1 WHERE boardId = '$boardId'";
-    $connect -> query($updateViewSql);
+    $connect->query($updateViewSql);
 
     // 블로그 정보 가져오기
     $teamBoardSql = "SELECT * FROM teamBoard WHERE boardId = '$boardId'";
     $teamBoardResult = $connect->query($teamBoardSql);
-    $teamBoardInfo = $teamBoardResult -> fetch_array(MYSQLI_ASSOC);
+    $teamBoardInfo = $teamBoardResult->fetch_array(MYSQLI_ASSOC);
 
     // 이전글 가져오기
     $prevteamBoardSql = "SELECT * FROM teamBoard WHERE boardId < '$boardId' ORDER BY boardId DESC LIMIT 1";
     $prevteamBoardResult = $connect->query($prevteamBoardSql);
-    $prevteamBoardInfo = $prevteamBoardResult -> fetch_array(MYSQLI_ASSOC);
+    $prevteamBoardInfo = $prevteamBoardResult->fetch_array(MYSQLI_ASSOC);
 
     // 다음글 가져오기
     $nextteamBoardSql = "SELECT * FROM teamBoard WHERE boardId > '$boardId' ORDER BY boardId ASC LIMIT 1";
     $nextteamBoardResult = $connect->query($nextteamBoardSql);
     $nextteamBoardInfo = $nextteamBoardResult->fetch_array(MYSQLI_ASSOC);
-     // 댓글 정보 가져오기
+
+    // 댓글 정보 가져오기
     $commentSql = "SELECT * FROM boardComment WHERE boardId = '$boardId' AND commentDelete = '1' ORDER BY commentId ASC";
-    $commentResult = $connect -> query($commentSql);
-    $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);   
+    $commentResult = $connect->query($commentSql);
+    $commentInfo = $commentResult->fetch_array(MYSQLI_ASSOC);
+
+    // 사용자가 선택한 좋아요/싫어요를 가져옴
+    $likeSql = "SELECT likeAction FROM teamLikes WHERE memberId = '$memberId' AND boardId = '$boardId'";
+    $likeResult = $connect->query($likeSql);
+    $likeData = $likeResult->fetch_assoc();
+
+    $likeClass = '';
+    $dislikeClass = '';
+    if ($likeData['likeAction'] === 'like') {
+        $likeClass = 'selected';
+    } elseif ($likeData['likeAction'] === 'dislike') {
+        $dislikeClass = 'selected2';
+    }
+
+    $countSql = "SELECT boardLike, boardDislike FROM teamBoard WHERE boardId = '$boardId'";
+    $countResult = $connect->query($countSql);
+    $countData = $countResult->fetch_assoc();
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <?php include "../include/head.php" ?>
 
-    <style>
-        .board__nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-bottom: 100px;
-        }
-
-        .board__nav ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #F5F5F2;
-            border-radius: 50px;
-            width: 30%;
-            height: 50px;
-        }
-        .board__search .right {
-            position: relative;
-        }
-
-        .board__nav li a {
-            font-size: 0.8rem;
-            margin: 0 25px 0 25px;
-        }
-
-        .board__nav:active {
-            text-decoration: underline;
-        }
-
-        .board__table td {
-            padding: 25px 5px;
-            border-bottom: 1px solid #b3b3b3;
-            text-align: center;
-        }
-
-        .board__search .left {
-            margin-left: 30px;
-            font-size: 0.8rem;
-        }
-
-        .btn__style2 {
-            width: 100px;
-            height: 39px;
-            background-color: #285A5B;
-            font-size: 0.9rem;
-            color: #fff;
-            border-radius: 50px;
-            cursor: pointer;
-        }
-        .board__view {
-        }
-        .board__view h3 {
-            padding: 5px 30px;
-            border-bottom: 1px solid #999999;
-        }
-        .board__view i {
-            font-style: normal;
-        }
-        .board__view .info {
-            padding: 5px 30px;
-            border-bottom: 1px solid #999999;
-        }
-        .board__view .contents {
-            display: inline-block;
-        }
-        .blog__index {
-            border-top: 1px solid var(--black500);
-            border-bottom: 1px solid var(--black500);
-            padding: 5px 30px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .board__view .contents {
-            padding: 5px 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .board__view .contents span {
-            height: 300x;
-            width: 50%;
-
-        }
-        .board__view .contents img {
-            width: 300px;
-            height: 300px;
-            border: 1px solid #000;
-        }
-        .write__btn {
-            text-align: center;
-        }
-        .board__title {
-            margin-top: 0;
-        }
-        @media(max-width:1100px){
-            .board__nav ul {
-                width: 45%;
-            }
-            .board__search .left {
-                display: none;
-            }
-            .board__search {
-                justify-content: flex-end;
-            }
-        }
-        @media(max-width:800px){
-            
-            
-            .board__title {
-                margin-top: 15px;
-            }
-            .board__inner {
-                padding: 40px 0;
-            }
-        }
-        @media(max-width:660px){
-            .board__nav ul {
-                width: 70%;
-            }
-            .board__search .right select {
-                width: 100px;
-                display: flex;
-            }
-            .btn__write {
-                position: absolute;
-                top: -5px;
-                right: 0;
-            }
-        }
-        .blog__comment {
-            padding: 100px 0;
-        }
-
-        .blog__comment h4 {
-            width: 100%;
-            border-top: 2px solid var(--black);
-            border-bottom: 1px dashed var(--black);
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        .comment__view {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .comment__view .avata {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-image: url(../../assets/face/Suspicious.svg);
-            background-size: cover;
-            border: 2px solid var(--black);
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .comment__view:nth-child(even) .avata {
-            left: auto;
-            right: 0;
-            transform: rotateY(180deg);
-        }
-
-        .comment__view:nth-child(even) .texts {
-            text-align: right;
-        }
-
-        .comment__view:nth-child(even) .texts p {
-            border-radius: 10px 0 10px 10px;
-            text-align-last: left;
-        }
-
-        .comment__view:nth-child(2) .avata {
-            background-image: url(../../assets/face/Cheeky.svg);
-        }
-
-        .comment__view:nth-child(3) .avata {
-            background-image: url(../../assets/face/Awe.svg);
-        }
-
-        .comment__view:nth-child(4) .avata {
-            background-image: url(../../assets/face/Concerned.svg);
-        }
-
-        .comment__view:nth-child(5) .avata {
-            background-image: url(../../assets/face/Rage.svg);
-        }
-
-        .comment__view .texts {
-            margin-left: 60px;
-            margin-right: 60px;
-        }
-
-        .comment__view .texts>span {
-            display: block;
-            font-size: 14px;
-            color: var(--black300);
-        }
-
-        .comment__view .texts p {
-            background-color: #F5F5F2;
-            padding: 10px;
-            border-radius: 0 10px 10px 10px;
-            display: inline-block;
-            margin-top: 4px;
-        }
-
-        .comment__view .texts .modify {
-            text-decoration: underline;
-            text-underline-position: under;
-        }
-
-        .comment__view .texts .modify:hover {
-            color: var(--black)
-        }
-
-        .comment__view .texts .delete {
-            text-decoration: underline;
-            text-underline-position: under;
-        }
-
-        .comment__view .texts .delete:hover {
-            color: var(--black)
-        }
-
-        .comment__input {
-            margin-top: 50px;
-            padding-top: 50px;
-            border-top: 1px dashed var(--black);
-        }
-
-        .comment__input fieldset {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .comment__input #commentName {
-            width: 49.5%;
-        }
-
-        .comment__input #commentPass {
-            width: 49.5%;
-        }
-
-        .comment__input #commentWrite {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        #popupDelete {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-        }
-
-        .comment__delete {
-            width: 400px;
-            height: 400px;
-            background-color: #F5F5F2;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            padding: 40px;
-            border: 2px solid var(--black);
-        }
-
-        .comment__delete h4 {
-            margin-bottom: 10px;
-        }
-
-        .comment__delete input {
-            border: 1px solid var(--black400);
-            padding: 1rem;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .comment__delete p {
-            margin-top: 10px;
-            color: var(--black300);
-        }
-
-        .comment__delete .btn {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-        }
-
-        .comment__delete .btn button {
-            background-color: #285A5B;
-            color: var(--white);
-            padding: 5px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-
-        #popupModify {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-        }
-
-        .comment__modify {
-            width: 400px;
-            height: 400px;
-            background-color: #F5F5F2;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            padding: 40px;
-            border: 2px solid var(--black);
-        }
-
-        .comment__modify h4 {
-            margin-bottom: 10px;
-        }
-
-        .comment__modify textarea {
-            width: 100%;
-            height: 150px;
-            padding: 10px;
-            font-size: 1rem;
-            resize: none;
-        }
-
-        .comment__modify input {
-            border: 1px solid var(--black400);
-            padding: 1rem;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .comment__modify p {
-            margin-top: 10px;
-            color: var(--black300);
-        }
-
-        .comment__modify .btn {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-        }
-
-        .comment__modify .btn button {
-            background-color: #285A5B;
-            color: var(--white);
-            padding: 5px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .none {
-            display: none;
-        }
-        .input__style {
-            width: 100%;
-            background-color: #F5F5F2;
-            border-radius: 5px;
-            padding: 1rem 1.4rem;
-            font-weight: 300;
-            border: 0;
-            font-size: 1.2rem;
-        }
-    </style>
+    <?php include "../include/boardviewcss.php" ?>
 </head>
 
 <body>
@@ -438,7 +92,7 @@
     <!-- main -->
     <main id="main">
         <div class="board__title">
-            <h1><?=$category?></h1>
+            <h1>글작성</h1>
         </div>
         <section class="board__inner container">
             <div class="board__nav">
@@ -450,11 +104,6 @@
             </div>
             <section class="board__view">
                 <h3><i>제목: </i><?=$teamBoardInfo['boardTitle']?></h3>
-                <label for="boardCategory" class="blind">카테고리:</label>
-                <select name="boardCategory" id="boardCategory">
-                    <option value="질문하기">질문하기</option>
-                    <option value="1:1문의">1:1문의</option>
-                </select>
                 <div class="info">
                     <span class="author"><i>작성자: </i><?=$teamBoardInfo['boardAuthor']?></span>
                     <span class="date"><i>작성일자: </i><?=date('Y-m-d', $teamBoardInfo['regTime'])?></span>
@@ -485,23 +134,46 @@
 <?php } ?>
             </section>
 
+            <!-- 좋아요 싫어요 -->
+            <section id="blogLike">
+                <div class="like__box">
+                    <button id="likeButton" data-action="like" class="like <?=$likeClass?>"></button>
+                    <p>좋아요: <span id="likeCount"><?=$countData['boardLike']?></span></p>
+                    <button id="dislikeButton" data-action="dislike" class="dislike <?=$dislikeClass?>"></button>
+                    <p>싫어요: <span id="dislikeCount"><?=$countData['boardDislike']?></span></p>
+                </div>
+                <div class="board__btns">
+                    <button id="editButton" class="write__btn">수정하기</button>
+                    <button id="deleteButton" class="write__btn" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</button>
+                    <a href="board.php" class="write__btn">목록으로</a>
+                </div>
+            </section>
+
             <section id="blogComment" class="blog__comment">
                     <h4>댓글 쓰기</h4>
                     <div class="comment">
 
-<?php
+                    <?php
     if($commentResult->num_rows == 0){?>
         <div class="comment__view">
-            <div class="avata"></div>
+            <div class="avata">
+                <img src="../../assets/mypage/Img_default.jpg" alt="기본 프로필 이미지">
+            </div>
             <div class="texts">
-                <span>아무런 흔적이 없어!!</span>
-                <p>댓글작성해라</p>
+                <span>작성된 댓글이 없습니다.😣</span>
+                <p>댓글을 작성해 주세요.</p>
             </div>
         </div>
     <?php } else { 
         foreach($commentResult as $comment){ ?>
             <div class="comment__view">
-                <div class="avata"></div>
+                <div class="avata">
+                    <?php if (!empty($comment['profileImage'])): ?>
+                        <img src="../../assets/mypage/<?=$comment['profileImage']?>" alt="사용자 프로필 이미지">
+                    <?php else: ?>
+                        <img src="../../assets/mypage/Img_default.jpg" alt="기본 프로필 이미지">
+                    <?php endif; ?>
+                </div>
                 <div class="texts">
                     <span>
                         <span class="author"><?=$comment['commentName']?></span>
@@ -525,16 +197,12 @@
                                 <input type="password" id="commentPass" name="commentPass" class="input__style" placeholder="비밀번호" required>
                                 <label for="commentWrite" class="blind">댓글쓰기</label>
                                 <input type="text" id="commentWrite" name="commentWrite" class="input__style" placeholder="댓글을 써주세요!" required>
-                                <button type="button" id="commentWriteBtn" class="btn__style2 mt10">댓글 쓰기</button>
+                                <button type="button" id="commentWriteBtn" class="commentWriteBtn">댓글 쓰기</button>
                             </fieldset>
                         </form>
                     </div>
                 </div>
             </section>
-
-            <div class="board__btns">
-                <a href="board.php" class="write__btn">목록으로</a>
-            </div>
         </section>
     </main>
 
@@ -570,151 +238,172 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-    // 페이지가 로드될 때 실행되는 JavaScript
-    window.addEventListener('DOMContentLoaded', (event) => {
-        // h1 태그에 옵션의 값을 설정
-        document.querySelector('h1').textContent = document.querySelector('#boardCategory').value;
+
+    // 좋아요 싫어요
+        $("#likeButton, #dislikeButton").click(function() {
+            var action = $(this).data("action");
+            var is_currently_selected = $(this).hasClass("selected") || $(this).hasClass("selected2");
+            var boardId = <?= $boardId ?>; 
+            var memberId = <?= $memberId ?>; 
+
+            $.ajax({
+                url: "updateLikes.php", 
+                method: "POST",
+                data: { likeAction: action, boardId: boardId, isCurrentlySelected: is_currently_selected }, 
+                dataType: "json",
+                    success: function(data) {
+                        if (data.success) {
+                            $("#likeCount").text(data.likeCount);
+                            $("#dislikeCount").text(data.dislikeCount);
+
+                            if (action === 'like') {
+                                $("#likeButton").toggleClass("selected");
+                                $("#dislikeButton").removeClass("selected2");
+                            } else if (action === 'dislike') {
+                                $("#dislikeButton").toggleClass("selected2");
+                                $("#likeButton").removeClass("selected");
+                            }
+                        } else {
+                            alert("이미 좋아요나 싫어요를 누르셨습니다.");
+                        }
+                    },
+                    error: function() {
+                        alert("서버와의 통신 중 오류가 발생했습니다.");
+                    }
+            });
+        });
+
+    let commentId = "";
+    // 댓글 쓰기 버튼
+    $("#commentWriteBtn").click(function () {
+        if ($("#commentWrite").val() == "") {
+            alert("댓글을 작성하세요.");
+            $("#commentWrite").focus();
+        } else {
+            // memberId가 1 이상인 경우에만 댓글 작성을 수행
+            if (<?=$memberId?> >= 1) {
+                $.ajax({
+                    url: "boardCommentWrite.php",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "boardId": <?=$boardId?>,
+                        "memberId": <?=$memberId?>,
+                        "name": $("#commentName").val(),
+                        "pass": $("#commentPass").val(),
+                        "msg": $("#commentWrite").val(),
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        location.reload();
+                    },
+                    error: function (request, status, error) {
+                        console.log("request" + request);
+                        console.log("status" + status);
+                        console.log("error" + error);
+                    }
+                });
+            } else {
+                // memberId가 1 미만인 경우
+                alert("로그인이 필요합니다.");
+                window.location.href = "../login/login.php";
+            }
+        }
     });
 
-    // select 요소의 값이 변경될 때 실행되는 JavaScript
-    document.querySelector('#boardCategory').addEventListener('change', function() {
-        // h1 태그에 옵션의 값을 설정
-        document.querySelector('h1').textContent = this.value;
+
+
+    // 댓글 삭제 버튼
+    $(".comment__view .delete").click(function(e){
+        e.preventDefault();
+        $("#popupDelete").removeClass("none");
+        commentId = $(this).data("comment-id");
     });
-</script>
-    <script>
-        
-        let commentId = "";
-        // 댓글 쓰기 버튼
-        $("#commentWriteBtn").click(function () {
-            if ($("#commentWrite").val() == "") {
-                alert("댓글을 작성하세요.");
-                $("#commentWrite").focus();
-            } else {
-                // memberId가 1 이상인 경우에만 댓글 작성을 수행
-                if (<?=$memberId?> >= 1) {
-                    $.ajax({
-                        url: "boardCommentWrite.php",
-                        method: "POST",
-                        dataType: "json",
-                        data: {
-                            "boardId": <?=$boardId?>,
-                            "memberId": <?=$memberId?>,
-                            "name": $("#commentName").val(),
-                            "pass": $("#commentPass").val(),
-                            "msg": $("#commentWrite").val(),
-                        },
-                        success: function (data) {
-                            console.log(data);
-                            location.reload();
-                        },
-                        error: function (request, status, error) {
-                            console.log("request" + request);
-                            console.log("status" + status);
-                            console.log("error" + error);
-                        }
-                    });
-                } else {
-                    // memberId가 1 미만인 경우
-                    alert("로그인이 필요합니다.");
-                    window.location.href = "../login/login.php";
+
+    // 댓글 삭제 버튼 ---> 취소 버튼
+    $("#commentDeleteCancel").click(function(){
+        $("#popupDelete").addClass("none");
+    });
+
+    // 댓글 삭제 버튼 ---> 삭제 버튼
+    $("#commentDeleteButton").click(function(){
+        if($("#commentDeletePass").val() == ""){
+            alert("댓글 작성시 비밀번호를 작성해주세요!");
+            $("#commentDeletePass").focus();
+        } else {
+            $.ajax({
+                url: "boardCommentDelete.php",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    "commentPass": $("#commentDeletePass").val(),
+                    "commentId": commentId,
+                },
+                success: function(data){
+                    console.log(data);
+                    if(data.result == "bad"){
+                        alert("비밀번호가 일치하지 않습니다.");
+                    } else {
+                        alert("댓글이 삭제되었습니다.");
+                    }
+                    location.reload();
+                },
+                error: function(request, status, error){
+                    console.log("request" + request);
+                    console.log("status" + status);
+                    console.log("error" + error);
                 }
-            }
-        });
+            })
+        }
+    });
 
+    // 댓글 수정 버튼
+    $(".comment__view .modify").click(function(e){
+        e.preventDefault();
+        $("#popupModify").removeClass("none");
+        commentId = $(this).data("comment-id");
 
+        let commentMsg = $(this).closest(".comment__view").find("p").text();
+        $("#commentModifyMsg").val(commentMsg);
+    });;
 
-        // 댓글 삭제 버튼
-        $(".comment__view .delete").click(function(e){
-            e.preventDefault();
-            $("#popupDelete").removeClass("none");
-            commentId = $(this).data("comment-id");
-        });
+    // 댓글 수정 버튼 ---> 취소 버튼
+    $("#commentModifyCancel").click(function(){
+        $("#popupModify").addClass("none");
+    });
 
-        // 댓글 삭제 버튼 ---> 취소 버튼
-        $("#commentDeleteCancel").click(function(){
-            $("#popupDelete").addClass("none");
-        });
-
-        // 댓글 삭제 버튼 ---> 삭제 버튼
-        $("#commentDeleteButton").click(function(){
-            if($("#commentDeletePass").val() == ""){
-                alert("댓글 작성시 비밀번호를 작성해주세요!");
-                $("#commentDeletePass").focus();
-            } else {
-                $.ajax({
-                    url: "boardCommentDelete.php",
-                    method: "POST",
-                    dataType: "json",
-                    data: {
-                        "commentPass": $("#commentDeletePass").val(),
-                        "commentId": commentId,
-                    },
-                    success: function(data){
-                        console.log(data);
-                        if(data.result == "bad"){
-                            alert("비밀번호가 일치하지 않습니다.");
-                        } else {
-                            alert("댓글이 삭제되었습니다.");
-                        }
-                        location.reload();
-                    },
-                    error: function(request, status, error){
-                        console.log("request" + request);
-                        console.log("status" + status);
-                        console.log("error" + error);
+    // 댓글 삭제 버튼 ---> 수정 버튼
+    $("#commentModifyButton").click(function(){
+        if($("#commentModifyPass").val() == ""){
+            alert("댓글 수정시 비밀번호를 작성해주세요!");
+            $("#commentModifyPass").focus();
+        } else {
+            $.ajax({
+                url: "boardCommentModify.php",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    "commentMsg": $("#commentModifyMsg").val(),
+                    "commentPass": $("#commentModifyPass").val(),
+                    "commentId": commentId,
+                },
+                success: function(data){
+                    console.log(data);
+                    if(data.result == "bad"){
+                        alert("비밀번호가 일치하지 않습니다.");
+                    } else {
+                        alert("댓글이 수정되었습니다.");
                     }
-                })
-            }
-        });
-
-        // 댓글 수정 버튼
-        $(".comment__view .modify").click(function(e){
-            e.preventDefault();
-            $("#popupModify").removeClass("none");
-            commentId = $(this).data("comment-id");
-
-            let commentMsg = $(this).closest(".comment__view").find("p").text();
-            $("#commentModifyMsg").val(commentMsg);
-        });;
-
-        // 댓글 수정 버튼 ---> 취소 버튼
-        $("#commentModifyCancel").click(function(){
-            $("#popupModify").addClass("none");
-        });
-
-        // 댓글 삭제 버튼 ---> 수정 버튼
-        $("#commentModifyButton").click(function(){
-            if($("#commentModifyPass").val() == ""){
-                alert("댓글 수정시 비밀번호를 작성해주세요!");
-                $("#commentModifyPass").focus();
-            } else {
-                $.ajax({
-                    url: "boardCommentModify.php",
-                    method: "POST",
-                    dataType: "json",
-                    data: {
-                        "commentMsg": $("#commentModifyMsg").val(),
-                        "commentPass": $("#commentModifyPass").val(),
-                        "commentId": commentId,
-                    },
-                    success: function(data){
-                        console.log(data);
-                        if(data.result == "bad"){
-                            alert("비밀번호가 일치하지 않습니다.");
-                        } else {
-                            alert("댓글이 수정되었습니다.");
-                        }
-                        location.reload();
-                    },
-                    error: function(request, status, error){
-                        console.log("request" + request);
-                        console.log("status" + status);
-                        console.log("error" + error);
-                    }
-                })
-            }
-        });
+                    location.reload();
+                },
+                error: function(request, status, error){
+                    console.log("request" + request);
+                    console.log("status" + status);
+                    console.log("error" + error);
+                }
+            })
+        }
+    });
     </script>
     
 </body>

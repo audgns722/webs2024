@@ -10,6 +10,7 @@
     $sql .= "commentMsg varchar(225) NOT NULL,";
     $sql .= "commentDelete int(11) NOT NULL,";
     $sql .= "regTime int(20) NOT NULL,";
+    $sql .= "profileImage varchar(255) null,"
     $sql .= "PRIMARY KEY (commentId)";
     $sql .= ") charset=utf8";
 

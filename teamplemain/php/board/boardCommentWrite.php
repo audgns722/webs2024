@@ -15,8 +15,17 @@
         $commentWrite = $_POST['msg'];
         $regTime = time();
 
-        $sql = "INSERT INTO boardComment(memberId, boardId, commentName, commentPass, commentMsg, commentDelete, regTime) VALUES('$memberId', '$boardId', '$commentName', '$commentPass', '$commentWrite', '1', '$regTime')";
-        $result = $connect -> query($sql);
+        // 프로필 이미지 가져오기
+        $profileImageSql = "SELECT youImgSrc FROM teamMembers WHERE memberId = '$memberId'";
+        $profileImageResult = $connect->query($profileImageSql);
+        $profileImage = "";
+        if ($profileImageResult->num_rows > 0) {
+            $profileImageData = $profileImageResult->fetch_assoc();
+            $profileImage = $profileImageData['youImgSrc'];
+        }
+
+        $sql = "INSERT INTO boardComment(memberId, boardId, commentName, commentPass, commentMsg, commentDelete, regTime, profileImage) VALUES('$memberId', '$boardId', '$commentName', '$commentPass', '$commentWrite', '1', '$regTime', '$profileImage')";
+        $result = $connect->query($sql);
 
         echo json_encode(array("info" => $boardId));
     }

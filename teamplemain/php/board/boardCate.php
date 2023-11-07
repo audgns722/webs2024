@@ -14,6 +14,16 @@
     $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
     $categoryCount = $categoryResult -> num_rows;
 
+    // SQL 쿼리: 각 게시물의 댓글 수를 가져옵니다
+    $commentCountSql = "SELECT b.boardId, COUNT(c.commentId) AS commentCount
+    FROM teamBoard b
+    LEFT JOIN boardComment c ON b.boardId = c.boardId
+    GROUP BY b.boardId
+    ORDER BY b.boardId DESC";
+
+    // 쿼리 실행
+    $commentCountResult = $connect->query($commentCountSql);
+
     // 한 페이지에 보여질 항목 수
     $viewNum = 10;
 
@@ -32,12 +42,7 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-
-    <?php include "../include/boardcss.php" ?>
+    <?php include "../include/head.php" ?>
 </head>
 
 <body>
@@ -64,7 +69,7 @@
             </div>
             <div class="board__search">
                 <div class="left">
-                    <p>* 분리배출에 관련된 내용을 질문하는 게시판 입니다.</p>
+                <p>* 분리배출 <?=$category?> 게시판 입니다.</p>
                 </div>
                 <div class="right">
                     <form action="boardSearch.php" name="boardSearch" method="get">
@@ -75,9 +80,9 @@
                                 <a href="write.php" class="btn__write btn__style2">글쓰기</a>
                             </div>
                             <select name="searchOption" id="searchOption">
-                                <option value="title">제목</option>
-                                <option value="content">내용</option>
-                                <option value="name">등록자</option>
+                                <option value="boardTitle">제목</option>
+                                <option value="boardContents">내용</option>
+                                <option value="boardAuthor">등록자</option>
                             </select>
                             <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
                         </fieldset>
@@ -107,7 +112,24 @@
 <?php foreach($categoryResult as $boardCate){ ?>
     <tr>
         <td><?=$boardCate['boardId']?></td>
-        <td><a href='boardView.php?boardId=<?=$boardCate['boardId']?>'><?=$boardCate['boardTitle']?></a></td>
+        <td>
+            <a href='boardView.php?boardId=<?=$boardCate['boardId']?>'><?=$boardCate['boardTitle']?></a>
+            <?php
+                // 해당 게시물의 댓글 수를 찾아서 표시합니다.
+                $postId = $boardCate['boardId'];
+                $commentCount = 0;
+
+                // 결과 세트에서 댓글 수를 찾아봅니다.
+                foreach ($commentCountResult as $commentCountRow) {
+                    if ($commentCountRow['boardId'] == $postId) {
+                        $commentCount = $commentCountRow['commentCount'];
+                        break;
+                    }
+                }
+
+                echo " <span style='color: blue;'>[$commentCount]</span>";
+            ?>
+        </td>
         <td><?=$boardCate['boardAuthor']?></td>
         <td><?=date('Y-m-d', $boardCate['regTime'])?></td>
         <td><?=$boardCate['boardView']?></td>

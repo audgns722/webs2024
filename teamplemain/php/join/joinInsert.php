@@ -1,85 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+<?php include "../include/head.php" ?>
     
 <style>
 
-    .login__box form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 2rem;
-    }
-    .CheckMsg {
-        width: 353px;
-        margin-top: 5px;
-        display: flex;
-        white-space: wrap;
-        justify-content: space-between;
-    }
-    .msg {
-        color : red;
-        font-weight: 500;
-        font-size: 0.8rem;
-        /* margin-top: 5px; */
-        font-size: 0.7rem;
-    }
-    .join label {
-        width: 353px;
-        display: flex;
-        flex-wrap : wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-    #youId {
-        /* width: 250px; */
-        margin-top: 0;
-    }
-    #youId {
-        width: 72%;
-    }
-    .btn {
-        width: 25%;
-        background-color: var(--mycolor1);
-        color : var(--white);
-        text-align: center;
-        padding: 5px;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 0.8rem;
-        border-radius: 5px;
-    }
-    .login__box input {
-            width: 353px;
-            padding: 0.5rem;
-            border-bottom: 1px solid #C1C1C1 !important;
-            border: none;
-            color: #353535;
-            font-size: 1rem;
-            margin-top: 0rem;
-        }
     @media (max-width : 650px) {
-        .login__box {
-            height: 530px;
-            margin: 0;
-        }
-        .join label {
-            justify-content: center;
-            width: 317px;
-        }
-        .login__box input {
-            width: 310px;
-        }
-        .check {
-                width: 313px;
-                display: flex;
-                align-items: center;
-            }
+        
     }
 </style>
 </head>
@@ -95,13 +22,13 @@
                         작은 실천들</h1>
                 </div>
             <div class="join__insert">
-                <div class="login__box">
+                <div class="join__box">
                     <h2>가입하기</h2>
                     <h3>이미 계정이 있습니까?<a href="../login/login.php" class="joinbtn">로그인</a></h3>
                     <form action="joinResult.php" name="joinResult" method="post" onsubmit="return joinChecks();">
                         <div class="join">
                             <label for="youId">
-                                <input type="text" id="youId" name="youId" placeholder="아이디를 입력해주세요">
+                                <input class="join__id"type="text" id="youId" name="youId" placeholder="아이디를 입력해주세요">
                                 <div class="btn" onclick="idChecking()">중복 검사</div>
                                 <p class="msg" id="youIdComment"></p>
                             </label>

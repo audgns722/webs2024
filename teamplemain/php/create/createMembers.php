@@ -16,7 +16,7 @@
     $sql .= "youIntro varchar(255) DEFAULT NULL,";
     $sql .= "youBirth varchar(40) DEFAULT NULL,";
     $sql .= "youPhone varchar(40) DEFAULT NULL,";
-    $sql .= "youImgSrc varchar(40) DEFAULT NULL,";
+    $sql .= "youImgSrc varchar(255) DEFAULT 'Img_default.jpg',";
     $sql .= "youImgSize varchar(40) DEFAULT NULL,";
     $sql .= "youDelete int(10) DEFAULT 1,";
     $sql .= "youModTime int(40) DEFAULT NULL,";

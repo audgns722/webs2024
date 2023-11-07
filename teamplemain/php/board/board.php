@@ -2,18 +2,6 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    // if(isset($_GET['category'])){
-    //     $category = $_GET['category'];
-
-    // } else {
-    //     Header("Location: board.php");
-    // }
-
-    // $categorySql = "SELECT * FROM teamBoard WHERE boardDelete = 1 AND boardCategory = '$category' ORDER BY boardId DESC";
-    // $categoryResult = $connect -> query($categorySql);
-    // $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
-    // $categoryCount = $categoryResult -> num_rows;
-
     // 한 페이지에 보여질 항목 수
     $viewNum = 10;
 
@@ -27,6 +15,16 @@
     // 시작 레코드 인덱스 계산
     $viewLimit = ($viewNum * $page) - $viewNum;
 
+    // SQL 쿼리: 각 게시물의 댓글 수를 가져옵니다
+    $commentCountSql = "SELECT b.boardId, COUNT(c.commentId) AS commentCount
+    FROM teamBoard b
+    LEFT JOIN boardComment c ON b.boardId = c.boardId
+    GROUP BY b.boardId
+    ORDER BY b.boardId DESC";
+
+    // 쿼리 실행
+    $commentCountResult = $connect->query($commentCountSql);
+
     // SQL 쿼리
     $boardSql = "SELECT * FROM teamBoard WHERE boardDelete = 1 ORDER BY boardId DESC LIMIT $viewLimit, $viewNum";
     $boardInfo = $connect->query($boardSql);
@@ -36,20 +34,14 @@
 
     $boardTotalCount = $result->fetch_array(MYSQLI_ASSOC);
     $boardTotalCount = $boardTotalCount['count(boardId)'];
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <?php include "../include/head.php" ?>
 
-    <?php include "../include/boardcss.php" ?>
 </head>
 
 <body>
@@ -57,7 +49,7 @@
 
     <!-- main -->
     <main id="main">
-        <div class="board__title container">
+        <div class="board__title">
             <h1>Board</h1>
         </div>
         <section class="board__inner container">
@@ -83,9 +75,9 @@
                                 <a href="write.php" class="btn__write btn__style2">글쓰기</a>
                             </div>
                             <select name="searchOption" id="searchOption">
-                                <option value="title">제목</option>
-                                <option value="content">내용</option>
-                                <option value="name">등록자</option>
+                                <option value="boardTitle">제목</option>
+                                <option value="boardContents">내용</option>
+                                <option value="boardAuthor">등록자</option>
                             </select>
                             <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
                             
@@ -112,11 +104,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-<?php foreach($boardInfo as $board){ ?>
+                    <?php foreach($boardInfo as $board){ ?>
     <tr>
         <td><?=$board['boardId']?></td>
-        <td><a href='boardView.php?boardId=<?=$board['boardId']?>'><?=$board['boardTitle']?></a></td>
+        <td>
+            <a href='boardView.php?boardId=<?=$board['boardId']?>'><?=$board['boardTitle']?></a>
+            <?php
+                // 해당 게시물의 댓글 수를 찾아서 표시합니다.
+                $postId = $board['boardId'];
+                $commentCount = 0;
+
+                // 결과 세트에서 댓글 수를 찾아봅니다.
+                foreach ($commentCountResult as $commentCountRow) {
+                    if ($commentCountRow['boardId'] == $postId) {
+                        $commentCount = $commentCountRow['commentCount'];
+                        break;
+                    }
+                }
+
+                echo " <span style='color: blue;'>[$commentCount]</span>";
+            ?>
+        </td>
         <td><?=$board['boardAuthor']?></td>
         <td><?=date('Y-m-d', $board['regTime'])?></td>
         <td><?=$board['boardView']?></td>

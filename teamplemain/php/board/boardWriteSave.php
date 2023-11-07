@@ -2,8 +2,12 @@
 include "../connect/connect.php";
 include "../connect/session.php";
 
+if (isset($_SESSION['youName'])) {
+    $boardAuthor = $_SESSION['youName'];
+} else {
+    $boardAuthor = '관리자'; // 세션이 없을 경우 기본값 설정
+}
 
-$memberId = 1;
 $boardTitle = $_POST['boardTitle'];
 $boardContents = nl2br($_POST['boardContents']);
 
@@ -15,10 +19,12 @@ if (empty($boardTitle) || empty($boardContents)) {
     echo "<script>alert('제목 또는 내용을 입력해야 합니다.');</script>";
     echo "<script>window.history.back();</script>";
 } else {
+    $memberId = $_SESSION['memberId'];
     $boardCategory = $_POST['boardCategory'];
-    $boardAuthor = "관리자";
-    $boardView = 1;
+    $boardAuthor = $_SESSION['youName'];
+    $boardView = 0;
     $boardLike = 0;
+    $boardDislike = 0;
     $regTime = time();
     $boardDelete = 1;
 

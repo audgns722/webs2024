@@ -9,6 +9,8 @@
     $sql .= "boardCategory varchar(10) NOT NULL,";
     $sql .= "boardAuthor varchar(10) NOT NULL,";
     $sql .= "boardView int(10) NOT NULL,";
+    $sql .= "boardLike int(10) DEFAULT 0,";
+    $sql .= "boardboardDislike  int(10) DEFAULT 0,";
     $sql .= "regTime int(10) NOT NULL,";
     $sql .= "boardImgFile varchar(100) DEFAULT NULL,";
     $sql .= "boardImgSize varchar(100) DEFAULT NULL,";

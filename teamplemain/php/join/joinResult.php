@@ -6,9 +6,10 @@
     $youName = mysqli_real_escape_string($connect, $_POST['youName']);
     $youPhone = mysqli_real_escape_string($connect, $_POST['youPhone']);
     $youBirth = mysqli_real_escape_string($connect, $_POST['youBirth']);
+    $youAddress = mysqli_real_escape_string($connect, $_POST['youAddress']);
     $regTime = time();
 
-    $sql = "INSERT INTO teamMembers(youId, youPass, youName, youPhone, youBirth, regTime) VALUES('$youId', '$youPass', '$youName', '$youPhone', '$youBirth', '$regTime')";
+    $sql = "INSERT INTO teamMembers(youId, youPass, youName, youAddress, youPhone, youBirth, regTime) VALUES('$youId', '$youPass', '$youName', '$youAddress', '$youPhone', '$youBirth', '$regTime')";
     $connect -> query($sql);
 
     // 데이터 베이스 연결 닫기
@@ -17,11 +18,7 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+<?php include "../include/head.php" ?>
     
 <style>
 
