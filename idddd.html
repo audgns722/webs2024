@@ -1,20 +1,197 @@
 <script>
- {
-    {
-    let a, b = 10;
+{
+    let arr = [1,2,3,4,5];
+    let temp = [1,2,4,6,8];
+    let idx = 0;
+    let flag = true;
 
-    for(let i=0; i<5; i++){
-        a = i;
-        b -= a;
+    for(let i=0; i<arr.length; i++){
+        flag = false;
+        if(arr[i] == temp[i]){
+            flag = true;
+        }
+        if(!flag){
+            temp[idx++] = arr[i];
+            console.log(temp[idx]);
+        }
     }
-    console.log(a, b)
 }
-}   
+
+
+
+
+
+// 11. 다음은 최솟값을 출력하는 예제이다. 밑줄에 적합한 표현을 작성하시오.
+
+
+
+
+
+// 12. 다음의 결괏값을 작성하시오.
+
+{
+    let s1 = "Remember november";
+    let s2 = s1.slice(0, 3) + s1.slice(12, 16);
+    let s3 = "r AND you";
+
+    console.log(s2 + s3)
+}
+
+
+
+
+
+// 13. 다음의 결괏값을 작성하시오.
+
+{
+    let x = 1;
+
+    console.log( !(x>0) );
+    console.log( x>0 || x<4 );
+    console.log( x<<2 );
+    console.log( x&2 );
+    console.log( x&3 );
+}
+
+
+
+
+
+// 14. 다음의 결괏값을 작성하시오.
+
+{
+    let num = 0;
+    let i = 1;
+
+    while(i<=50){
+        if(i%7 == 0){
+            num += i;
+        }
+        i++;
+    }
+    console.log(num)
+}
+
+
+
+
+
+// 15. 다음의 결괏값을 작성하시오.
+
+{
+    let result = 0;
+    for(let i=1; i<999; i++){
+        if(i%3==0 && i%2 !=0){
+            result = i;
+        }
+    }
+    console.log(result);
+}
+
+
+
+
+
+// 16. 다음의 결괏값을 작성하시오.
+
+{
+    function func(num){
+        if(num <= 1){
+            return 1;
+        } else {
+            return num + func(num - 2);
+        }
+    }
+    function main(){
+        let num = 5;
+        console.log(func(num))
+    }
+    main();
+}
+
+
+
+
+
+// 17. 다음의 결괏값을 작성하시오.
+
+{
+    let a=1, b=1, num;
+
+    for(let i=0; i<6; i++){
+        num = a + b;
+        a = b;
+        b = num;
+    }
+    console.log(num)
+}
+
+
+
+
+
+// 18. 다음의 결괏값을 작성하시오.
+
+{
+    function func(num1, num2){
+        let res = 1;
+        for(let i=0; i<num2; i++){
+            res *= num1;
+        }
+        return res;
+    }
+    let res = func(2, 10);
+
+    console.log(res)
+}
+
+
+
+
+
+// 19. 다음의 결괏값을 작성하시오.
+
+{
+    let a = func(4);
+
+    for(let i=0; i<a.length; i++){
+        console.log(a[i]);
+    }
+
+    function func(n){
+        let num = [];
+        for(let i=0; i<n; i++){
+            num[i] = i;
+        }
+        return num;
+    }
+}
+
+
+
+
+
+// 20. 다음의 결괏값을 작성하시오.
+
+{
+    let a = 3, b = 4, c = 3, d = 5;
+
+    if( (a == 2 | a == c) & !(c > d) & (1 == b ^ c != d) ){
+        a = b + c;
+        if( 7 == b ^ c != a ){
+            console.log(a);
+        } else {
+            console.log(b);
+        }
+    } else {
+        console.log(a + b)
+    }
+}
 
 
 // 02. 다음의 결괏값을 작성하시오.
 // {
-//     let a = 6, b = 9, c = 3, result;
+//     let a = 6, b = 9, c = 3, resulAt;
 //     result = ++a + b++ + ++c;
 
 //     console.log(result);
